@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=altium
 
 ### Altium ###
+*ARES.BomDoc
+
 # Previews Folders
 **/__Previews/
 
