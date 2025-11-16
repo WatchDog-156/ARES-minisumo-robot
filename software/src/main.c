@@ -1,53 +1,41 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
-#include "hardware/uart.h"
-
-//#include "line_detectors.h"
-
-// UART defines
-// By default the stdout UART is `uart0`, so we will use the second one
-#define UART_ID uart1
-#define BAUD_RATE 115200
-
-// Use pins 4 and 5 for UART1
-// Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-#define UART_TX_PIN 1
-#define UART_RX_PIN 2
+#include "lineDetectors.h"
 
 
-int main()
-{
+int main() {
     stdio_init_all();
+    
+    // Konfiguracja LED
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+    printf("System started. LED is ON.\n");
 
-    // Initialise the Wi-Fi chip
-    if (cyw43_arch_init()) {
-        printf("Wi-Fi init failed\n");
+    /* linedetectors test*/
+    /*line_detectors_init();
+    while (true) {
+        check_line_detectors();
+        sleep_ms(500);
+    }*/
+    
+    /* IR sensors test*/
+    /*if (!sensors_IR_init()) {
+        printf("Błąd inicjalizacji czujników IR!\n");
         return -1;
     }
-
-    // Example to turn on the Pico W LED
-    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-
-    // Set up our UART
-    uart_init(UART_ID, BAUD_RATE);
-    // Set the TX and RX pins by using the function select on the GPIO
-    // Set datasheet for more information on function select
-    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
+    while (1){
+        for (uint8_t i = 0; i < 4; i++) {
+            int16_t distance = read_IR_distance_mm(i);
+            if (distance >= 0) {
+                printf("Czujnik %d: Odległość = %d mm\n", i, distance);
+            } else {
+                printf("Czujnik %d: Błąd odczytu!\n", i);
+            }
+        }
+        sleep_ms(1000);
+    }*/
     
-    // Use some the various UART functions to send out data
-    // In a default system, printf will also output via the default UART
-    
-    // Send out a string, with CR/LF conversions
-    uart_puts(UART_ID, " Hello, UART!\n");
-    
-    // For more examples of UART use see https://github.com/raspberrypi/pico-examples/tree/master/uart
 
-    while (true) {
-        //lineDetectorsInit();
-        //if (checkLineDetectors)
-        printf("oj oj\n");
-        sleep_ms(500);
-    }
+
+    return 0;
 }

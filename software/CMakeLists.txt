@@ -36,8 +36,10 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(main src/main.c
-                    src/line_detectors.c
-                    inc/line_detectors.h
+                    inc/lineDetectors.h
+                    src/lineDetectors.c
+                    inc/sensorsIR.h
+                    src/sensorsIR.c
                     )
 
 pico_set_program_name(main "main")
@@ -49,17 +51,16 @@ pico_enable_stdio_usb(main 0)
 
 # Add the standard library to the build
 target_link_libraries(main
-        pico_stdlib)
+        pico_stdlib
+        pico_cyw43_arch
+        hardware_uart
+        hardware_adc
+        hardware_i2c)
 
 # Add the standard include files to the build
 target_include_directories(main PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/inc
 )
-
-# Add any user requested libraries
-target_link_libraries(main 
-        pico_cyw43_arch_none
-        )
 
 pico_add_extra_outputs(main)
 
