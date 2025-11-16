@@ -35,7 +35,10 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(main src/main.c )
+add_executable(main src/main.c
+                    src/line_detectors.c
+                    inc/line_detectors.h
+                    )
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
@@ -60,3 +63,5 @@ target_link_libraries(main
 
 pico_add_extra_outputs(main)
 
+# Automatic pico programming
+#add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND}-E copy main.uf2/run/media/*/RP2350 COMMENT "Copying to pico")

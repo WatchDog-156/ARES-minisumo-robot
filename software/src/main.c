@@ -3,6 +3,7 @@
 #include "pico/cyw43_arch.h"
 #include "hardware/uart.h"
 
+//#include "line_detectors.h"
 
 // UART defines
 // By default the stdout UART is `uart0`, so we will use the second one
@@ -13,7 +14,6 @@
 // Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
 #define UART_TX_PIN 1
 #define UART_RX_PIN 2
-
 
 
 int main()
@@ -45,7 +45,9 @@ int main()
     // For more examples of UART use see https://github.com/raspberrypi/pico-examples/tree/master/uart
 
     while (true) {
-        printf("Hello, world!\n");
-        sleep_ms(1000);
+        //lineDetectorsInit();
+        //if (checkLineDetectors)
+        printf("oj oj\n");
+        sleep_ms(500);
     }
 }
