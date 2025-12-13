@@ -2,50 +2,38 @@
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
 #include "hardware/uart.h"
+#include "inc/motors.h"
+#include "inc/serwo.h"
 
 
-// UART defines
-// By default the stdout UART is `uart0`, so we will use the second one
 #define UART_ID uart1
 #define BAUD_RATE 115200
-
-// Use pins 4 and 5 for UART1
-// Pins can be changed, see the GPIO function select table in the datasheet for information on GPIO assignments
-#define UART_TX_PIN 1
-#define UART_RX_PIN 2
-
 
 
 int main()
 {
     stdio_init_all();
-
-    // Initialise the Wi-Fi chip
-    if (cyw43_arch_init()) {
-        printf("Wi-Fi init failed\n");
-        return -1;
-    }
-
-    // Example to turn on the Pico W LED
-    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-
-    // Set up our UART
-    uart_init(UART_ID, BAUD_RATE);
-    // Set the TX and RX pins by using the function select on the GPIO
-    // Set datasheet for more information on function select
-    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
-    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
-    
-    // Use some the various UART functions to send out data
-    // In a default system, printf will also output via the default UART
-    
-    // Send out a string, with CR/LF conversions
-    uart_puts(UART_ID, " Hello, UART!\n");
-    
-    // For more examples of UART use see https://github.com/raspberrypi/pico-examples/tree/master/uart
-
+    motor_init();
+    serwo_init();
+   
     while (true) {
-        printf("Hello, world!\n");
-        sleep_ms(1000);
+        sleep_ms(3000);
+        serwo_set_posiotion(LEFT_SERWO, 175);
+        serwo_set_posiotion(RIGHT_SERWO, 5);
+        sleep_ms(500);
+        motor_set(Left_Motor, Forward, 90);
+        motor_set(Right_Motor, Forward, 90);
+        sleep_ms(3000);
+        motor_stop(Left_Motor);
+        motor_stop(Right_Motor);
+        sleep_ms(500);
+        motor_set(Left_Motor, Backward, 90);
+        motor_set(Right_Motor, Backward, 90);
+        sleep_ms(3000);
+        motor_stop(Left_Motor);
+        motor_stop(Right_Motor);
+        sleep_ms(500);
+        serwo_set_posiotion(LEFT_SERWO, 90);
+        serwo_set_posiotion(RIGHT_SERWO, 90);
     }
 }

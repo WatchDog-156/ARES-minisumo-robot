@@ -35,7 +35,11 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(main src/main.c )
+add_executable(main 
+        src/main.c
+        src/motors.c
+        src/serwo.c
+)
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
@@ -53,13 +57,12 @@ target_link_libraries(main
 # Add the standard include files to the build
 target_include_directories(main PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/inc 
 )
 
 # Add any user requested libraries
 target_link_libraries(main 
         pico_cyw43_arch_none
-        pico_cyw_driver
-        btstack
         )
 
 pico_add_extra_outputs(main)

@@ -25,7 +25,7 @@ void motor_init(void)
     motors[Right_Motor].dir2_pin = Right_Motor_Dir2_Pin;
 
     for (int i=0; i<2; i++){
-        motor_config_t *m &motors[i];
+        motor_config_t *m = &motors[i];
 
         gpio_set_function(m->pwm_pin, GPIO_FUNC_PWM);
         m->slice_num=pwm_gpio_to_slice_num(m->pwm_pin);
@@ -47,12 +47,11 @@ void motor_init(void)
 
 void motor_set(motor_id_t motor, direction_t direction, uint8_t speed)
 {
-    if (motor>2) return;
-
+    if (motor>1) return;
     if (speed>100) speed=100;
 
     uint16_t pwm_value=(speed*PWM_MAX_VALUE)/100;
-    motor_config_t *m &motors[motor];
+    motor_config_t *m = &motors[motor];
 
     switch(direction){
         case Forward:

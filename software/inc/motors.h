@@ -1,16 +1,16 @@
-#ifndef MOTORS.H
-#define MOTORS.H
+#ifndef MOTORS_H
+#define MOTORS_H
 
 #include "pico/stdlib.h"
-#include <cstdint>
+#include <stdint.h>
 
-#define Left_Motor_PWM_Pin 12
-#define Left_Motor_Dir1_Pin 10
-#define Left_Motor_Dir2_Pin 11
+#define Left_Motor_PWM_Pin 9
+#define Left_Motor_Dir1_Pin 7
+#define Left_Motor_Dir2_Pin 8
 
-#define Right_Motor_PWM_Pin 14
-#define Right_Motor_Dir1_Pin 16
-#define Right_Motor_Dir2_Pin 15
+#define Right_Motor_PWM_Pin 10
+#define Right_Motor_Dir1_Pin 12
+#define Right_Motor_Dir2_Pin 11
 
 typedef enum{
     Forward,
