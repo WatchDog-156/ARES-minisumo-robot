@@ -36,6 +36,8 @@ pico_sdk_init()
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(main src/main.c
+                    src/motors.c
+                    src/serwo.c
                     src/line_detectors.c
                     #src/sensorsIR.c
                     src/bluetooth_connection.c
@@ -53,10 +55,10 @@ pico_btstack_make_gatt_header(main PRIVATE "${CMAKE_CURRENT_LIST_DIR}/minisumo.g
 # Add the standard library to the build
 target_link_libraries(main
         pico_stdlib
-        #pico_cyw43_arch
         hardware_uart
         hardware_adc
         hardware_i2c
+        hardware_pwm
 
         pico_btstack_ble
         pico_btstack_cyw43
