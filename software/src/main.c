@@ -25,7 +25,12 @@ static void sensor_timer_handler(btstack_timer_source_t *ts) {
     btstack_run_loop_add_timer(ts);
 }
 
-int main() {
+#define UART_ID uart1
+#define BAUD_RATE 115200
+
+
+int main()
+{
     stdio_init_all();
     
     // Krótsze opóźnienie na start USB
