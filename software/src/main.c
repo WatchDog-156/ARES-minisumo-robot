@@ -4,6 +4,8 @@
 #include "btstack.h"
 #include "line_detectors.h"
 #include "bluetooth_connection.h"
+#include "motors.h"
+#include "serwo.h"
 
 static btstack_timer_source_t sensor_timer;
 
@@ -34,7 +36,7 @@ int main()
     stdio_init_all();
     
     // Krótsze opóźnienie na start USB
-    sleep_ms(20000);
+    sleep_ms(3000);
     printf("=== MiniSumo Robot Starting ===\n");
     
     // 1. Inicjalizacja CYW43 (WiFi/BT chip)
@@ -51,6 +53,8 @@ int main()
     // 3. Inicjalizacja czujników linii
     line_detectors_init();
     printf("Line detectors initialized\n");
+    motor_init();
+    serwo_init();
 
     // 4. Inicjalizacja Bluetooth
     bluetooth_init();
