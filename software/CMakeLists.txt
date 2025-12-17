@@ -39,7 +39,11 @@ add_executable(main
         src/main.c
         src/motors.c
         src/serwo.c
-)
+        src/lineDetectors.c
+        src/sensorsIR.c
+        )
+                    
+                    
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
@@ -52,18 +56,17 @@ pico_enable_stdio_usb(main 0)
 target_link_libraries(main
         pico_stdlib
         hardware_pwm
-        )
+        pico_cyw43_arch
+        hardware_uart
+        hardware_adc
+        hardware_i2c)
 
 # Add the standard include files to the build
 target_include_directories(main PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
         ${CMAKE_CURRENT_LIST_DIR}/inc 
-)
-
-# Add any user requested libraries
-target_link_libraries(main 
-        pico_cyw43_arch_none
-        )
 
 pico_add_extra_outputs(main)
 
+# Automatic pico programming
+#add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND}-E copy main.uf2/run/media/*/RP2350 COMMENT "Copying to pico")
