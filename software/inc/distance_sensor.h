@@ -1,5 +1,5 @@
-#ifndef DISTANCE_SENSOR.H
-#define DISTANCE_SENSOR.H
+#ifndef DISTANCE_SENSOR_H
+#define DISTANCE_SENSOR_H
 
 #include <stdint.h>
 
@@ -10,10 +10,13 @@
 #define XSHUT3_PIN 18
 #define XSHUT4_PIN 19
 
+extern uint8_t i2cAddress;
 void IR_init(void);
-int tofInit(int Chan, int Addr, int boolLongRange);
-int tofReadDistance(void);
-void tofSetAddress(uint8_t oldAddr, uint8_t newwAddr);
+int tofInit(int sensor_index, int Addr, int boolLongRange);
+int tofReadDistance(int sensor_index);
+void tofSetAddress(uint8_t oldAddr, uint8_t newAddr);
+void tofSetCurrentAddress(uint8_t addr);
+void tofSetCurrentSensor(int sensor_index);
 
 
 #endif
