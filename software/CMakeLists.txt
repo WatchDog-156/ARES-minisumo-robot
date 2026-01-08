@@ -39,7 +39,7 @@ add_executable(main src/main.c
                     src/motors.c
                     src/serwo.c
                     src/line_detectors.c
-                    #src/sensorsIR.c
+                    src/distance_sensor.c
                     src/bluetooth_connection.c
                     )
 

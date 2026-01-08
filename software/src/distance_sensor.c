@@ -403,7 +403,6 @@ static int setVcselPulsePeriod(vcselPeriodType type, uint8_t period_pclks)
   return 1;
 }
 
-
 static int setMeasurementTimingBudget(uint32_t budget_us){
     uint8_t enables;
     SequenceStepTimeouts timeouts;
@@ -437,7 +436,6 @@ static int setMeasurementTimingBudget(uint32_t budget_us){
     }
     return 1;
 }
-
 
 static uint32_t getMeasurementTimingBudget(void)
 {
@@ -622,7 +620,7 @@ void IR_init(void){
     printf("Zainicjalizowano I2C na pinach: SDA=%d, SCL=%d\n", I2C_SDA_PIN, I2C_SCL_PIN);
 
     int xshut[4] = {XSHUT4_PIN, XSHUT3_PIN, XSHUT2_PIN, XSHUT1_PIN};
-    uint8_t addr[4] = {0x31, 0x32, 0x33, 0x34};
+    uint8_t addr[4] = {0x31, 0x32, 0x33, 0x29};
 
     printf("Wylaczenie czujnikow\n");
     for(int i=0; i<4; i++){
@@ -653,11 +651,12 @@ void IR_init(void){
             printf("Nieoczekiwane ID\n");
         }
         
-        if (tofInit(i, addr[i], 0)) {
+        if (tofInit(i, addr[i], 1)) {
             printf("Czujnik %d OK (stop_variable = 0x%02X)\n", i, stop_variable[i]);
         } else {
             printf("Czujnik %d BLAD\n", i);
         }
+        setMeasurementTimingBudget(100000);
         sleep_ms(50);
     }
     printf("Inicjalizacja zakonczona\n");
