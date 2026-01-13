@@ -31,13 +31,13 @@ static void mess_timer_handler(btstack_timer_source_t *ts) {
     char msg[64]; 
     switch(getState()){
         case Start: 
-            snprintf(msg, sizeof(msg), "Robot status: Start\n")
+            snprintf(msg, sizeof(msg), "Robot status: Start\n");
             break;
         case Fighting: 
-            snprintf(msg, sizeof(msg), "Robot status: Fighting\n")
+            snprintf(msg, sizeof(msg), "Robot status: Fighting\n");
             break;
         case End: 
-            snprintf(msg, sizeof(msg), "Robot status: End\n")
+            snprintf(msg, sizeof(msg), "Robot status: End\n");
             break;
     }
     printf("%s", msg);

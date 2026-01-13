@@ -2,12 +2,10 @@
 #define CONTROLLER_H
 
 typedef enum{
-    Right, 
-    Left,
+    right, 
+    left,
 } side_t;
 
 void exec_program();
-programState_t get_progrogram_state();
-
 
 #endif

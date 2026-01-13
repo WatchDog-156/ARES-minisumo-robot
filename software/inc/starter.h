@@ -7,13 +7,13 @@
 #define Kill_pin 15
 
 typedef enum{
-    Start,
+    Start, 
     Fighting,
     End
 } State; 
 
-void starter_init(uint Start_pin, uint Kill_pin);
-State getState(void);
+void starter_init();
+State getState();
 void changeState(State newState);
 
 

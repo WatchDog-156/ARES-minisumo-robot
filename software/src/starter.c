@@ -13,7 +13,7 @@ void gpio_callback(uint gpio, uint32_t events){
     }
 }
 
-void starter_init(uint Start_pin, uint Kill_pin){
+void starter_init(){
     gpio_init(Start_pin);
     gpio_set_dir(Start_pin, false);
     //gpio_pull_down(Start_pin); //tu zalezy od modulu
@@ -31,6 +31,6 @@ void changeState(State newState){
 }
 
 
-State getState(void){
+State getState(){
     return current_state;
 }

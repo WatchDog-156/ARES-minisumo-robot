@@ -7,15 +7,15 @@
 
 bool beginning = true;
 bool ending = false;
-side_t lastSeen = Left;
+side_t lastSeen = left;
 
 
 void anti_out_system(line_detector_t status){
     if(status == Both){
         motor_set(Left_Motor, Backward, 100);
         motor_set(Right_Motor, Backward, 100);
-        usleep(1500);
-        if(lastSeen == Left){
+        sleep_ms(1500);
+        if(lastSeen == left){
             motor_set(Left_Motor, Backward, 80);       
             motor_set(Right_Motor, Forward, 80); 
         }else{
@@ -25,13 +25,13 @@ void anti_out_system(line_detector_t status){
     }else if(status == Left){
         motor_set(Left_Motor, Backward, 100);
         motor_set(Right_Motor, Backward, 70);
-        usleep(1000);
+        sleep_ms(1000);
         motor_set(Left_Motor, Forward, 80);
         motor_set(Right_Motor, Backward, 80);
     }else{
         motor_set(Left_Motor, Backward, 70);
         motor_set(Right_Motor, Backward, 100);
-        usleep(1000);
+        sleep_ms(1000);
         motor_set(Left_Motor, Backward, 80);
         motor_set(Right_Motor, Forward, 80);
     }
@@ -39,9 +39,15 @@ void anti_out_system(line_detector_t status){
 
 
 void fighting_stage(){
-    int irData[4] = measure_all_ir_sensors();
+    int irData[4];
+    uint8_t addr[4]={0x30, 0x31, 0x32, 0x33};
+    for (int i=0; i<4; i++){
+        tofSetCurrentAddress(addr[i]);
+        irData[i]=tofReadDistance(i);
+    }
+    
     if(irData[0]==8191 && irData[1]==8191 && irData[2]==8191 && irData[3]==8191){       // nie widać przeciwnika
-        if(lastSeen == Left){
+        if(lastSeen == left){
             motor_set(Left_Motor, Backward, 80);       
             motor_set(Right_Motor, Forward, 80); 
         }else{
@@ -65,15 +71,15 @@ void fighting_stage(){
 
 
 void exec_program(){
-    programState_t state = get_progrogram_state();
+    State state = getState();
     
     if(state == Fighting){
         if(beginning){
             beginning = false;
-            usleep(3000);
+            sleep_ms(3000);
             motor_set(Left_Motor, Backward, 80);        //może do wywalenia
             motor_set(Right_Motor, Forward, 80);        //może do wywalenia
-            usleep(500);                                //może do wywalenia
+            sleep_ms(500);                              //może do wywalenia
             serwo_set_posiotion(LEFT_SERWO, 175);
             serwo_set_posiotion(RIGHT_SERWO, 5);
         }
