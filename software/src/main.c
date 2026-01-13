@@ -53,7 +53,7 @@ static void mess_timer_handler(btstack_timer_source_t *ts) {
     bluetooth_send_telemetry(msg);
     bluetooth_send_telemetry(msg1);
     bluetooth_send_telemetry(msg2);
-
+ 
     // Resetowanie timera
     btstack_run_loop_set_timer(ts, 500);
     btstack_run_loop_add_timer(ts);

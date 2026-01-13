@@ -1,3 +1,5 @@
+#include "pico/stdlib.h"
+#include <stdio.h> 
 #include "controller.h"
 #include "line_detectors.h"
 #include "motors.h"
@@ -9,6 +11,8 @@ bool beginning = true;
 bool ending = false;
 side_t lastSeen = left;
 
+#include "bluetooth_connection.h"
+int loop_counter = 0;
 
 void anti_out_system(line_detector_t status){
     if(status == Both){
@@ -40,13 +44,13 @@ void anti_out_system(line_detector_t status){
 
 void fighting_stage(){
     int irData[4];
-    uint8_t addr[4]={0x30, 0x31, 0x32, 0x33};
+    uint8_t addr[4]={0x30, 0x31, 0x32, 0x33};           // 0 - lewy, 1 - lewy przód, 2 - prawy przód, 3 - prawy
     for (int i=0; i<4; i++){
         tofSetCurrentAddress(addr[i]);
         irData[i]=tofReadDistance(i);
     }
-    
-    if(irData[0]==8191 && irData[1]==8191 && irData[2]==8191 && irData[3]==8191){       // nie widać przeciwnika
+
+    if(irData[0]==TOF_OUT_OF_RANGE && irData[1]==TOF_OUT_OF_RANGE && irData[2]==TOF_OUT_OF_RANGE && irData[3]==TOF_OUT_OF_RANGE){       // nie widać przeciwnika
         if(lastSeen == left){
             motor_set(Left_Motor, Backward, 80);       
             motor_set(Right_Motor, Forward, 80); 
@@ -54,16 +58,16 @@ void fighting_stage(){
             motor_set(Left_Motor, Forward, 80);       
             motor_set(Right_Motor, Backward, 80); 
         }
-    }else if(irData[1]<20 && irData[2]<40){                                             // przeciwnik bardzo blisko
+    }else if(irData[1]<ENEMY_CLOSE && irData[2]<ENEMY_CLOSE){               // przeciwnik bardzo blisko
         motor_set(Left_Motor, Forward, 100);       
         motor_set(Right_Motor, Forward, 100);     
-    }else if(irData[0]-irData[3]>20){                                                   // przeciwnik bardziej na lewo
+    }else if(irData[0]-irData[3]>SIDE_TRESHOLD){                            // przeciwnik bardziej na lewo
         motor_set(Left_Motor, Forward, 80);       
         motor_set(Right_Motor, Forward, 100); 
-    }else if(irData[3]-irData[0]>20){                                                   // przeciwnik bardziej na prawo
+    }else if(irData[3]-irData[0]>SIDE_TRESHOLD){                            // przeciwnik bardziej na prawo
         motor_set(Left_Motor, Forward, 100);       
         motor_set(Right_Motor, Forward, 80); 
-    }else{                                                                              // prosto
+    }else{                                                                  // prosto
         motor_set(Left_Motor, Forward, 80);       
         motor_set(Right_Motor, Forward, 80); 
     }
@@ -72,6 +76,13 @@ void fighting_stage(){
 
 void exec_program(){
     State state = getState();
+
+    if (loop_counter++ % 300 == 0) {
+        char msg[128];
+        snprintf(msg, sizeof(msg), "State: %d, Beginning: %d, LastSeen: %d\n\n", state, beginning, lastSeen);
+        printf("%s", msg);
+        bluetooth_send_telemetry(msg);
+    }
     
     if(state == Fighting){
         if(beginning){
@@ -89,6 +100,7 @@ void exec_program(){
             anti_out_system(lineDetectorStatus);
 
         fighting_stage();
+
     }else if(state == End){
         if(!ending){
             ending = true;
