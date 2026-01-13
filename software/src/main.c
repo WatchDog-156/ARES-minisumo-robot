@@ -6,8 +6,8 @@
 #include "line_detectors.h"
 #include "motors.h"
 #include "serwo.h"
-//#include "sensors_ir.h"
 //#include "starter.h"
+#include "distance_sensor.h"
 #include "controller.h"
 
 static btstack_timer_source_t mess_timer;
@@ -15,14 +15,27 @@ static btstack_timer_source_t prog_timer;
 
 static void mess_timer_handler(btstack_timer_source_t *ts) {
     cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, !cyw43_arch_gpio_get(CYW43_WL_GPIO_LED_PIN));
-    
-    int status_left = read_detector_value(Left); 
-    int status_right = read_detector_value(Right); 
-    
+    int dystans[4];
+    uint8_t addr[4]={0x30, 0x31, 0x32, 0x33};
+
+    // Odczyt czujników
+    int status_left = read_detector_value(Left);
+    int status_right = read_detector_value(Right);
+    for (int i=0; i<4; i++){
+        tofSetCurrentAddress(addr[i]);
+        dystans[i]=tofReadDistance(i);
+    }
+
+    // Wysłanie telemetrii przez Bluetooth
     char msg[64];
     snprintf(msg, sizeof(msg), "L:%d R:%d\n", status_left, status_right);
     printf("%s", msg);
+    char msg2[128];
+
+    snprintf(msg2, sizeof(msg2), "XShut1: %d XShut2: %d XShut3: %d XShut4: %d\n", dystans[0], dystans[1], dystans[2], dystans[3]);
+    printf("%s", msg2);
     bluetooth_send_telemetry(msg);
+    bluetooth_send_telemetry(msg2);
 
     // Resetowanie timera
     btstack_run_loop_set_timer(ts, 500);
@@ -37,9 +50,8 @@ static void prog_timer_handler(btstack_timer_source_t *ts) {
     btstack_run_loop_add_timer(ts);
 }
 
-//#define UART_ID uart1
-//#define BAUD_RATE 115200
-
+#define UART_ID uart1
+#define BAUD_RATE 115200
 
 int main()
 {
@@ -59,7 +71,7 @@ int main()
     line_detectors_init();
     motor_init();
     serwo_init();
-    //IR_init();
+    IR_init();
     //starter_init();
     bluetooth_init();
 
@@ -79,4 +91,4 @@ int main()
     printf("Starting BTstack main loop\n");
     btstack_run_loop_execute(); 
     return 0;
-}
+} 
