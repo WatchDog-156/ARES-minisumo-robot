@@ -7,6 +7,7 @@
 #include "minisumo.h"
 #include "motors.h"
 #include "serwo.h"
+//#include "starter"
 
 static hci_con_handle_t connection_handle = HCI_CON_HANDLE_INVALID;
 static btstack_packet_callback_registration_t hci_event_callback_registration;
@@ -36,7 +37,6 @@ void parse_long_command(const char* input_cmd){
             if(word_idx+1<word_count){
                 char *endptr;
                 int speed = strtol(words[word_idx + 1], &endptr, 10);
-                //int speed = atoi(words[word_idx+1]);
                 if(endptr == words[word_idx + 1]){
                     printf("-> Nieznana komenda\n");
                     snprintf(msg, sizeof(msg), "Niepoprawna wartość dla komendy: %s\n", words[word_idx]);
@@ -62,7 +62,6 @@ void parse_long_command(const char* input_cmd){
             if(word_idx+1<word_count){
                 char *endptr;
                 int speed = strtol(words[word_idx + 1], &endptr, 10);
-                //int speed = atoi(words[word_idx+1]);
                 if(endptr == words[word_idx + 1]){
                     printf("-> Nieznana komenda\n");
                     snprintf(msg, sizeof(msg), "Niepoprawna wartość dla komendy: %s\n", words[word_idx]);
@@ -111,9 +110,13 @@ static int att_write_callback(hci_con_handle_t con_handle, uint16_t att_handle, 
 
         if (strncmp(cmd, "START", 5) == 0) {
             printf("-> Start pracy robota!\n");
+            // start_switch==true;
+            // kill_switch==true;
         } 
         else if (strncmp(cmd, "END", 3) == 0) {
             printf("-> Koniec pracy robota!\n");
+            // start_switch==false;
+            // kill_switch==false;
         }
         else if (strncmp(cmd, "STOP", 4) == 0) {
             printf("-> Zatrzymano silniki!\n");
@@ -129,12 +132,12 @@ static int att_write_callback(hci_con_handle_t con_handle, uint16_t att_handle, 
             motor_set(Left_Motor, Backward, 50);
             motor_set(Right_Motor, Backward, 50);
         }
-        else if (strncmp(cmd, "SER_DW", 6) == 0) {
+        else if (strncmp(cmd, "SER_UP", 6) == 0) {
             printf("-> Serwa opuszczone!\n");
             serwo_set_posiotion(LEFT_SERWO, 90);
             serwo_set_posiotion(RIGHT_SERWO, 90);
         }
-        else if (strncmp(cmd, "SER_UP", 6) == 0) {
+        else if (strncmp(cmd, "SER_Dw", 6) == 0) {
             printf("-> Serwa podniesione!\n");
             serwo_set_posiotion(LEFT_SERWO, 175);
             serwo_set_posiotion(RIGHT_SERWO, 5);
@@ -237,7 +240,7 @@ int bluetooth_send_telemetry(const char *data){
         return 1;
     }
 
-    // charakterystyki TX
+    // charakterystyka TX
     uint16_t value_handle = ATT_CHARACTERISTIC_6E400003_B5A3_F393_E0A9_E50E24DCCA9E_01_VALUE_HANDLE;
     
     int result = att_server_notify(connection_handle, value_handle, (uint8_t*)data, strlen(data));

@@ -41,6 +41,7 @@ add_executable(main src/main.c
                     src/line_detectors.c
                     src/distance_sensor.c
                     src/bluetooth_connection.c
+                    src/controller.c
                     )
 
 pico_set_program_name(main "main")
@@ -76,4 +77,4 @@ target_include_directories(main PRIVATE
 pico_add_extra_outputs(main)
 
 # Automatic pico programming
-#add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND}-E copy main.uf2/run/media/*/RP2350 COMMENT "Copying to pico")
+# add_custom_command(TARGET main POST_BUILD COMMAND ${CMAKE_COMMAND}-E copy main.uf2/run/media/*/RP2350 COMMENT "Copying to pico")
