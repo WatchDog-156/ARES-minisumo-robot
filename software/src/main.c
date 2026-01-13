@@ -12,7 +12,7 @@ static btstack_timer_source_t sensor_timer;
 static void sensor_timer_handler(btstack_timer_source_t *ts) {
     cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, !cyw43_arch_gpio_get(CYW43_WL_GPIO_LED_PIN));
     int dystans[4];
-    uint8_t addr[4]={0x31, 0x32, 0x33, 0x29};
+    uint8_t addr[4]={0x30, 0x31, 0x32, 0x33};
 
     // Odczyt czujników
     int status_left = read_detector_value(Left);

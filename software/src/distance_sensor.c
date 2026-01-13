@@ -620,7 +620,7 @@ void IR_init(void){
     printf("Zainicjalizowano I2C na pinach: SDA=%d, SCL=%d\n", I2C_SDA_PIN, I2C_SCL_PIN);
 
     int xshut[4] = {XSHUT4_PIN, XSHUT3_PIN, XSHUT2_PIN, XSHUT1_PIN};
-    uint8_t addr[4] = {0x31, 0x32, 0x33, 0x29};
+    uint8_t addr[4] = {0x30, 0x31, 0x32, 0x33};
 
     printf("Wylaczenie czujnikow\n");
     for(int i=0; i<4; i++){
@@ -637,7 +637,7 @@ void IR_init(void){
         printf("Czujnik %d\n", i);
         gpio_put(xshut[i], 1);
         printf("Wlaczono XSHUT pin %d\n", xshut[i]);
-        sleep_ms(50); // Krótka zwłoka na start czujnika
+        sleep_ms(50);
         
         printf("Adresowanie czujnika %d: 0x29 -> 0x%02X\n", i, addr[i]);
         tofSetAddress(0x29, addr[i]);

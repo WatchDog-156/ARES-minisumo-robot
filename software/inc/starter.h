@@ -14,6 +14,7 @@ typedef enum{
 
 void starter_init(uint Start_pin, uint Kill_pin);
 State getState(void);
+void changeState(State newState);
 
 
 #endif

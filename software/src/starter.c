@@ -24,7 +24,10 @@ void starter_init(uint Start_pin, uint Kill_pin){
 
     gpio_set_irq_enabled_with_callback(Start_pin, GPIO_IRQ_EDGE_RISE, true, &gpio_callback);
     gpio_set_irq_enabled(Kill_pin, GPIO_IRQ_EDGE_RISE, true);
+}
 
+void changeState(State newState){
+    current_state = newState;
 }
 
 
