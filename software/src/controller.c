@@ -2,22 +2,12 @@
 #include "line_detectors.h"
 #include "motors.h"
 #include "serwo.h"
-//#include "sensors_ir.h"
-//#include "starter.h"
+#include "distance_sensor.h"
+#include "starter.h"
 
 bool beginning = true;
 bool ending = false;
 side_t lastSeen = Left;
-
-
-programState_t get_progrogram_state(){
-    if(start_switch==false && kill_switch==true)
-        return Start;
-    else if(start_switch==true && kill_switch==true)
-        return Fighting;
-    else
-        return End ;
-}
 
 
 void anti_out_system(line_detector_t status){

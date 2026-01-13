@@ -42,6 +42,8 @@ add_executable(main src/main.c
                     src/distance_sensor.c
                     src/bluetooth_connection.c
                     src/controller.c
+                    src/distance_sensor.h
+                    src/starter.h
                     )
 
 pico_set_program_name(main "main")

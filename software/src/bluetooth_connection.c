@@ -7,7 +7,7 @@
 #include "minisumo.h"
 #include "motors.h"
 #include "serwo.h"
-//#include "starter"
+#include "starter.h"
 
 static hci_con_handle_t connection_handle = HCI_CON_HANDLE_INVALID;
 static btstack_packet_callback_registration_t hci_event_callback_registration;
@@ -110,13 +110,11 @@ static int att_write_callback(hci_con_handle_t con_handle, uint16_t att_handle, 
 
         if (strncmp(cmd, "START", 5) == 0) {
             printf("-> Start pracy robota!\n");
-            // start_switch==true;
-            // kill_switch==true;
+            changeState(Fighting);
         } 
         else if (strncmp(cmd, "END", 3) == 0) {
             printf("-> Koniec pracy robota!\n");
-            // start_switch==false;
-            // kill_switch==false;
+            changeState(End);
         }
         else if (strncmp(cmd, "STOP", 4) == 0) {
             printf("-> Zatrzymano silniki!\n");

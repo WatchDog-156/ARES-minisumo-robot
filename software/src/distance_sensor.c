@@ -11,7 +11,7 @@ uint8_t i2cAddress = 0x29;
 static unsigned char stop_variable[4];
 static uint32_t measurement_timing_budget_us;
 static int current_sensor_index = -1;
-
+ 
 static int performSingleRefCalibration(uint8_t vhv_init_byte);
 static int setMeasurementTimingBudget(uint32_t budget_us);
 // --- Makra pomocnicze ---

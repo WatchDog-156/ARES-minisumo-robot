@@ -2,13 +2,7 @@
 #define CONTROLLER_H
 
 typedef enum{
-    Start,
-    Fighting,
-    End,
-} programState_t;
-
-typedef enum{
-    Right,
+    Right, 
     Left,
 } side_t;
 
