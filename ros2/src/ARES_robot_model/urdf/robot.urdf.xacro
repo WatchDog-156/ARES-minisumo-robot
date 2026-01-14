@@ -2,11 +2,10 @@
 <robot name="ARES_robot_model" xmlns:xacro="http://www.ros.org/wiki/xacro">
     
     <!--Wymiary robota-->
-    <xacro:property name="bodyWidth" value="0.4"/>
-    <xacro:property name="bodyLength" value="0.6"/>
-    <xacro:property name="bodyHeight" value="0.2"/>
-    <xacro:property name="wheelRadius" value="0.1"/>
-    <xacro:property name="castorWheelRadius" value="0.05"/>
+    <xacro:property name="bodyWidth" value="0.09"/>
+    <xacro:property name="bodyLength" value="0.1"/>
+    <xacro:property name="bodyHeight" value="0.05"/>
+    <xacro:property name="wheelRadius" value="0.0145"/>
 
     <!--Kolory-->
     <material name="red">
@@ -27,46 +26,35 @@
         </inertial>
     </xacro:macro>
 
-    <!--Meshes for robot parts-->
-    <mujoco>
-        <compiler meshdir="../meshes/" balanceinertia="false" discardvisual="false" fusestatic="false"/>
-    </mujoco>
-
     <!--Bryła robota-->
     <link name="body">
         <visual>
-            <origin xyz="-$0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${pi/2}"/>
             <geometry>
-                <mesh filename="../meshes/body.STL"/>
+                <mesh filename="file://$(find ARES_robot_model)/meshes/body.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
-            <origin xyz="-$0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="${-bodyLength/2} 0.0 ${bodyHeight/2}" rpy="0.0 0.0 ${pi/2}"/>
             <geometry>
                 <box size="${bodyLength} ${bodyWidth} ${bodyHeight}"/>
             </geometry>
         </collision>
-        <!--<collision>
-            <origin xyz="-$0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-            <geometry>
-                <box size="${bodyLength} ${bodyWidth} ${bodyHeight}"/>
-            </geometry>
-        </collision>-->
         <xacro:default_inertial mass="0.3"/>
     </link>
 
     <!--Lewe koło-->
     <link name="left_wheel">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0"/>
+            <origin xyz="0.0 0.01 0.0" rpy="${pi/2} 0.0 0.0"/>
             <geometry>
-                <mesh filename="../meshes/wheel.STL"/>
+                <mesh filename="file://$(find ARES_robot_model)/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="red"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="${pi/2} 0.0 0.0"/>
+            <origin xyz="0.0 0.01 0.0" rpy="${pi/2} 0.0 0.0"/>
             <geometry>
                 <cylinder radius="${wheelRadius}" length="0.02"/>
             </geometry>
@@ -76,7 +64,7 @@
     <joint name="left_wheel_joint" type="continuous">
         <parent link="body"/>
         <child link="left_wheel"/>
-        <origin xyz="-${bodyLength -0.1} ${bodyWidth/2} -${bodyHeight/2-0.05}" rpy="0.0 0.0 0.0"/>
+        <origin xyz="${0.015-bodyLength} 0.035 0.01" rpy="0.0 0.0 0.0"/>
         <axis xyz="0.0 1.0 0.0"/>
         <limit effort="100" velocity="10.0"/>
         <dynamics damping="0.1" friction="0.1"/>
@@ -85,14 +73,14 @@
     <!--Prawe koło-->
     <link name="right_wheel">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="$-{pi/2} 0.0 0.0"/>
+            <origin xyz="0.0 -0.01 0.0" rpy="${-pi/2} 0.0 0.0"/>
             <geometry>
-                <mesh filename="../meshes/wheel.STL"/>
+                <mesh filename="file://$(find ARES_robot_model)/meshes/wheel.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="red"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="$-{pi/2} 0.0 0.0"/>
+            <origin xyz="0.0 -0.01 0.0" rpy="${-pi/2} 0.0 0.0"/>
             <geometry>
                 <cylinder radius="${wheelRadius}" length="0.02"/>
             </geometry>
@@ -102,7 +90,7 @@
     <joint name="right_wheel_joint" type="continuous">
         <parent link="body"/>
         <child link="right_wheel"/>
-        <origin xyz="-${bodyLength -0.1} -${bodyWidth/2} -${bodyHeight/2-0.05}" rpy="0.0 0.0 0.0"/>
+        <origin xyz="${0.015-bodyLength} -0.035 0.01" rpy="0.0 0.0 0.0"/>
         <axis xyz="0.0 1.0 0.0"/>
         <limit effort="100" velocity="10.0"/>
         <dynamics damping="0.1" friction="0.1"/>
@@ -111,16 +99,16 @@
     <!--LIDAR-->
     <link name="lidar">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 ${-pi/16} 0.0"/>
             <geometry>
-                <box size="0.01 0.08 0.03"/>
+                <box size="0.005 0.08 0.02"/>
             </geometry>
             <material name="green"/>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 ${-pi/16} 0.0"/>
             <geometry>
-                <box size="0.01 0.08 0.03"/>
+                <box size="0.005 0.08 0.02"/>
             </geometry>
         </collision>
         <xacro:default_inertial mass="0.03"/>
@@ -128,7 +116,79 @@
     <joint name="lidar_joint" type="fixed">
         <parent link="body"/>
         <child link="lidar"/>
-        <origin xyz="-${bodyLength/2} 0.0 ${bodyHeight/2 +0.05}" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.033 0.0 0.014" rpy="0.0 ${-pi/32} 0.0"/>
+    </joint>
+
+    <!--Skrzydlo lewe-->
+    <link name="left_wing">
+        <visual>
+            <origin xyz="-0.0025 0.095 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.2 0.015"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <visual>
+            <origin xyz="-0.0025 0.115 -0.02" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.16 0.025"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.0025 0.095 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.2 0.015"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="-0.0025 0.115 -0.02" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.16 0.025"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.01"/>
+    </link>
+    <joint name="left_wing_joint" type="fixed">
+        <parent link="body"/>
+        <child link="left_wing"/>
+        <origin xyz="-0.068 0.014 0.04" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <!--Skrzydlo prawo-->
+    <link name="right_wing">
+        <visual>
+            <origin xyz="-0.0025 -0.095 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.2 0.015"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <visual>
+            <origin xyz="-0.0025 -0.115 -0.02" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.16 0.025"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.0025 -0.095 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.2 0.015"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="-0.0025 -0.115 -0.02" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.005 0.16 0.025"/>
+            </geometry>
+        </collision>
+        <xacro:default_inertial mass="0.01"/>
+    </link>
+    <joint name="right_wing_joint" type="fixed">
+        <parent link="body"/>
+        <child link="right_wing"/>
+        <origin xyz="-0.068 -0.014 0.04" rpy="0.0 0.0 0.0"/>
     </joint>
 
     <!-- Include pliku Gazebo lidar oraz differential drive controller-->

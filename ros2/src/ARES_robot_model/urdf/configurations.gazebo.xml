@@ -27,4 +27,12 @@
   <gazebo reference="lidar">
     <material>Gazebo/Green</material>
   </gazebo>
+
+  <gazebo reference="left_wing">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="right_wing">
+    <material>Gazebo/Green</material>
+  </gazebo>
 </robot>
