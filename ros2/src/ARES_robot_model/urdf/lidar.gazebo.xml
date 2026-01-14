@@ -18,14 +18,14 @@
           <horizontal>
             <samples>360</samples>
             <resolution>1</resolution>
-            <min_angle>-3.14159</min_angle>
-            <max_angle>3.14159</max_angle>
+            <min_angle>-0.785</min_angle>
+            <max_angle>0.785</max_angle>
           </horizontal>
         </scan>
         <range>
-          <min>0.10</min>
-          <max>10.0</max>
-          <resolution>0.01</resolution>
+          <min>0.02</min>
+          <max>2.0</max>
+          <resolution>0.001</resolution>
         </range>
         <noise>
           <type>gaussian</type>

@@ -2,6 +2,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <gazebo reference="body">
     <material>Gazebo/Blue</material>
+    <mu1>0.0001</mu1>   <!-- Współczynnik tarcia w kierunku ruchu -->
+    <mu2>0.0001</mu2>   <!-- Współczynnik tarcia prostopadłym -->
+    <kp>1000000.0</kp>  <!-- Sztywność kontaktu -->
+    <kd>100.0</kd>      <!-- Tłumienie kontaktu -->
   </gazebo>
 
   <gazebo reference="left_wheel">
@@ -16,14 +20,6 @@
     <material>Gazebo/Red</material>
     <mu1>1.0</mu1>      <!-- Współczynnik tarcia w kierunku ruchu -->
     <mu2>1.0</mu2>      <!-- Współczynnik tarcia prostopadłym -->
-    <kp>1000000.0</kp>  <!-- Sztywność kontaktu -->
-    <kd>100.0</kd>      <!-- Tłumienie kontaktu -->
-  </gazebo>
-
-  <gazebo reference="castor_wheel">
-    <material>Gazebo/Red</material>
-    <mu1>0.0001</mu1>   <!-- Współczynnik tarcia w kierunku ruchu -->
-    <mu2>0.0001</mu2>   <!-- Współczynnik tarcia prostopadłym -->
     <kp>1000000.0</kp>  <!-- Sztywność kontaktu -->
     <kd>100.0</kd>      <!-- Tłumienie kontaktu -->
   </gazebo>
