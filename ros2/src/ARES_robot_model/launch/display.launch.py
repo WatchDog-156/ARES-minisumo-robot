@@ -6,8 +6,9 @@ import xacro
 
 def generate_launch_description():
     # Ścieżka do pakietu robot_model
-    pkg_path = get_package_share_directory('robot_model')
+    pkg_path = get_package_share_directory('ARES_robot_model')
     xacro_file = os.path.join(pkg_path, 'urdf', 'robot.urdf.xacro')
+    package_name = "ARES_robot_model"
     
     # Przetwórz plik xacro na URDF
     robot_description_config = xacro.process_file(xacro_file)
@@ -32,15 +33,22 @@ def generate_launch_description():
     )
     
     # RViz
+    rviz_file = os.path.join(
+        get_package_share_directory(package_name),
+        'rviz',
+        'ARES_display.rviz'
+    )
+
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        output='screen'
+        output='screen',
+        arguments=['-d', rviz_file]
     )
     
     return LaunchDescription([
         robot_state_publisher_node,
         joint_state_publisher_gui_node,
-        rviz_node
+        rviz_node 
     ])

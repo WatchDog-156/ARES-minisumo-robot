@@ -9,8 +9,8 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Define the robot's name and package name
-    robot_name = "robot_model"
-    package_name = "robot_model"
+    robot_name = "ARES_robot_model"
+    package_name = "ARES_robot_model"
 
     # Set paths
     pkg_path = get_package_share_directory(package_name)
