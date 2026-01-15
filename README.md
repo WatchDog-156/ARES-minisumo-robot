@@ -8,20 +8,16 @@ Projekt autonomicznego robota minisumo, budowanego w ramach zajęć z przedmiotu
 - [Opis projektu](#opis-projektu)
 - [Architektura systemu](#architektura-systemu)
 - [Konfiguracja mikrokontrolera](#konfiguracja-mikrokontrolera)
-- [Urządzenia zewnętrzne](#urzadzenia-zewnetrzne)
+- [Urządzenia zewnętrzne](#urządzenia-zewnętrzne)
 - [Projekt elektroniki](#projekt-elektroniki)
 - [Konstrukcja mechaniczna](#konstrukcja-mechaniczna)
 - [Oprogramowanie](#oprogramowanie)
-- [Etapy realizacji projektu](#etapy-realizacji-projektu)
-- [Dokumentacja i repozytorium](#dokumentacja-i-repozytorium)
-- [Planowane rozwinięcie](#planowane-rozwinięcie)
-- [Bibliografia](#bibliografia)
 
 ---
 
 ## Opis projektu
 
-Głównym celem projektu jest zbudowanie w pełni autonomicznego robota mobilnego klasy **MiniSumo**, którego podstawowym zadaniem jest wykrycie przeciwnika na arenie, szybkie do niego dotarcie i wypchnięcie poza białą linię ograniczającą ring. Robot jednocześnie musi samodzielnie unikać wyjechania poza obszar walki.
+Głównym celem projektu jest zbudowanie w pełni autonomicznego robota mobilnego klasy **MiniSumo**, którego podstawowym zadaniem jest wykrycie przeciwnika na arenie, szybkie dotarcie do niego i wypchnięcie poza białą linię ograniczającą ring. Robot jednocześnie musi samodzielnie unikać wyjechania poza obszar walki.
 
 Robot wykorzystuje system czujników:
 - **Czujniki białej linii** – do detekcji krawędzi areny
@@ -38,7 +34,7 @@ System składa się z trzech głównych warstw:
 2. **Warstwa sterowania** – oprogramowanie na Raspberry Pi Pico
 3. **Warstwa komunikacji** – USART (Bluetooth) do debugowania i monitorowania
 
-![Architektura systemu](images/architektura_systemu.png)
+![Architektura systemu](images/architektura_systemu.png "Architektura systemu")
 
 ---
 
@@ -50,7 +46,7 @@ W projekcie wykorzystano **Raspberry Pi Pico 2 WH** z układem RP2350 (ARM Corte
 - Wystarczającą liczbę pinów GPIO
 - Niskie zużycie energii
 
-### Konfiguracja pinów
+### Konfiguracja pinówdotarcie
 
 | Pin | Tryb pracy        | Funkcja                                     |
 |-----|-------------------|---------------------------------------------|
@@ -181,9 +177,9 @@ Konstrukcja zaprojektowana w **Autodesk Inventor**, składa się z:
 ![Model 3D robota](images/mechanika.png)
 
 ### Produkcja
-- Wydruk 3D z filamentu PLA/ABS
+- Wydruk 3D z filamentu PET-G
 - Wstawki mosiężne do mocowania
-- Śruby metalowe M3
+- Śruby metalowe M3 oraz M2.5
 - Opony z silikonu formierskiego
 
 ![Gotowy robot](images/robot.jpeg)
@@ -225,6 +221,7 @@ void main() {
         update_ass_system();
     }
 }
+```
 
 ---
 
