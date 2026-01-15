@@ -69,7 +69,7 @@ W projekcie wykorzystano **Raspberry Pi Pico 2 WH** z układem RP2350 (ARM Corte
 | 31  | ADC_IN            | Prawy czujnik linii (analogowy)             |
 | 32  | ADC_IN            | Lewy czujnik linii (analogowy)              |
 
-![Raspberry Pi Pico 2 WH pinout](images/pinout.png)
+![Raspberry Pi Pico 2 WH pinout](images/pinout.png "Raspberry Pi Pico 2 WH pinout")
 
 ### Konfiguracja peryferiów
 
@@ -132,7 +132,7 @@ W projekcie wykorzystano **Raspberry Pi Pico 2 WH** z układem RP2350 (ARM Corte
 - **Zapobiega falstartom**
 - **Wymagany na zawodach**
 
-![Moduł startowy](images/mod_startowy.png)
+![Moduł startowy](images/mod_startowy.png "Moduł startowy")
 
 ---
 
@@ -149,19 +149,19 @@ Zaprojektowano dedykowaną płytkę PCB w formie shielda dla Raspberry Pi Pico, 
 
 ### Schematy i projekty:
 
-![Schemat blokowy PCB](images/Schemat_block.jpg)
+![Schemat blokowy PCB](images/Schemat_block.jpg "Schemat blokowy PCB")
 
-![Schemat elektroniczny](images/Schematics.jpg)
+![Schemat elektroniczny](images/Schematics.jpg "Schemat elektroniczny")
 
-![Projekt PCB – warstwa górna](images/PCB_front.jpg)
+![Projekt PCB – warstwa górna](images/PCB_front.jpg "Projekt PCB – warstwa górna")
 
-![Projekt PCB – warstwa dolna](images/PCB_bottom.jpg)
+![Projekt PCB – warstwa dolna](images/PCB_bottom.jpg "Projekt PCB – warstwa dolna")
 
 ### Montaż i lutowanie:
 
-![PCB po lutowaniu – przód](images/Front.jpg)
+![PCB po lutowaniu – przód](images/Front.jpg "PCB po lutowaniu – przód")
 
-![PCB po lutowaniu – tył](images/Bottom.jpg)
+![PCB po lutowaniu – tył](images/Bottom.jpg "PCB po lutowaniu – tył")
 
 ---
 
@@ -174,7 +174,7 @@ Konstrukcja zaprojektowana w **Autodesk Inventor**, składa się z:
 - Dwóch części plugów
 - Kół z felgami 3D i oponami silikonowymi
 
-![Model 3D robota](images/mechanika.png)
+![Model 3D robota](images/mechanika.png "Model 3D robota")
 
 ### Produkcja
 - Wydruk 3D z filamentu PET-G
@@ -182,7 +182,7 @@ Konstrukcja zaprojektowana w **Autodesk Inventor**, składa się z:
 - Śruby metalowe M3 oraz M2.5
 - Opony z silikonu formierskiego
 
-![Gotowy robot](images/robot.jpeg)
+![Gotowy robot](images/robot.jpeg "Gotowy robot")
 
 ---
 
@@ -190,7 +190,7 @@ Konstrukcja zaprojektowana w **Autodesk Inventor**, składa się z:
 
 ### Diagram przepływu programu
 
-![Diagram przepływu](images/flowchart.png)
+![Diagram przepływu](images/flowchart.png "Diagram przepływu")
 
 ### Główne moduły programu:
 1. **Inicjalizacja** – konfiguracja peryferiów, czujników, silników
