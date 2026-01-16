@@ -16,6 +16,5 @@ int tofInit(int sensor_index, int Addr, int boolLongRange);
 int tofReadDistance(int sensor_index);
 void tofSetAddress(uint8_t oldAddr, uint8_t newAddr);
 void tofSetCurrentAddress(uint8_t addr);
-void tofSetCurrentSensor(int sensor_index);
 
 #endif

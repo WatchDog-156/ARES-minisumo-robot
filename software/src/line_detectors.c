@@ -23,15 +23,17 @@ line_detector_t check_line_detectors(){
     line_detector_t lineDetected = None;
 
     int left_value = read_detector_value(Left);
-    if (left_value > Threshold)
-        lineDetected = Left;
+    if (left_value < Threshold){
+        // lineDetected = Left;
+    }
 
     int right_value = read_detector_value(Right);
-    if (right_value > Threshold){
+    if (right_value < Threshold){
         if (lineDetected==Left)
             lineDetected = Both;
         else
-            lineDetected = Right;
+            // lineDetected = Right;
+            lineDetected = Both;
     }
 
     return lineDetected;

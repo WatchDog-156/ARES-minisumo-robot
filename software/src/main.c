@@ -93,10 +93,10 @@ int main()
     bluetooth_init();
 
     // Konfiguracja timera dla wiadomości Bluetooth
-    mess_timer.process = &mess_timer_handler;
-    btstack_run_loop_set_timer(&mess_timer, 500);
-    btstack_run_loop_add_timer(&mess_timer);
-    printf("Message timer configured\n");
+    // mess_timer.process = &mess_timer_handler;
+    // btstack_run_loop_set_timer(&mess_timer, 500);
+    // btstack_run_loop_add_timer(&mess_timer);
+    // printf("Message timer configured\n");
 
     // Konfiguracja timera dla pracy robota
     prog_timer.process = &prog_timer_handler;

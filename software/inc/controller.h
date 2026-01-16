@@ -1,9 +1,9 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#define TOF_OUT_OF_RANGE 8191
-#define ENEMY_CLOSE 40
-#define SIDE_TRESHOLD 60
+#define TOF_OUT_OF_RANGE 800
+#define ENEMY_CLOSE 200
+#define SIDE_TRESHOLD 100
 
 typedef enum{
     right, 

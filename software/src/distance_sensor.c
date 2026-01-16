@@ -4,7 +4,7 @@
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
 
-#define FREQ 100000
+#define FREQ 400000
 
 // Zmienne globalne biblioteki
 uint8_t i2cAddress = 0x29;
@@ -589,7 +589,7 @@ int tofReadDistance(int sensor_index){
 
     timeout = 0;
     while (((readReg(REG_RESULT_INTERRUPT_STATUS) & 0x07) == 0) && timeout < 100){
-        timeout++; sleep_us(5000);
+        timeout++; sleep_us(500);
     }
     if(timeout >= 100){
         printf("Timeout START dla czujnika %d\n", sensor_index);
@@ -603,11 +603,6 @@ int tofReadDistance(int sensor_index){
 void tofSetCurrentAddress(uint8_t addr){
     i2cAddress = addr;
 }
-// void tofSetCurrentSensor(int sensor_index){
-//     if(sensor_index >=0 && sensor_index <4){
-//         current_sensor_index = sensor_index;
-//     }
-// }
 
 void IR_init(void){
 
@@ -651,12 +646,12 @@ void IR_init(void){
             printf("Nieoczekiwane ID\n");
         }
         
-        if (tofInit(i, addr[i], 1)) {
+        if (tofInit(i, addr[i], 0)) {
             printf("Czujnik %d OK (stop_variable = 0x%02X)\n", i, stop_variable[i]);
         } else {
             printf("Czujnik %d BLAD\n", i);
         }
-        setMeasurementTimingBudget(100000);
+        setMeasurementTimingBudget(20000);
         sleep_ms(50);
     }
     printf("Inicjalizacja zakonczona\n");

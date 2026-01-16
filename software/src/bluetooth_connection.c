@@ -137,8 +137,8 @@ static int att_write_callback(hci_con_handle_t con_handle, uint16_t att_handle, 
         }
         else if (strncmp(cmd, "SER_DW", 6) == 0) {
             printf("-> Serwa podniesione!\n");
-            serwo_set_posiotion(LEFT_SERWO, 175);
-            serwo_set_posiotion(RIGHT_SERWO, 5);
+            serwo_set_posiotion(LEFT_SERWO, 170);
+            serwo_set_posiotion(RIGHT_SERWO, 10);
         }
         else {
             parse_long_command(cmd);
