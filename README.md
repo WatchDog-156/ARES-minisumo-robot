@@ -188,40 +188,36 @@ Konstrukcja zaprojektowana w **Autodesk Inventor**, składa się z:
 
 ## Oprogramowanie
 
-### Diagram przepływu programu
+Głównym zadaniem działania programu dla robota minisumo jest realizacja autonomicznego cyklu walki. Robot ma za zadanie odpowiednio przetwarzać otrzymywane dane z czujników odległości i linii, na które odpowiednio reaguje poprzez jazdę w zadanym kierunku. 
 
-![Diagram przepływu](images/flowchart.png "Diagram przepływu")
+### Logika programu
+Logika programu została podzielona na odpowiednie stany:
+- Start - po uruchomieniu robota, następuje inicjalizacja wszystkich czujników i urządzeń; czujniki zbierające dane zaczynają swoją pracę.
+- Walka - następuje po odpowiednim zadaniu sygnału przez moduł startowy; robot przetwarza otrzymane dane z czujników i zadaje odpowiednie sterowanie do silników w zależności od podjętej strategii.
+- Koniec - po zadaniu odpowiedniego sygnału przez moduł startowy praca robota jest zatrzymywana.
 
-### Główne moduły programu:
-1. **Inicjalizacja** – konfiguracja peryferiów, czujników, silników
-2. **Pętla główna** – odczyt czujników, podejmowanie decyzji
-3. **Algorytm walki** – strategia ataku i obrony
-4. **System ASS** – sterowanie serwomechanizmami
-5. **Komunikacja** – wysyłanie danych diagnostycznych przez Bluetooth
+Diagram blokowy na rysunku:
+![Diagram blokowy algorytmu robota](images/diagram_blokowy.png "Diagram blokowy algorytmu robota")
 
-### Przykładowy fragment kodu:
+### Bluetooth
+Funkcja Bluetooth nie jest elementem wymaganym, aby program robota minisumo działał. Mimo to jest to aspekt, który ułatwia pracę. Bluetooth działa w dwie strony. Z jednej pozwala na łatwy odczyt danych z czujników, co eliminuje potrzebę podłączenia robota do urządzenia z terminalem np.komputera. Z drugiej strony dzięki urządzeniu posiadającemu zwykłą aplikacje do obsługi terminala z bluetooth np.telefon jesteśmy również w stanie zadać robotowi odpowiednie komunikaty, które on obsługuje np. jazda do przodu z określoną prędkością. 
 
-```c
-void main() {
-    init_sensors();
-    init_motors();
-    init_servos();
-    
-    while(1) {
-        read_line_sensors();
-        read_tof_sensors();
-        
-        if (opponent_detected()) {
-            attack_strategy();
-        } else {
-            search_strategy();
-        }
-        
-        avoid_line();
-        update_ass_system();
-    }
-}
-```
+### Czujniki odległości
+Czujników odległości to jedne z najważniejszych aspektów pracy całego oprogramowania robota minisumo. To właśnie te czujniki decydują, w którą stronę powinien poruszyć się robot w danym czasie. W implementacji użyto 4 czujników, które działają na jednej magistrali I2C. Aby można było odczytywać informacje z każdego z nich osobno należy odpowiednio nadać adresy dla każdego z czujników. Wszystkie czujniki są wyłączane poprzez ich piny XSHUT, następnie każdy z nich jest pojedynczo włączany i zostaje mu zmieniony adres. Każdy z nich jest ustawiany, aby działać odpowiednio jak założył producent (w tym celu posłużono się gotowymi funkcjami kalibrującymi czujniki). 
+
+### Czujniki linii
+Czujniki linii to ważny element oprogramowania robota minisumo. To one odpowiadają za to, że robot samoistnie nie wyjedzie za obszar ringu. Ich implementacja nie należy do najtrudniejszej - czujniki wykrywają czy odczytana wartość z przetwornika ADC zmieniła się po najechaniu robota na obszar białej linii i nie wyniosła wartości poniżej zadanej. W przypadku wykrycia zostaje wykonana odpowiednia akcja.
+
+### Silniki
+Program silników odpowiada za aspekt poruszania się robota w założonym kierunku z odpowiednią prędkością. Jest to element, który wykonuje polecenia zadane przez logikę i przyjętą strategię po przetworzeniu danych z czujników. Prędkość obrotu silników jest sterowana za pomocą PWM. Dzięki odpowiednim funkcją można odpowiednio przeskalować wartości tak, aby zadawać wypełnienie liczbami z przedziału [0-100\%]. 
+
+W robocie znajdują się dwa silniki, gdzie każdy jest sterowany osobnym sygnałem PWM oraz każdy z nich ma również po dwa wejścia logiczne (dir1 i dir2). To właśnie od tych pinów zależy w którą stronę będzię obracać się silniki. Zadanie na jeden z nich stanu wysokiego a na drugi niskiego spowoduje obracanie się silnika w odpowiednią stronę. Gdy oba piny otrzymają stan niski, to silniki się zatrzymają - stop (Luz). W przypadku gdy oba stany będą wysokie - hamulec. 
+
+### Serwa
+Ten aspekt został opracowany dodatkowo, ale jest jednym z założeń strategicznych robota minisumo. Na robocie zamontowano dwa serwa, a na ich końcach cienkie "skrzydła". Po wystartowaniu walki serwa są opuszczane co powoduje, że robotowi przybywa na wielkości - przeciwnik wykrywa przeszkodę, która nie jest sam robot co może dać przewagę. Serwa tak jak silniki są sterowane przez PWM. Jednak różnica jest taka, tutaj zadajemy pozycję (kąt) w jakim ma ustawić się sprzęt. Zależy to oczywiście od wypełnienia - proporcji czasu trwania impulsu wysokiego do całego czasu okresu trwania sygnału. Aby uprościć to odpowiednio przeliczono te wartości na stopnie. Z dokumentacji wyczytano, że częstotliwość pracy serwa wynosi 50Hz, a to pozwoliło określić jaki czas trwania okresu to jaki kąt pozycji serwa. 
+
+### Starter
+Starter to zwykła maszyna stanów. Jest to odbiornik do programatora, który pozwala na sprawiedliwe jednoczesne wystartowanie obu robotów podczas zawodów. Piny logiczne startera po zaprogramowaniu go przyjmują odpowiednio stany: Start - 0, Kill - 1. Następnie gdy programator wystartuje walkę stany zmieniają się odpowiednio na (1,1) - następuje walka. Gdy programator wywoła sygnał stopu - oba stany pinów przyjmą odpowiednio (0,0) - co powoduje zatrzymanie robotów. 
 
 ---
 
