@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->pushButton->clicked();
 }
 
 MainWindow::~MainWindow()
@@ -19,5 +18,12 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "Działa";
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    BluetoothScanner scanner(this);
+    scanner.exec();
 }
 
