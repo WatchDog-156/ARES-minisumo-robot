@@ -7,6 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    tof = new ToFChart(this);
+    ui->stackedWidget->addWidget(tof);
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +22,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug() << "Działa";
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "BluetoothScanner.h"
+#include "TofChart.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,5 +26,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    ToFChart *tof;
 };
 #endif // MAINWINDOW_H
