@@ -18,8 +18,12 @@ public:
     ~MainWindow() override;
 
 private slots:
+    void handleCommandButtons();
+    void handleManualCommands();
 
+    // void handleLanguage(int index);
 private:
     Ui::MainWindow *ui;
+    void setupConnections();
 };
 #endif // MAINWINDOW_H

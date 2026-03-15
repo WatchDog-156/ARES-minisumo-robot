@@ -15,14 +15,14 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>31</verstretch>
     </sizepolicy>
    </property>
    <layout class="QGridLayout" name="gridLayout" rowstretch="1,5">
     <property name="sizeConstraint">
-     <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+     <enum>QLayout::SizeConstraint::SetMinAndMaxSize</enum>
     </property>
     <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
@@ -84,7 +84,7 @@
                 </size>
                </property>
                <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
+                <cursorShape>ArrowCursor</cursorShape>
                </property>
                <property name="mouseTracking">
                 <bool>false</bool>
@@ -133,6 +133,12 @@ border-radius: 5px;
                </property>
                <property name="text">
                 <string>START</string>
+               </property>
+               <property name="autoDefault">
+                <bool>false</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -249,8 +255,16 @@ border-radius: 5px;
                  <height>70</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
                <property name="text">
                 <string>enter text...</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
