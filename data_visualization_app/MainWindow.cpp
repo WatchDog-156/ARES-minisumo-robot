@@ -16,15 +16,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->LineDiagram->setCheckable(true);
     
 
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
+    // robot = new RobotChart(this);
+    // ui->stackedWidget->insertWidget(0, robot);
     tof = new ToFChart(this);
     ui->stackedWidget->insertWidget(1, tof);
     line = new LineChart(this);
     ui->stackedWidget->insertWidget(2, line);
-    ui->stackedWidget->setCurrentIndex(0);
+    robotPicture = new RobotPicture(this);
+    // ui->stackedWidget->insertWidget(4, robotPicture);
+    ui->stackedWidget->addWidget(robotPicture);
+    // ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentWidget(robotPicture);
 
     setupConnections();
+    this->setWindowTitle("Panel Danych Wizualnych ARES");
 }
 
 MainWindow::~MainWindow()
@@ -142,6 +147,23 @@ void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
 void MainWindow::onDataReceived(const QByteArray &data) {
     QString recivedData = QString::fromUtf8(data).trimmed();
     qDebug() << "Odebrano z BLE:" << recivedData;
-    // parser wiadomości
-    // Tutaj możesz np. wywołać ui->tofChart->addMeasurement(...)
+
+    static const QRegularExpression re("\\d+");
+    QList<int> values;
+    QRegularExpressionMatchIterator i = re.globalMatch(recivedData);
+
+    while (i.hasNext()) {
+        QRegularExpressionMatch match = i.next();
+        values.append(match.captured(0).toInt());
+    }
+
+    if (values.size() >= 6) {
+        int lines[2] = {values[0], values[1]};
+        int tofs[4] = {values[2], values[3], values[4], values[5]};
+        qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3];
+        line->addMeasurement(lines[0],lines[1]);
+        tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
+    } else {
+        qDebug() << "Błąd przy parsowaniu wiadomości";
+    }
 }

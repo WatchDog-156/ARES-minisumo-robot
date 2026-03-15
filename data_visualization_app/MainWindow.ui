@@ -57,11 +57,12 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>1</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="Robot"/>
              <widget class="QWidget" name="TOF"/>
              <widget class="QWidget" name="LineDetector"/>
+             <widget class="QWidget" name="RobotPicture"/>
             </widget>
            </widget>
           </item>
@@ -166,9 +167,9 @@
                   <colorrole role="Button">
                    <brush brushstyle="SolidPattern">
                     <color alpha="255">
-                     <red>246</red>
-                     <green>97</green>
-                     <blue>81</blue>
+                     <red>255</red>
+                     <green>0</green>
+                     <blue>0</blue>
                     </color>
                    </brush>
                   </colorrole>

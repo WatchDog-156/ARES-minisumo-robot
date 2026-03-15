@@ -12,6 +12,8 @@ BluetoothScanner::BluetoothScanner(QWidget *parent)
 
     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
             this, &BluetoothScanner::addDevice);
+
+    this->setWindowTitle("Bluetooth Scanner");
 }
 
 BluetoothScanner::~BluetoothScanner()

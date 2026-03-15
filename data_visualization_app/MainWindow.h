@@ -3,10 +3,10 @@
 
 #include <QMainWindow>
 #include "BluetoothManager.h"
-
-//#include "TofChart.h"
+//#include "RobotChart.h"
 #include "TofChart.h"
 #include "LineChart.h"
+#include "RobotPicture.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -33,9 +33,10 @@ private:
     Ui::MainWindow *ui;
     void setupConnections();
     void updateButtonStates();
-    //ToFChart *tof;
+    //RobotChart *robot;
     ToFChart *tof;
     LineChart *line;
+    RobotPicture *robotPicture;
     BluetoothManager *bluetoothManager;
 };
 #endif // MAINWINDOW_H
