@@ -8,8 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+      
     bluetoothManager = new BluetoothManager(this);
+
+    ui->RobotDiagram->setCheckable(true);
+    ui->TofDiagram->setCheckable(true);
+    ui->LineDiagram->setCheckable(true);
+    
 
     // tof = new ToFChart(this);
     // ui->stackedWidget->addWidget(tof);
@@ -82,21 +87,35 @@ void MainWindow::handleManualCommands(){
 
 void MainWindow::handleFunctionButtons(){
     QPushButton* button = qobject_cast<QPushButton*>(sender());
+    if(!button) return;
 
     if(button == ui->Connection){
         qDebug() << "Go to Bluetooth Scanner";
         BluetoothScanner scanner(this);
         connect(&scanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
         scanner.exec();
-    } else if (button == ui->RobotDiagram){
-        qDebug() << "Change to Robot Diagram";
-        ui->stackedWidget->setCurrentIndex(0);
-    } else if (button == ui->TofDiagram){
-        qDebug() << "Change to ToF Diagram";
-        ui->stackedWidget->setCurrentIndex(1);
-    } else if (button == ui->LineDiagram){
-        qDebug() << "Change to Line Diagram";
-        ui->stackedWidget->setCurrentIndex(2);
+        return;
+    }
+    ui->RobotDiagram->setChecked(false);
+    ui->TofDiagram->setChecked(false);
+    ui->LineDiagram->setChecked(false);
+    button->setChecked(true);
+
+    if (button == ui->RobotDiagram) ui->stackedWidget->setCurrentIndex(0);
+    else if (button == ui->TofDiagram) ui->stackedWidget->setCurrentIndex(1);
+    else if (button == ui->LineDiagram) ui->stackedWidget->setCurrentIndex(2);
+
+
+    updateButtonStates();
+}
+
+void MainWindow::updateButtonStates(){
+    QList<QPushButton*> buttons = {ui->RobotDiagram, ui->TofDiagram, ui->LineDiagram};
+    QStringList colors = {"52, 152, 219", "241, 196, 15", "255, 107, 129"};
+
+    for (int i=0; i< buttons.size(); i++){
+        double alpha = buttons[i]->isChecked() ? 1.0 : 0.5;
+        buttons[i]->setStyleSheet(QString("background-color: rgba(%1, %2);").arg(colors[i]).arg(alpha));
     }
 }
 
