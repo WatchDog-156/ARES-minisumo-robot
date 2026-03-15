@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     // tof = new ToFChart(this);
     // ui->stackedWidget->addWidget(tof);
-     tof = new ToFChart(this);
-     ui->stackedWidget->insertWidget(1, tof);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
-    // ui->stackedWidget->setCurrentIndex(0);
+    tof = new ToFChart(this);
+    ui->stackedWidget->insertWidget(1, tof);
+    line = new LineChart(this);
+    ui->stackedWidget->insertWidget(2, line);
+    ui->stackedWidget->setCurrentIndex(0);
 
     setupConnections();
 }
@@ -96,7 +96,7 @@ void MainWindow::handleFunctionButtons(){
         ui->stackedWidget->setCurrentIndex(1);
     } else if (button == ui->LineDiagram){
         qDebug() << "Change to Line Diagram";
-        //ui->stackedWidget->setCurrentIndex(2);
+        ui->stackedWidget->setCurrentIndex(2);
     }
 }
 

@@ -1,10 +1,10 @@
-#include "TofChart.h"
-#include "ui_TofChart.h"
+#include "LineChart.h"
+#include "ui_LineChart.h"
 #include <QVBoxLayout>
 
-ToFChart::ToFChart(QWidget *parent)
+LineChart::LineChart(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::ToFChart)
+    , ui(new Ui::LineChart)
 {
     ui->setupUi(this);
 
@@ -13,11 +13,11 @@ ToFChart::ToFChart(QWidget *parent)
     axisX = new QValueAxis();
     axisY = new QValueAxis();
 
-    QList<QColor> colors = { QColor(128, 0, 0), Qt::yellow, Qt::green, QColor(128, 0, 128) };
+    QList<QColor> colors = { QColor(128, 128, 0), QColor(0, 128, 128) };
 
-    for(int i = 0; i < 4; ++i) {
+    for(int i = 0; i < 2; ++i) {
         series[i] = new QLineSeries();
-        series[i]->setName(QString("TOF %1").arg(i + 1));
+        series[i]->setName(QString("Line %1").arg(i + 1));
         series[i]->setColor(colors[i]);
         chart->addSeries(series[i]);
     }
@@ -27,20 +27,20 @@ ToFChart::ToFChart(QWidget *parent)
     axisX->setLabelFormat("%d");
     axisX->setTickCount(11);
 
-    axisY->setRange(0, 800);
-    axisY->setTitleText("Distance [mm]");
+    axisY->setRange(0, 4095);
+    axisY->setTitleText("Reflected light value");
     axisY->setLabelFormat("%d");
     axisY->setTickCount(11);
 
     chart->addAxis(axisX, Qt::AlignBottom);
     chart->addAxis(axisY, Qt::AlignLeft);
 
-    for(int i = 0; i < 4; ++i) {
+    for(int i = 0; i < 2; ++i) {
         series[i]->attachAxis(axisX);
         series[i]->attachAxis(axisY);
     }
 
-    chart->setTitle("Measurement ToF sensors 1-4");
+    chart->setTitle("Measurement line detectors 1-2");
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignTop);
 
@@ -79,15 +79,16 @@ ToFChart::ToFChart(QWidget *parent)
     }
 }
 
-ToFChart::~ToFChart() {
+LineChart::~LineChart()
+{
     delete ui;
 }
 
-void ToFChart::addMeasurement(int tof1, int tof2, int tof3, int tof4)
+void LineChart::addMeasurement(int line_l, int line_r)
 {
-    int values[] = { tof1, tof2, tof3, tof4 };
+    int values[] = { line_l, line_r};
 
-    for(int i = 0; i < 4; ++i) {
+    for(int i = 0; i < 2; ++i) {
         dataBuffers[i].append(QPointF(iteration, values[i]));
 
         if (dataBuffers[i].size() > maxPoints) {
