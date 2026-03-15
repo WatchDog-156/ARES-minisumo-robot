@@ -37,7 +37,6 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
     if (s == QLowEnergyService::RemoteServiceDiscovered) {
         writeCharacteristic = service->characteristic(charUuid);
 
-        // Włączenie powiadomień (Notification), aby móc odbierać dane
         const QLowEnergyDescriptor notificationDesc = writeCharacteristic.descriptor(
             QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
         if (notificationDesc.isValid()) {
@@ -47,17 +46,16 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
     }
 }
 
-// ODBIERANIE DANYCH
 void BluetoothManager::updateCharacteristicValue(const QLowEnergyCharacteristic &c, const QByteArray &value) {
     if (c.uuid() == charUuid) {
         emit dataReceived(value);
     }
 }
 
-// WYSYŁANIE DANYCH
-void BluetoothManager::writeData(const QByteArray &data) {
+void BluetoothManager::writeData(const QString &data) {
     if (service && writeCharacteristic.isValid()) {
-        service->writeCharacteristic(writeCharacteristic, data, QLowEnergyService::WriteWithoutResponse);
+        QByteArray bytes = data.toUtf8();
+        service->writeCharacteristic(writeCharacteristic, bytes, QLowEnergyService::WriteWithoutResponse);
     }
 }
 

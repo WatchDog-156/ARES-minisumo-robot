@@ -15,10 +15,10 @@ public:
 
     void connectToDevice(const QBluetoothDeviceInfo &device);
     void disconnectDevice();
-    void writeData(const QByteArray &data); // Wysyłanie
+    void writeData(const QString &data);
 
 signals:
-    void dataReceived(const QByteArray &data); // Odbieranie
+    void dataReceived(const QByteArray &data);
     void connectionStatusChanged(bool connected, QString message);
 
 private slots:
