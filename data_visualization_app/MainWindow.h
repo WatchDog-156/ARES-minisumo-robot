@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "BluetoothScanner.h"
+#include "BluetoothManager.h"
+//#include "TofChart.h"
+//#include "TofChart.h"
 //#include "TofChart.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,11 +24,16 @@ public:
 private slots:
     void handleCommandButtons();
     void handleManualCommands();
-
+    void handleFunctionButtons();
     // void handleLanguage(int index);
+    void connectToDevice(const QBluetoothDeviceInfo &info);
+    void onDataReceived(const QByteArray &data);
 private:
     Ui::MainWindow *ui;
     void setupConnections();
     //ToFChart *tof;
+    //ToFChart *tof;
+    //ToFChart *tof;
+    BluetoothManager *bluetoothManager;
 };
 #endif // MAINWINDOW_H

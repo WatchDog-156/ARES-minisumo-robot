@@ -56,6 +56,9 @@
                <height>200</height>
               </size>
              </property>
+             <property name="currentIndex">
+              <number>1</number>
+             </property>
              <widget class="QWidget" name="Robot"/>
              <widget class="QWidget" name="TOF"/>
              <widget class="QWidget" name="LineDetector"/>

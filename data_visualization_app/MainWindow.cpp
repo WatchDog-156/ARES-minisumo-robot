@@ -1,17 +1,25 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 #include <QDebug>
+#include "BluetoothScanner.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setupConnections();
 
     // tof = new ToFChart(this);
     // ui->stackedWidget->addWidget(tof);
+    // tof = new ToFChart(this);
+    // ui->stackedWidget->addWidget(tof);
+    // tof = new ToFChart(this);
+    // ui->stackedWidget->addWidget(tof);
     // ui->stackedWidget->setCurrentIndex(0);
+
+    bluetoothManager = new BluetoothManager(this);
+
+    setupConnections();
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +37,11 @@ void MainWindow::setupConnections(){
     connect(ui->ButtonEND, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->EnterText, &QLineEdit::returnPressed, this, &MainWindow::handleManualCommands);
     // connect(ui->Language, &QComboBox::activated, this, &MainWindow::handleLanguage);
+    connect(ui->Connection, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
+    connect(ui->RobotDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
+    connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
+    connect(ui->LineDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
+    connect(bluetoothManager, &BluetoothManager::dataReceived, this, &MainWindow::onDataReceived);
 }
 
 
@@ -59,6 +72,25 @@ void MainWindow::handleManualCommands(){
     ui->EnterText->clear();
 }
 
+void MainWindow::handleFunctionButtons(){
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+
+    if(button == ui->Connection){
+        qDebug() << "Go to Bluetooth Scanner";
+        BluetoothScanner scanner(this);
+        connect(&scanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
+        scanner.exec();
+    } else if (button == ui->RobotDiagram){
+        qDebug() << "Change to Robot Diagram";
+        ui->stackedWidget->setCurrentIndex(0);
+    } else if (button == ui->TofDiagram){
+        qDebug() << "Change to ToF Diagram";
+        ui->stackedWidget->setCurrentIndex(1);
+    } else if (button == ui->LineDiagram){
+        qDebug() << "Change to Line Diagram";
+        ui->stackedWidget->setCurrentIndex(2);
+    }
+}
 
 // void MainWindow::handleLanguage(int index){
 //     switch(index){
@@ -75,9 +107,13 @@ void MainWindow::handleManualCommands(){
 //         }
 //     }
 
-//void MainWindow::on_pushButton_3_clicked() connection button
-//{
-//    BluetoothScanner scanner(this);
-//    scanner.exec();
-//}
+void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
+    qDebug() << "Próba połączenia z:" << info.name();
+    bluetoothManager->connectToDevice(info);
+}
 
+void MainWindow::onDataReceived(const QByteArray &data) {
+    qDebug() << "Odebrano z BLE:" << data;
+    // parser wiadomości
+    // Tutaj możesz np. wywołać ui->tofChart->addMeasurement(...)
+}
