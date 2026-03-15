@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "BluetoothManager.h"
+
 //#include "TofChart.h"
 //#include "TofChart.h"
 //#include "TofChart.h"
@@ -31,6 +32,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void setupConnections();
+    void updateButtonStates();
     //ToFChart *tof;
     //ToFChart *tof;
     //ToFChart *tof;
