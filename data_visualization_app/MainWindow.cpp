@@ -50,18 +50,25 @@ void MainWindow::handleCommandButtons(){
 
     if(button == ui->ButtonForward){
         qDebug() << "Forward";
+        bluetoothManager->writeData("FWD");
     } else if (button == ui->ButtonBackward){
         qDebug() << "Backward";
+        bluetoothManager->writeData("BWD");
     } else if (button == ui->ButtonStart){
         qDebug() << "Start";
+        bluetoothManager->writeData("START");
     } else if (button == ui->ButtonStop){
         qDebug() << "Stop";
+        bluetoothManager->writeData("STOP");
     } else if (button == ui->ButtonServoUp){
         qDebug() << "ServoUp";
+        bluetoothManager->writeData("SER_UP");
     } else if (button == ui->ButtonServoDown){
         qDebug() << "ServoDown";
+        bluetoothManager->writeData("SER_DW");
     } else if (button == ui->ButtonEND){
         qDebug() << "End";
+        bluetoothManager->writeData("END");
     }
 }
 
@@ -69,6 +76,7 @@ void MainWindow::handleManualCommands(){
     QString cmd = ui->EnterText->text();
     if (cmd.isEmpty()) return;
     qDebug() << "Wyslanie komendy: " << cmd;
+    bluetoothManager->writeData(cmd);
     ui->EnterText->clear();
 }
 
@@ -113,7 +121,8 @@ void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
 }
 
 void MainWindow::onDataReceived(const QByteArray &data) {
-    qDebug() << "Odebrano z BLE:" << data;
+    QString recivedData = QString::fromUtf8(data).trimmed();
+    qDebug() << "Odebrano z BLE:" << recivedData;
     // parser wiadomości
     // Tutaj możesz np. wywołać ui->tofChart->addMeasurement(...)
 }
