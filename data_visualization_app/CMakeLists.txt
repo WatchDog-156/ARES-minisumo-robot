@@ -27,6 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         BluetoothScanner.h BluetoothScanner.cpp BluetoothScanner.ui
+        BluetoothManager.h BluetoothManager.cpp
         #TofChart.h TofChart.cpp TofChart.ui
 
     )
