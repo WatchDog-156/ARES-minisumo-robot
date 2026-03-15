@@ -20,12 +20,13 @@ public:
     ~MainWindow() override;
 
 private slots:
-    void on_pushButton_2_clicked();
+    void handleCommandButtons();
+    void handleManualCommands();
 
-    void on_pushButton_3_clicked();
-
+    // void handleLanguage(int index);
 private:
     Ui::MainWindow *ui;
+    void setupConnections();
     //ToFChart *tof;
 };
 #endif // MAINWINDOW_H
