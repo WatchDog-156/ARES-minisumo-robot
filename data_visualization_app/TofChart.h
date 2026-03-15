@@ -1,7 +1,7 @@
 #ifndef TOFCHART_H
 #define TOFCHART_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QtCharts>
 #include <QList>
 #include <QPointF>
@@ -10,7 +10,7 @@ namespace Ui {
 class ToFChart;
 }
 
-class ToFChart : public QWidget
+class ToFChart : public QDialog
 {
     Q_OBJECT
 
