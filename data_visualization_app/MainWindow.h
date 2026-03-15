@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MainWindow_H
+#define MainWindow_H
 
 #include <QMainWindow>
 
@@ -26,4 +26,4 @@ private:
     Ui::MainWindow *ui;
     void setupConnections();
 };
-#endif // MAINWINDOW_H
+#endif // MainWindow_H
