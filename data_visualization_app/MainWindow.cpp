@@ -8,19 +8,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+      
+    bluetoothManager = new BluetoothManager(this);
 
     ui->RobotDiagram->setCheckable(true);
     ui->TofDiagram->setCheckable(true);
     ui->LineDiagram->setCheckable(true);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
-    // ui->stackedWidget->setCurrentIndex(0);
+    
 
-    bluetoothManager = new BluetoothManager(this);
+    // tof = new ToFChart(this);
+    // ui->stackedWidget->addWidget(tof);
+    tof = new ToFChart(this);
+    ui->stackedWidget->insertWidget(1, tof);
+    line = new LineChart(this);
+    ui->stackedWidget->insertWidget(2, line);
+    ui->stackedWidget->setCurrentIndex(0);
 
     setupConnections();
 }

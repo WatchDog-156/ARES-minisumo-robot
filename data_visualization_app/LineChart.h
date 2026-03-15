@@ -1,5 +1,5 @@
-#ifndef TOFCHART_H
-#define TOFCHART_H
+#ifndef LINECHART_H
+#define LINECHART_H
 
 #include <QWidget>
 #include <QtCharts>
@@ -10,28 +10,28 @@
 #include <QChartView>
 
 namespace Ui {
-class ToFChart;
+class LineChart;
 }
 
-class ToFChart : public QWidget
+class LineChart : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ToFChart(QWidget *parent = nullptr);
-    ~ToFChart();
+    explicit LineChart(QWidget *parent = nullptr);
+    ~LineChart();
 
-    void addMeasurement(int tof1, int tof2, int tof3, int tof4);
+    void addMeasurement(int line_l, int line_r);
 private:
-    Ui::ToFChart *ui;
+    Ui::LineChart *ui;
     QValueAxis *axisX = nullptr;
     QValueAxis *axisY = nullptr;
     QChart *chart = nullptr;
     QChartView *chartView = nullptr;
-    QLineSeries *series[4];
-    QList<QPointF> dataBuffers[4];
+    QLineSeries *series[2];
+    QList<QPointF> dataBuffers[2];
     int iteration = 0;
     const int maxPoints = 100;
 };
 
-#endif // TOFCHART_H
+#endif // LINECHART_H

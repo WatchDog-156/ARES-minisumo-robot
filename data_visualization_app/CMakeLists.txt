@@ -28,7 +28,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         BluetoothScanner.h BluetoothScanner.cpp BluetoothScanner.ui
         BluetoothManager.h BluetoothManager.cpp
-        #TofChart.h TofChart.cpp TofChart.ui
+        TofChart.h TofChart.cpp TofChart.ui
+        LineChart.h LineChart.cpp LineChart.ui
 
     )
 # Define target properties for Android with Qt 6 as:

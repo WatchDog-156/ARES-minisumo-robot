@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ToFChart</class>
- <widget class="QWidget" name="ToFChart">
+ <class>LineChart</class>
+ <widget class="QWidget" name="LineChart">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>523</width>
-    <height>492</height>
+    <width>495</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="charView" native="true">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>505</width>
-     <height>474</height>
+     <x>-1</x>
+     <y>-1</y>
+     <width>491</width>
+     <height>491</height>
     </rect>
    </property>
   </widget>

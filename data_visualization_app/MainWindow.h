@@ -5,8 +5,8 @@
 #include "BluetoothManager.h"
 
 //#include "TofChart.h"
-//#include "TofChart.h"
-//#include "TofChart.h"
+#include "TofChart.h"
+#include "LineChart.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -34,8 +34,8 @@ private:
     void setupConnections();
     void updateButtonStates();
     //ToFChart *tof;
-    //ToFChart *tof;
-    //ToFChart *tof;
+    ToFChart *tof;
+    LineChart *line;
     BluetoothManager *bluetoothManager;
 };
 #endif // MAINWINDOW_H
