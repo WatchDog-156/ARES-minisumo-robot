@@ -5,11 +5,11 @@
 #include "hardware/adc.h"
 #include "hardware/gpio.h"
 
-#define Left_Detector_Pin 27
-#define Left_adc 1
+#define Left_Detector_Pin 28
+#define Left_adc 2
 #define Right_Detector_Pin 26 
 #define Right_adc 0
-#define Threshold 2000
+#define Threshold 2900
 
 typedef enum{
     Left,

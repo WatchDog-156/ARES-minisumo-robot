@@ -1,19 +1,15 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-typedef enum{
-    Start,
-    Fighting,
-    End,
-} programState_t;
+#define TOF_OUT_OF_RANGE 800
+#define ENEMY_CLOSE 200
+#define SIDE_TRESHOLD 100
 
 typedef enum{
-    Right,
-    Left,
+    right, 
+    left,
 } side_t;
 
 void exec_program();
-programState_t get_progrogram_state();
-
 
 #endif

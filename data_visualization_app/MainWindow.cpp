@@ -1,6 +1,5 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
-
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,6 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setupConnections();
+
+    // tof = new ToFChart(this);
+    // ui->stackedWidget->addWidget(tof);
+    // ui->stackedWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
@@ -71,4 +74,10 @@ void MainWindow::handleManualCommands(){
 //             break;
 //         }
 //     }
+
+//void MainWindow::on_pushButton_3_clicked() connection button
+//{
+//    BluetoothScanner scanner(this);
+//    scanner.exec();
+//}
 

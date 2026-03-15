@@ -1,7 +1,9 @@
-#ifndef MainWindow_H
-#define MainWindow_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "BluetoothScanner.h"
+//#include "TofChart.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,5 +27,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     void setupConnections();
+    //ToFChart *tof;
 };
-#endif // MainWindow_H
+#endif // MAINWINDOW_H
