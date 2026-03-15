@@ -1,16 +1,19 @@
 #ifndef TOFCHART_H
 #define TOFCHART_H
 
-#include <QDialog>
+#include <QWidget>
 #include <QtCharts>
 #include <QList>
 #include <QPointF>
+#include <QLineSeries>
+#include <QValueAxis>
+#include <QChartView>
 
 namespace Ui {
 class ToFChart;
 }
 
-class ToFChart : public QDialog
+class ToFChart : public QWidget
 {
     Q_OBJECT
 
@@ -19,10 +22,14 @@ public:
     ~ToFChart();
 
     void addMeasurement(int tof1, int tof2, int tof3, int tof4);
+
 private:
     Ui::ToFChart *ui;
-    QChart *chart;
-    QChartView *chartView;
+    // Inicjalizacja wskaźników na nullptr to dobra praktyka
+    QValueAxis *axisX = nullptr;
+    QValueAxis *axisY = nullptr;
+    QChart *chart = nullptr;
+    QChartView *chartView = nullptr;
     QLineSeries *series[4];
     QList<QPointF> dataBuffers[4];
     int iteration = 0;

@@ -41,7 +41,7 @@ void BluetoothScanner::on_buttonConnect_clicked()
 
 void BluetoothScanner::addDevice(const QBluetoothDeviceInfo &info) {
     if (info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration) {
-        QString label = QString("%1 [%2]").arg(info.name()).arg(info.address().toString());
+        QString label = QString("%1 [%2]").arg(info.name(), info.address().toString());
 
         if (ui->listDevices->findItems(label, Qt::MatchExactly).isEmpty()) {
             ui->listDevices->addItem(label);

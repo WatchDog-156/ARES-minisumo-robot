@@ -9,15 +9,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    bluetoothManager = new BluetoothManager(this);
+
     // tof = new ToFChart(this);
     // ui->stackedWidget->addWidget(tof);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->addWidget(tof);
+     tof = new ToFChart(this);
+     ui->stackedWidget->insertWidget(1, tof);
     // tof = new ToFChart(this);
     // ui->stackedWidget->addWidget(tof);
     // ui->stackedWidget->setCurrentIndex(0);
-
-    bluetoothManager = new BluetoothManager(this);
 
     setupConnections();
 }
@@ -96,7 +96,7 @@ void MainWindow::handleFunctionButtons(){
         ui->stackedWidget->setCurrentIndex(1);
     } else if (button == ui->LineDiagram){
         qDebug() << "Change to Line Diagram";
-        ui->stackedWidget->setCurrentIndex(2);
+        //ui->stackedWidget->setCurrentIndex(2);
     }
 }
 

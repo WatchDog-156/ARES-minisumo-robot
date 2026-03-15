@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "BluetoothManager.h"
 //#include "TofChart.h"
-//#include "TofChart.h"
+#include "TofChart.h"
 //#include "TofChart.h"
 
 QT_BEGIN_NAMESPACE
@@ -32,7 +32,7 @@ private:
     Ui::MainWindow *ui;
     void setupConnections();
     //ToFChart *tof;
-    //ToFChart *tof;
+    ToFChart *tof;
     //ToFChart *tof;
     BluetoothManager *bluetoothManager;
 };
