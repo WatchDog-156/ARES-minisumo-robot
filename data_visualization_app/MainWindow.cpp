@@ -157,13 +157,13 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         values.append(match.captured(0).toInt());
     }
 
-    if (values.size() >= 6) {
+    if (values.size() == 6) {
         int lines[2] = {values[0], values[1]};
         int tofs[4] = {values[2], values[3], values[4], values[5]};
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3];
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
     } else {
-        qDebug() << "Błąd przy parsowaniu wiadomości";
+        qDebug() << "Wiadomość nie została sparsowana";
     }
 }
