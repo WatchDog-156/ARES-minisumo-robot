@@ -25,6 +25,7 @@ private slots:
     void on_buttonConnect_clicked();
     void addDevice(const QBluetoothDeviceInfo &info);
     void sortAndRefreshList();
+
 private:
     Ui::BluetoothScanner *ui;
     QBluetoothDeviceDiscoveryAgent *discoveryAgent;

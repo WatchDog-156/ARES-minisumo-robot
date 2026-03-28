@@ -1,9 +1,35 @@
+/**
+ * @file BluetoothManager.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Klasa do zarządzania łącznością bluetooth za pomocą protokołu Nordic UART Service
+ * @version 1.0
+ * @date 2026-03-28
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #include "BluetoothManager.h"
 
+
+/**
+ * @brief Construct a new Bluetooth Manager:: Bluetooth Manager object
+ * 
+ * @param parent wskażnik na rodzica obiektu
+ */
 BluetoothManager::BluetoothManager(QObject *parent) : QObject(parent) {}
 
+/**
+ * @brief Destroy the Bluetooth Manager:: Bluetooth Manager object
+ * 
+ */
 BluetoothManager::~BluetoothManager() { disconnectDevice(); }
 
+/**
+ * @brief Funkcja zapoczątkowuje połączenie bluetooth z wybranym urządzeniem.
+ *        Następuje połączenie oraz wyszukanie dostępnych serwisów
+ * 
+ * @param device dane o urządzeniu bluetooth, z którym następuje połączenie
+ */
 void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
     if (controller) {
         controller->disconnectFromDevice();
@@ -17,12 +43,16 @@ void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
         emit connectionStatusChanged(true, "Połączono. Szukanie serwisów...");
         controller->discoverServices();
     });
-
     connect(controller, &QLowEnergyController::serviceDiscovered, this, &BluetoothManager::serviceDiscovered);
 
     controller->connectToDevice();
 }
 
+/**
+ * @brief Slot, który zarządza znajdowaniem konkretnych serwisów
+ * 
+ * @param gatt identyfikator UUID usługi
+ */
 void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
     if (gatt == serviceUuid) {
         service = controller->createServiceObject(gatt, this);
@@ -34,6 +64,11 @@ void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
     }
 }
 
+/**
+ * @brief Slot odpowiedzialany za finalizacje połączenia bluetooth
+ * 
+ * @param s informacja o aktualnym etapie usługi
+ */
 void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
     if (s == QLowEnergyService::RemoteServiceDiscovered) {
         writeCharacteristic = service->characteristic(charWriteUuid);
@@ -45,8 +80,7 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
             return;
         }
 
-        const QLowEnergyDescriptor notificationDesc = readChar.descriptor(
-            QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
+        const QLowEnergyDescriptor notificationDesc = readChar.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
         
         if (notificationDesc.isValid()) {
             service->writeDescriptor(notificationDesc, QByteArray::fromHex("0100"));
@@ -56,12 +90,23 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
     }
 }
 
+/**
+ * @brief Slot odpowiada za odbieranie wiadomości przysłanych od urządzenia bluetooth
+ * 
+ * @param c referencja na obiekt charakterystyki
+ * @param value tablica przysłanych danych binarnych
+ */
 void BluetoothManager::updateCharacteristicValue(const QLowEnergyCharacteristic &c, const QByteArray &value) {
     if (c.uuid() == charReadUuid) {
         emit dataReceived(value);
     }
 }
 
+/**
+ * @brief Funkcja powoduje wysłanie wiadomości do urządzenia po bluetooth
+ * 
+ * @param data wiadomość do wysłania
+ */
 void BluetoothManager::writeData(const QString &data) {
     if (service && writeCharacteristic.isValid()) {
         QByteArray bytes = (data + "\n").toUtf8();
@@ -69,6 +114,11 @@ void BluetoothManager::writeData(const QString &data) {
     }
 }
 
+/**
+ * @brief Funkcja powoduje rozłączenie się z aktualnie połączonym urządzeniem bluetooth
+ * 
+ */
 void BluetoothManager::disconnectDevice() {
-    if (controller) controller->disconnectFromDevice();
+    if (controller) 
+        controller->disconnectFromDevice();
 }
