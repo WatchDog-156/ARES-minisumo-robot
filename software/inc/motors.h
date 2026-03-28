@@ -27,9 +27,6 @@ void motor_init(void);
 void motor_set(motor_id_t motor, direction_t direction, uint8_t speed);
 void motor_stop(motor_id_t motor);
 void all_motor_stop(void);
-
-
-
-
+int get_motor_value(uint8_t motor);
 
 #endif

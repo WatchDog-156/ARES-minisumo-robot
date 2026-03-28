@@ -146,7 +146,7 @@ static int att_write_callback(hci_con_handle_t con_handle, uint16_t att_handle, 
         }
 
         char msg[64];
-        snprintf(msg, sizeof(msg), "Odebrano: %s", cmd);
+        snprintf(msg, sizeof(msg), "Odebrano: %s\n", cmd);
         bluetooth_send_telemetry(msg);
     }
     return 0;
