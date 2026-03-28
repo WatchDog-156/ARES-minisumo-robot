@@ -43,12 +43,28 @@ void BluetoothScanner::on_buttonConnect_clicked()
 
 void BluetoothScanner::addDevice(const QBluetoothDeviceInfo &info) {
     if (info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration) {
-        QString label = QString("%1 [%2]").arg(info.name(), info.address().toString());
+        QString label = QString("%1 [%2] (%3 dBm)").arg(info.name(), info.address().toString(), QString::number(info.rssi()));
 
         if (ui->listDevices->findItems(label, Qt::MatchExactly).isEmpty()) {
             ui->listDevices->addItem(label);
             foundDevices.append(info);
+
+            sortAndRefreshList();
         }
+    }
+}
+
+void BluetoothScanner::sortAndRefreshList() {
+    // Sortowanie malejące po RSSI (siła sygnału)
+    std::sort(foundDevices.begin(), foundDevices.end(), [](const QBluetoothDeviceInfo &a, const QBluetoothDeviceInfo &b) {
+        return a.rssi() > b.rssi(); 
+    });
+
+    // Odświeżenie interfejsu
+    ui->listDevices->clear();
+    for (const auto &device : foundDevices) {
+        QString label = QString("%1 (%2 dBm)").arg(device.name()).arg(device.rssi());
+        ui->listDevices->addItem(label); 
     }
 }
 

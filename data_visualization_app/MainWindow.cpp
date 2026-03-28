@@ -52,6 +52,9 @@ void MainWindow::setupConnections(){
     connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->LineDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(bluetoothManager, &BluetoothManager::dataReceived, this, &MainWindow::onDataReceived);
+    connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, [](bool success, const QString &msg) {
+    qDebug() << "Status BLE:" << msg;
+});
 }
 
 
