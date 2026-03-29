@@ -34,10 +34,12 @@ private:
     Ui::MainWindow *ui;
     void setupConnections();
     void updateButtonStates();
+
     //RobotChart *robot;
     ToFChart *tof;
     LineChart *line;
     RobotPicture *robotPicture;
+    
     BluetoothManager *bluetoothManager;
     BluetoothLogger *bluetoothLogger;
 };
