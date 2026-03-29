@@ -2,8 +2,8 @@
  * @file BluetoothManager.cpp
  * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
  * @brief Klasa do zarządzania łącznością bluetooth za pomocą protokołu Nordic UART Service
- * @version 1.0
- * @date 2026-03-28
+ * @version 1.1
+ * @date 2026-03-29
  * 
  * @copyright Copyright (c) 2026
  * 
@@ -44,6 +44,9 @@ void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
         controller->discoverServices();
     });
     connect(controller, &QLowEnergyController::serviceDiscovered, this, &BluetoothManager::serviceDiscovered);
+    connect(controller, &QLowEnergyController::disconnected, this, [this]() {
+        emit connectionStatusChanged(false, "Urządzenie rozłączone");
+    });
 
     controller->connectToDevice();
 }
