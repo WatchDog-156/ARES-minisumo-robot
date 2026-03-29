@@ -25,6 +25,8 @@ static void mess_timer_handler(btstack_timer_source_t *ts) {
     for (int i=0; i<4; i++){
         tofSetCurrentAddress(addr[i]);
         dystans[i]=tofReadDistance(i);
+        if(dystans[i]>800)
+            dystans[i]=800;
     }
 
     int motor[2];
