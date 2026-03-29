@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
       
     bluetoothManager = new BluetoothManager(this);
+    bluetoothLogger = nullptr;
 
     ui->RobotDiagram->setCheckable(true);
     ui->TofDiagram->setCheckable(true);
@@ -103,6 +104,18 @@ void MainWindow::handleFunctionButtons(){
         scanner.exec();
         return;
     }
+
+    if(button == ui->RobotDiagram){     // zmiana na ui->Logger
+        if (!bluetoothLogger) {
+            bluetoothLogger = new BluetoothLogger(this);
+            bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
+            connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
+        }
+        bluetoothLogger->show();
+        bluetoothLogger->raise();    
+        bluetoothLogger->activateWindow();
+    }
+
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
     ui->LineDiagram->setChecked(false);
@@ -159,7 +172,7 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         values.append(match.captured(0).toInt());
     }
 
-    if (values.size() == 6) {
+    if (values.size() == 8) {
         int lines[2] = {values[0], values[1]};
         int tofs[4] = {values[2], values[3], values[4], values[5]};
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3];

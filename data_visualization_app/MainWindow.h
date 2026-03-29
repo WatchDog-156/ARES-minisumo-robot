@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "BluetoothManager.h"
+#include "BluetoothLogger.h"
 //#include "RobotChart.h"
 #include "TofChart.h"
 #include "LineChart.h"
@@ -38,5 +39,6 @@ private:
     LineChart *line;
     RobotPicture *robotPicture;
     BluetoothManager *bluetoothManager;
+    BluetoothLogger *bluetoothLogger;
 };
 #endif // MAINWINDOW_H
