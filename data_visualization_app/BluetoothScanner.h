@@ -17,11 +17,15 @@ public:
     explicit BluetoothScanner(QWidget *parent = nullptr);
     ~BluetoothScanner();
 
-    Q_SIGNAL void deviceSelected(const QBluetoothDeviceInfo &info);
+signals:
+    void deviceSelected(const QBluetoothDeviceInfo &info);
+
 private slots:
     void on_buttonScan_clicked();
     void on_buttonConnect_clicked();
     void addDevice(const QBluetoothDeviceInfo &info);
+    void sortAndRefreshList();
+
 private:
     Ui::BluetoothScanner *ui;
     QBluetoothDeviceDiscoveryAgent *discoveryAgent;

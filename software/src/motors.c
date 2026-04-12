@@ -14,6 +14,9 @@ typedef struct
 
 static motor_config_t motors[2];
 
+int left_mot;
+int right_mot;
+
 void motor_init(void)
 {
     motors[Left_Motor].pwm_pin = Left_Motor_PWM_Pin;
@@ -38,11 +41,14 @@ void motor_init(void)
         gpio_init(m->dir1_pin);
         gpio_set_dir(m->dir1_pin, true); //true to out
         gpio_put(m->dir1_pin, 0);
-
+ 
         gpio_init(m->dir2_pin);
         gpio_set_dir(m->dir2_pin, true); //true to out
         gpio_put(m->dir2_pin, 0);
     }
+
+    left_mot=0;
+    right_mot=0;
 }
 
 void motor_set(motor_id_t motor, direction_t direction, uint8_t speed)
@@ -70,6 +76,19 @@ void motor_set(motor_id_t motor, direction_t direction, uint8_t speed)
             pwm_set_chan_level(m->slice_num, m->channel, 0);
             break;
     }
+
+    int val;
+    if(direction==Forward)
+        val=speed;
+    else if(direction==Backward)
+        val=-speed;
+    else
+        val=0;
+
+    if(motor==Left_Motor)
+        left_mot=val;
+    else
+        right_mot=val;
 }
 
 void motor_stop(motor_id_t motor)
@@ -81,4 +100,13 @@ void all_motor_stop(void)
 {   
     motor_stop(Left_Motor);
     motor_stop(Right_Motor);
+}
+
+int get_motor_value(uint8_t motor){
+    if(motor==0)
+        return left_mot;
+    else if(motor==1)
+        return right_mot;
+    else 
+        return -1;
 }

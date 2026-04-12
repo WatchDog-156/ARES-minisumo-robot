@@ -22,6 +22,10 @@ public:
     ~LineChart();
 
     void addMeasurement(int line_l, int line_r);
+
+private slots:
+    void onLegendMarkerClicked();
+
 private:
     Ui::LineChart *ui;
     QValueAxis *axisX = nullptr;

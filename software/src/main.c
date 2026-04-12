@@ -25,37 +25,23 @@ static void mess_timer_handler(btstack_timer_source_t *ts) {
     for (int i=0; i<4; i++){
         tofSetCurrentAddress(addr[i]);
         dystans[i]=tofReadDistance(i);
+        if(dystans[i]>800)
+            dystans[i]=800;
+    }
+
+    int motor[2];
+    for(int i=0; i<2; i++){
+        motor[i]=get_motor_value(i);
     }
 
     // Wysłanie telemetrii przez Bluetooth
-    char msg[64]; 
-    switch(getState()){
-        case Start: 
-            snprintf(msg, sizeof(msg), "Robot status: Start\n");
-            break;
-        case Fighting: 
-            snprintf(msg, sizeof(msg), "Robot status: Fighting\n");
-            break;
-        case End: 
-            snprintf(msg, sizeof(msg), "Robot status: End\n");
-            break;
-    }
-    printf("%s", msg);
-
-    char msg1[64];
-    snprintf(msg1, sizeof(msg1), "L:%d R:%d\n", status_left, status_right);
-    printf("%s", msg1);
-
-    char msg2[128];
-    snprintf(msg2, sizeof(msg2), "XShut1: %d XShut2: %d XShut3: %d XShut4: %d\n", dystans[0], dystans[1], dystans[2], dystans[3]);
-    printf("%s", msg2);
-
+    char msg[128]; 
+    snprintf(msg, sizeof(msg), "Line:%d, %d; IR: %d, %d, %d, %d; Motor: %d, %d\n", status_left, status_right, dystans[0], dystans[1], dystans[2], dystans[3], motor[0], motor[1]);
+    printf("%s\n", msg);
     bluetooth_send_telemetry(msg);
-    bluetooth_send_telemetry(msg1);
-    bluetooth_send_telemetry(msg2);
  
     // Resetowanie timera
-    btstack_run_loop_set_timer(ts, 500);
+    btstack_run_loop_set_timer(ts, 100);
     btstack_run_loop_add_timer(ts);
 }
 

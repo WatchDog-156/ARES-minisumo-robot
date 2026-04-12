@@ -22,6 +22,10 @@ public:
     ~ToFChart();
 
     void addMeasurement(int tof1, int tof2, int tof3, int tof4);
+
+private slots:
+    void onLegendMarkerClicked();
+
 private:
     Ui::ToFChart *ui;
     QValueAxis *axisX = nullptr;

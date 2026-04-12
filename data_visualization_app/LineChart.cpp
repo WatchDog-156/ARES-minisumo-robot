@@ -1,7 +1,22 @@
+/**
+ * @file LineChart.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Klasa do zarządzania widget'em odpowiedzialnym za wyświetlanie wykresów czujników białej linii
+ * @version 1.0
+ * @date 2026-03-29
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #include "LineChart.h"
 #include "ui_LineChart.h"
 #include <QVBoxLayout>
 
+/**
+ * @brief Construct a new Line Chart:: Line Chart object
+ * 
+ * @param parent wskażnik na rodzica obiektu
+ */
 LineChart::LineChart(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::LineChart)
@@ -45,31 +60,12 @@ LineChart::LineChart(QWidget *parent)
     chart->legend()->setAlignment(Qt::AlignTop);
 
     for (QLegendMarker *marker : chart->legend()->markers()) {
-        connect(marker, &QLegendMarker::clicked, this, [=]() {
-            QAbstractSeries *series = marker->series();
-            if (!series) return;
-
-            bool isVisible = series->isVisible();
-            series->setVisible(!isVisible);
-            marker->setVisible(true);
-
-            qreal alpha = series->isVisible() ? 1.0 : 0.4;
-            QColor color = marker->labelBrush().color();
-            color.setAlphaF(alpha);
-            marker->setLabelBrush(QBrush(color));
-
-            QBrush brush = marker->brush();
-            QColor brushColor = brush.color();
-            brushColor.setAlphaF(alpha);
-            brush.setColor(brushColor);
-            marker->setBrush(brush);
-        });
+        connect(marker, &QLegendMarker::clicked, this, &LineChart::onLegendMarkerClicked);
     }
 
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    // Zarządzanie layoutem
     if (this->layout() == nullptr) {
         QVBoxLayout *layout = new QVBoxLayout(this);
         layout->setContentsMargins(0,50,0,0);
@@ -79,11 +75,48 @@ LineChart::LineChart(QWidget *parent)
     }
 }
 
+/**
+ * @brief Destroy the Line Chart:: Line Chart object
+ * 
+ */
 LineChart::~LineChart()
 {
     delete ui;
 }
 
+/**
+ * @brief Zarządza wykresem, gdy kliknięto na znacznik legendy któregoś z wykresów
+ * 
+ */
+void LineChart::onLegendMarkerClicked(){
+    QLegendMarker* marker = qobject_cast<QLegendMarker*>(sender());
+    if (!marker) return;
+
+    QAbstractSeries *series = marker->series();
+    if (!series) return;
+
+    bool isVisible = series->isVisible();
+    series->setVisible(!isVisible);
+    marker->setVisible(true);
+
+    qreal alpha = series->isVisible() ? 1.0 : 0.4;
+    QColor color = marker->labelBrush().color();
+    color.setAlphaF(alpha);
+    marker->setLabelBrush(QBrush(color));
+
+    QBrush brush = marker->brush();
+    QColor brushColor = brush.color();
+    brushColor.setAlphaF(alpha);
+    brush.setColor(brushColor);
+    marker->setBrush(brush);
+}
+
+/**
+ * @brief Funkcja dodaje pomiary białej linii do wykresu
+ * 
+ * @param line_l pomiar z lewego czujnika białej linii
+ * @param line_r pomiar z prawego czujnika białej linii
+ */
 void LineChart::addMeasurement(int line_l, int line_r)
 {
     int values[] = { line_l, line_r};
