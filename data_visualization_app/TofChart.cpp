@@ -32,7 +32,7 @@ ToFChart::ToFChart(QWidget *parent)
 
     for(int i = 0; i<4; ++i){
         series[i] = new QLineSeries();
-        series[i]->setName(QString("TOF %1").arg(i+1));
+        series[i]->setName(QString("ToF %1").arg(i+1));
         series[i]->setColor(colors[i]);
         chart->addSeries(series[i]);
     }
