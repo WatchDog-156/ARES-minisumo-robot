@@ -32,10 +32,11 @@ LineChart::LineChart(QWidget *parent)
 
     for(int i = 0; i < 2; ++i) {
         series[i] = new QLineSeries();
-        series[i]->setName(QString("Line %1").arg(i + 1));
         series[i]->setColor(colors[i]);
         chart->addSeries(series[i]);
     }
+    series[0]->setName(QString("Left detector"));
+    series[1]->setName(QString("Right detector"));
 
     axisX->setRange(0, maxPoints);
     axisX->setTitleText("Probe");

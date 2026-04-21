@@ -177,7 +177,8 @@ void MainWindow::onDataReceived(const QByteArray &data) {
     if (values.size() == 8) {
         int lines[2] = {values[0], values[1]};
         int tofs[4] = {values[2], values[3], values[4], values[5]};
-        qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3];
+        int motors[2] = {values[6], values[7]};
+        qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3] << " | " << motors[0] << ", " << motors[1];// << std::endl;
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
     } else {

@@ -36,7 +36,7 @@ static void mess_timer_handler(btstack_timer_source_t *ts) {
 
     // Wysłanie telemetrii przez Bluetooth
     char msg[128]; 
-    snprintf(msg, sizeof(msg), "Line:%d, %d; IR: %d, %d, %d, %d; Motor: %d, %d\n", status_left, status_right, dystans[0], dystans[1], dystans[2], dystans[3], motor[0], motor[1]);
+    snprintf(msg, sizeof(msg), "Line %d %d IR %d %d %d %d Motor %d %d\n", status_left, status_right, dystans[0], dystans[1], dystans[2], dystans[3], motor[0], motor[1]);
     printf("%s\n", msg);
     bluetooth_send_telemetry(msg);
  
