@@ -15,17 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->TofDiagram->setCheckable(true);
     ui->LineDiagram->setCheckable(true);
     
-
-    // // robot = new RobotChart(this);
-    // // ui->stackedWidget->insertWidget(0, robot);
-    // tof = new ToFChart(this);
-    // ui->stackedWidget->insertWidget(1, tof);
-    // line = new LineChart(this);
-    // ui->stackedWidget->insertWidget(2, line);
-    // robotPicture = new RobotPicture(this);
-    // // ui->stackedWidget->insertWidget(4, robotPicture);
+    robotPicture = new RobotPicture(this);
     ui->stackedWidget->addWidget(robotPicture);
-    // ui->stackedWidget->setCurrentIndex(4);
     ui->stackedWidget->setCurrentWidget(robotPicture);
 
     setupConnections();
