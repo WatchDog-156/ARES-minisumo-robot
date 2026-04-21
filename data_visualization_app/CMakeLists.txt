@@ -14,11 +14,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Cha
 
 set(TS_FILES data_visualization_app_pl_PL.ts)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
 set(PROJECT_SOURCES
         main.cpp
         MainWindow.cpp
         MainWindow.h
         MainWindow.ui
+        RobotDiagram.cpp
+        RobotDiagram.h
+        RobotDiagram.ui
+        MotorArrowWidget.cpp
+        MotorArrowWidget.h
+        TofConeWidget.cpp
+        TofConeWidget.h
         ${TS_FILES}
 )
 
@@ -32,6 +41,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         TofChart.h TofChart.cpp TofChart.ui
         LineChart.h LineChart.cpp LineChart.ui
         RobotPicture.h RobotPicture.cpp RobotPicture.ui
+        RobotDiagram.h RobotDiagram.cpp RobotDiagram.ui
+        MotorArrowWidget.h MotorArrowWidget.cpp
+        TofConeWidget.h TofConeWidget.cpp
         mechanika.png
         pictures.qrc
 

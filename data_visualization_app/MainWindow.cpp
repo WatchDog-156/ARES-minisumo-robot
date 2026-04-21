@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->addWidget(robotPicture);
     // ui->stackedWidget->setCurrentIndex(4);
     ui->stackedWidget->setCurrentWidget(robotPicture);
+    robotDiagram = new RobotDiagram(this);
+    ui->stackedWidget->addWidget(robotDiagram);
 
     setupConnections();
     this->setWindowTitle("Panel Danych Wizualnych ARES");
@@ -105,25 +107,25 @@ void MainWindow::handleFunctionButtons(){
         return;
     }
 
-    if(button == ui->RobotDiagram){     // zmiana na ui->Logger
-        if (!bluetoothLogger) {
-            bluetoothLogger = new BluetoothLogger(this);
-            bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
-            connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
-        }
-        bluetoothLogger->show();
-        bluetoothLogger->raise();    
-        bluetoothLogger->activateWindow();
-    }
+    // if(button == ui->RobotDiagram){     // zmiana na ui->Logger
+    //     if (!bluetoothLogger) {
+    //         bluetoothLogger = new BluetoothLogger(this);
+    //         bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
+    //         connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
+    //     }
+    //     bluetoothLogger->show();
+    //     bluetoothLogger->raise();    
+    //     bluetoothLogger->activateWindow();
+    // }
 
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
     ui->LineDiagram->setChecked(false);
     button->setChecked(true);
 
-    if (button == ui->RobotDiagram) ui->stackedWidget->setCurrentIndex(0);
-    else if (button == ui->TofDiagram) ui->stackedWidget->setCurrentIndex(1);
-    else if (button == ui->LineDiagram) ui->stackedWidget->setCurrentIndex(2);
+    if (button == ui->RobotDiagram) ui->stackedWidget->setCurrentWidget(robotDiagram);
+    else if (button == ui->TofDiagram) ui->stackedWidget->setCurrentWidget(tof);
+    else if (button == ui->LineDiagram) ui->stackedWidget->setCurrentWidget(line);
 
 
     updateButtonStates();

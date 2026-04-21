@@ -8,6 +8,7 @@
 #include "TofChart.h"
 #include "LineChart.h"
 #include "RobotPicture.h"
+#include "RobotDiagram.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -39,6 +40,7 @@ private:
     ToFChart *tof;
     LineChart *line;
     RobotPicture *robotPicture;
+    RobotDiagram *robotDiagram;
     
     BluetoothManager *bluetoothManager;
     BluetoothLogger *bluetoothLogger;
