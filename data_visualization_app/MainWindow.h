@@ -3,10 +3,6 @@
 
 #include <QMainWindow>
 #include "BluetoothManager.h"
-#include "BluetoothLogger.h"
-//#include "RobotChart.h"
-#include "TofChart.h"
-#include "LineChart.h"
 #include "RobotPicture.h"
 
 QT_BEGIN_NAMESPACE
@@ -35,12 +31,8 @@ private:
     void setupConnections();
     void updateButtonStates();
 
-    //RobotChart *robot;
-    ToFChart *tof;
-    LineChart *line;
     RobotPicture *robotPicture;
     
     BluetoothManager *bluetoothManager;
-    BluetoothLogger *bluetoothLogger;
 };
 #endif // MAINWINDOW_H

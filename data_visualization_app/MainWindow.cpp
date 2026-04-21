@@ -10,21 +10,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
       
     bluetoothManager = new BluetoothManager(this);
-    bluetoothLogger = nullptr;
 
     ui->RobotDiagram->setCheckable(true);
     ui->TofDiagram->setCheckable(true);
     ui->LineDiagram->setCheckable(true);
     
 
-    // robot = new RobotChart(this);
-    // ui->stackedWidget->insertWidget(0, robot);
-    tof = new ToFChart(this);
-    ui->stackedWidget->insertWidget(1, tof);
-    line = new LineChart(this);
-    ui->stackedWidget->insertWidget(2, line);
-    robotPicture = new RobotPicture(this);
-    // ui->stackedWidget->insertWidget(4, robotPicture);
+    // // robot = new RobotChart(this);
+    // // ui->stackedWidget->insertWidget(0, robot);
+    // tof = new ToFChart(this);
+    // ui->stackedWidget->insertWidget(1, tof);
+    // line = new LineChart(this);
+    // ui->stackedWidget->insertWidget(2, line);
+    // robotPicture = new RobotPicture(this);
+    // // ui->stackedWidget->insertWidget(4, robotPicture);
     ui->stackedWidget->addWidget(robotPicture);
     // ui->stackedWidget->setCurrentIndex(4);
     ui->stackedWidget->setCurrentWidget(robotPicture);
@@ -105,17 +104,6 @@ void MainWindow::handleFunctionButtons(){
         return;
     }
 
-    if(button == ui->RobotDiagram){     // zmiana na ui->Logger
-        if (!bluetoothLogger) {
-            bluetoothLogger = new BluetoothLogger(this);
-            bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
-            connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
-        }
-        bluetoothLogger->show();
-        bluetoothLogger->raise();    
-        bluetoothLogger->activateWindow();
-    }
-
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
     ui->LineDiagram->setChecked(false);
@@ -177,8 +165,8 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         int tofs[4] = {values[2], values[3], values[4], values[5]};
         int motors[2] = {values[6], values[7]};
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3] << " | " << motors[0] << ", " << motors[1];// << std::endl;
-        line->addMeasurement(lines[0],lines[1]);
-        tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
+        // line->addMeasurement(lines[0],lines[1]);
+        // tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
     }

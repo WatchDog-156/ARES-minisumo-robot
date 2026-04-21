@@ -28,9 +28,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         BluetoothScanner.h BluetoothScanner.cpp BluetoothScanner.ui
         BluetoothManager.h BluetoothManager.cpp
-        BluetoothLogger.h BluetoothLogger.cpp BluetoothLogger.ui
-        TofChart.h TofChart.cpp TofChart.ui
-        LineChart.h LineChart.cpp LineChart.ui
         RobotPicture.h RobotPicture.cpp RobotPicture.ui
         mechanika.png
         pictures.qrc
