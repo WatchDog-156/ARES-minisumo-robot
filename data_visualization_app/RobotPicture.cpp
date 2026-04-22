@@ -14,6 +14,7 @@
 /**
  * @brief Construct a new Robot Picture:: Robot Picture object
  * 
+ * Construct a new Robot Picture:: Robot Picture object
  * @param parent wskażnik na rodzica obiektu
  */
 RobotPicture::RobotPicture(QWidget *parent)
@@ -26,6 +27,7 @@ RobotPicture::RobotPicture(QWidget *parent)
 /**
  * @brief Destroy the Robot Picture:: Robot Picture object
  * 
+ * Destroy the Robot Picture:: Robot Picture object
  */
 RobotPicture::~RobotPicture()
 {

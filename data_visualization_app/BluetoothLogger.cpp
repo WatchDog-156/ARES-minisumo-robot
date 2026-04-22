@@ -16,6 +16,7 @@
 /**
  * @brief Construct a new Bluetooth Logger:: Bluetooth Logger object
  * 
+ * Construct a new Bluetooth Logger:: Bluetooth Logger object
  * @param parent wskażnik na rodzica obiektu
  */
 BluetoothLogger::BluetoothLogger(QWidget *parent)
@@ -30,6 +31,7 @@ BluetoothLogger::BluetoothLogger(QWidget *parent)
 /**
  * @brief Destroy the Bluetooth Logger:: Bluetooth Logger object
  * 
+ * Destroy the Bluetooth Logger:: Bluetooth Logger object
  */
 BluetoothLogger::~BluetoothLogger()
 {
@@ -37,8 +39,9 @@ BluetoothLogger::~BluetoothLogger()
 }
 
 /**
- * @brief Funkcja odpowiada za resetowanie wyświetlanych logów po naciśnięciu przycisku RESET
+ * @brief Funkcja odpowiadająca za przycisk RESET
  * 
+ * Funkcja odpowiada za resetowanie wyświetlanych logów po naciśnięciu przycisku RESET
  */
 void BluetoothLogger::on_buttonReset_clicked()
 {
@@ -46,8 +49,9 @@ void BluetoothLogger::on_buttonReset_clicked()
 }
 
 /**
- * @brief Funkcja odpowiada za dodanie logów wysłanych do urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
+ * @brief Funkcja odpowiadająca za dodawanie wysłanych logów
  * 
+ * Funkcja odpowiada za dodanie logów wysłanych do urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
  * @param log wysłana wiadomość do wyświetlenia
  */
 void BluetoothLogger::addSendedLog(const QString &log) 
@@ -61,8 +65,9 @@ void BluetoothLogger::addSendedLog(const QString &log)
 }
 
 /**
- * @brief Funkcja odpowiada za dodanie logów odebranych od urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
+ * @brief Funkcja odpowiadająca za dodanie odebranych logów 
  * 
+ * Funkcja odpowiada za dodanie logów odebranych od urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
  * @param log przysłana wiadomość do wyświetlenia
  */
 void BluetoothLogger::addReceivedLog(const QString &log) 

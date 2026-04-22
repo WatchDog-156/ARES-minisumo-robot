@@ -14,20 +14,23 @@
 /**
  * @brief Construct a new Bluetooth Manager:: Bluetooth Manager object
  * 
+ * Construct a new Bluetooth Manager:: Bluetooth Manager object
  * @param parent wskażnik na rodzica obiektu
  */
 BluetoothManager::BluetoothManager(QObject *parent) : QObject(parent) {}
 
 /**
  * @brief Destroy the Bluetooth Manager:: Bluetooth Manager object
- * 
+ *  
+ * Destroy the Bluetooth Manager:: Bluetooth Manager object
  */
 BluetoothManager::~BluetoothManager() { disconnectDevice(); }
 
 /**
- * @brief Funkcja zapoczątkowuje połączenie bluetooth z wybranym urządzeniem.
- *        Następuje połączenie oraz wyszukanie dostępnych serwisów
+ * @brief Zapoczątkowanie połączenie i wyszukanie serwisów
  * 
+ * Funkcja zapoczątkowuje połączenie bluetooth z wybranym urządzeniem.
+ * Następuje połączenie oraz wyszukanie dostępnych serwisów
  * @param device dane o urządzeniu bluetooth, z którym następuje połączenie
  */
 void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
@@ -52,8 +55,9 @@ void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
 }
 
 /**
- * @brief Slot, który zarządza znajdowaniem konkretnych serwisów
+ * @brief Znajdowanie konkretnych serwisów
  * 
+ * Slot, który zarządza znajdowaniem konkretnych serwisów
  * @param gatt identyfikator UUID usługi
  */
 void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
@@ -68,8 +72,9 @@ void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
 }
 
 /**
- * @brief Slot odpowiedzialany za finalizacje połączenia bluetooth
+ * @brief Finalizuje połączenie Bluetooth
  * 
+ * Slot odpowiedzialany za finalizacje połączenia bluetooth
  * @param s informacja o aktualnym etapie usługi
  */
 void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
@@ -94,8 +99,9 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
 }
 
 /**
- * @brief Slot odpowiada za odbieranie wiadomości przysłanych od urządzenia bluetooth
+ * @brief Odbieranie przysłanych wiadomości 
  * 
+ * Slot odpowiada za odbieranie wiadomości przysłanych od urządzenia bluetooth
  * @param c referencja na obiekt charakterystyki
  * @param value tablica przysłanych danych binarnych
  */
@@ -106,8 +112,9 @@ void BluetoothManager::updateCharacteristicValue(const QLowEnergyCharacteristic 
 }
 
 /**
- * @brief Funkcja powoduje wysłanie wiadomości do urządzenia po bluetooth
+ * @brief Wysłanie wiadomości po Bluetooth
  * 
+ * Funkcja powoduje wysłanie wiadomości do urządzenia po bluetooth
  * @param data wiadomość do wysłania
  */
 void BluetoothManager::writeData(const QString &data) {
@@ -118,8 +125,9 @@ void BluetoothManager::writeData(const QString &data) {
 }
 
 /**
- * @brief Funkcja powoduje rozłączenie się z aktualnie połączonym urządzeniem bluetooth
+ * @brief Rozłączenie z połączonym urządzeniem Bluetooth
  * 
+ * Funkcja powoduje rozłączenie się z aktualnie połączonym urządzeniem bluetooth
  */
 void BluetoothManager::disconnectDevice() {
     if (controller) 
