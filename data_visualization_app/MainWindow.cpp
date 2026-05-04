@@ -1,8 +1,26 @@
+/**
+ * @file MainWindow.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Tworzy główne okno aplikacji oraz zarządza działaniem przycisków
+ * @version 1.0
+ * @date 2026-05-05
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
+
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 #include <QDebug>
 #include "BluetoothScanner.h"
 
+/**
+ * @brief Inicjalizuje główne okno aplikacji, komponenty UI oraz menedżery komunikacji
+ * 
+ * Tworzy instancję interfejsu użytkownika, konfiguruje wykresy ToF i linii, 
+ * inicjalizuje menedżera Bluetooth oraz ustawia domyślny widok aplikacji
+ * @param parent wskaźnik na obiekt rodzica
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -33,11 +51,22 @@ MainWindow::MainWindow(QWidget *parent)
     this->setWindowTitle("Panel Danych Wizualnych ARES");
 }
 
+/**
+ * @brief Destruktor klasy MainWindow
+ * 
+ * Zwalnia zasoby zajmowane przez interfejs użytkownika oraz powiązane obiekty
+ */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+/**
+ * @brief Funckja konfigurująca połączenia sygnałów i slotów
+ * 
+ * Funkcja odpowiada za połaczenia interfejsu (kliknięcie przycisku, zatwierdzenie tekstu) 
+ * z odpowiednimi metodami obsługi zdarzeń
+ */
 void MainWindow::setupConnections(){
     connect(ui->ButtonStart, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->ButtonStop, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
@@ -57,7 +86,12 @@ void MainWindow::setupConnections(){
                                                                                 qDebug() << "Status BLE:" << msg;});
 }
 
-
+/**
+ * @brief Funckja do wysyłania poleceń sterujących do robota przez Bluetooth
+ * 
+ * Funkcja odpowiada za identyfikajce klikniętego przycisku i wysłanie odpowiadającegomu kodu sterującego
+ * za pomoca bluetoothManager
+ */
 void MainWindow::handleCommandButtons(){
     QPushButton* button = qobject_cast<QPushButton*>(sender());
 
@@ -85,6 +119,11 @@ void MainWindow::handleCommandButtons(){
     }
 }
 
+/**
+ * @brief Funckja do wysyłania własnych komend
+ * 
+ * Funckja odpowiada za wysłanie napisanego ręcznie polecenia przez bluetooth i czyści pole po wysłaniu
+ */
 void MainWindow::handleManualCommands(){
     QString cmd = ui->EnterText->text();
     if (cmd.isEmpty()) return;
@@ -93,6 +132,12 @@ void MainWindow::handleManualCommands(){
     ui->EnterText->clear();
 }
 
+/**
+ * @brief Funckja do obsługi przycisków funkcyjnych
+ * 
+ * Funkcja odpowiada za przyciski funkcjyjne w tym: łaczenie/rozłączanie urządzenie poprzez bluetooth, zmiana okna wyświelającego dane,
+ * wyświetlanie logów
+ */
 void MainWindow::handleFunctionButtons(){
     QPushButton* button = qobject_cast<QPushButton*>(sender());
     if(!button) return;
@@ -129,6 +174,11 @@ void MainWindow::handleFunctionButtons(){
     updateButtonStates();
 }
 
+/**
+ * @brief Funckcja aktualizująca wygląd przycisków wyboru wykresów
+ * 
+ * Funkcja odpowiada za zmienianie grafiki przycisków (przezroczystości i tła) w zależności od ich stanu 
+ */
 void MainWindow::updateButtonStates(){
     QList<QPushButton*> buttons = {ui->RobotDiagram, ui->TofDiagram, ui->LineDiagram};
     QStringList colors = {"52, 152, 219", "241, 196, 15", "255, 107, 129"};
@@ -154,11 +204,24 @@ void MainWindow::updateButtonStates(){
 //         }
 //     }
 
+/**
+ * @brief Funckja inicjuje procedurę łączenia z wybranym urzadzeniem
+ * 
+ * Funkcja odpowiada za rozpoczęcie próby połączenia się z urządzenie poprzez bluetooth
+ * @param info dane o urządzeniu bluetooth, z którym następuje połączenie
+ */
 void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
     qDebug() << "Próba połączenia z:" << info.name();
     bluetoothManager->connectToDevice(info);
 }
 
+/**
+ * @brief Funckja parsuje odebrane dane surowe i aktualizuje wykresy
+ * 
+ * Funkcja wyłapuje wartości liczbowe z ciągu znaków przy użyciu wyrażeń regularnych,
+ * oczekuje 8 wartości: 2 dla linii, 4 dla czujników ToF oraz 2 dla silników
+ * @param data Tablica bajtów odebrana bezpośrednio z modułu Bluetooth
+ */
 void MainWindow::onDataReceived(const QByteArray &data) {
     QString recivedData = QString::fromUtf8(data).trimmed();
     qDebug() << "Odebrano z BLE:" << recivedData;
