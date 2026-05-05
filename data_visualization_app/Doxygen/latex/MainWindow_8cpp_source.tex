@@ -1,0 +1,190 @@
+\doxysection{Main\+Window.\+cpp}
+\hypertarget{MainWindow_8cpp_source}{}\label{MainWindow_8cpp_source}\mbox{\hyperlink{MainWindow_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MainWindow_8h}{MainWindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui__MainWindow_8h}{./ui\_MainWindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BluetoothScanner_8h}{BluetoothScanner.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00024}\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{00024}}\ \mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow::MainWindow}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00025}00025\ \ \ \ \ :\ QMainWindow(parent)}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00026}00026\ \ \ \ \ ,\ ui(new\ \mbox{\hyperlink{namespaceUi}{Ui}}::\mbox{\hyperlink{classMainWindow}{MainWindow}})}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acf4a0872c4c77d8f43a2ec66ed849b58}{setupUi}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00029}00029\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classBluetoothManager}{BluetoothManager}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}}-\/>setCheckable(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a3cb8ae82f9fc609066fc678f7763f0a6}{TofDiagram}}-\/>setCheckable(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acb01a921b7202150241e0cb72e39565e}{LineDiagram}}-\/>setCheckable(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ robot\ =\ new\ RobotChart(this);}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ ui-\/>stackedWidget-\/>insertWidget(0,\ robot);}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a7dcc53c494015474adb0f0f4ab3e36ac}{tof}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classToFChart}{ToFChart}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>insertWidget(1,\ \mbox{\hyperlink{classMainWindow_a7dcc53c494015474adb0f0f4ab3e36ac}{tof}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a86c5bd60edcc22f4d444f99bbdce16d1}{line}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classLineChart}{LineChart}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>insertWidget(2,\ \mbox{\hyperlink{classMainWindow_a86c5bd60edcc22f4d444f99bbdce16d1}{line}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a600ed89c9b409f697209fd9913ea6347}{robotPicture}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classRobotPicture}{RobotPicture}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ ui-\/>stackedWidget-\/>insertWidget(4,\ robotPicture);}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>addWidget(\mbox{\hyperlink{classMainWindow_a600ed89c9b409f697209fd9913ea6347}{robotPicture}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ ui-\/>stackedWidget-\/>setCurrentIndex(4);}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>setCurrentWidget(\mbox{\hyperlink{classMainWindow_a600ed89c9b409f697209fd9913ea6347}{robotPicture}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a95dc085bf70bd0c1ad05bd80f897fd1d}{setupConnections}}();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00051}00051\ \ \ \ \ this-\/>setWindowTitle(\textcolor{stringliteral}{"{}Panel\ Danych\ Wizualnych\ ARES"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00059}\mbox{\hyperlink{classMainWindow_a1f7d2c56410fc1bfa135bb907d43313f}{00059}}\ \mbox{\hyperlink{classMainWindow_a1f7d2c56410fc1bfa135bb907d43313f}{MainWindow::\string~MainWindow}}()}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00070}\mbox{\hyperlink{classMainWindow_a95dc085bf70bd0c1ad05bd80f897fd1d}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a95dc085bf70bd0c1ad05bd80f897fd1d}{MainWindow::setupConnections}}()\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00071}00071\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ac70c978ba8c8dfe6cf59c326442ae6f5}{ButtonStart}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00072}00072\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a4f6f3b5d809b85ad3214260b45c93886}{ButtonStop}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00073}00073\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a532f43a3ddfb91f569a448e8558fbebb}{ButtonForward}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00074}00074\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ae80f6b7531553c3afa7946c6b3887971}{ButtonBackward}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00075}00075\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a51832c6c4b18b34e588872e48ac5520b}{ButtonServoUp}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00076}00076\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a5940a7bc360fdf4eac81a5629f9d94aa}{ButtonServoDown}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00077}00077\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a95ff0427192c57e770c15b59a8fd1667}{ButtonEND}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00078}00078\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a766a9396faf77e2477b51e5183db579b}{EnterText}},\ \&QLineEdit::returnPressed,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a1feef8f280103795b7acae40d973119a}{MainWindow::handleManualCommands}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//\ connect(ui-\/>Language,\ \&QComboBox::activated,\ this,\ \&MainWindow::handleLanguage);}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00080}00080\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ac9a70cd046c8be6c5109150bb6658526}{Connection}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{MainWindow::handleFunctionButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00081}00081\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{MainWindow::handleFunctionButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00082}00082\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a3cb8ae82f9fc609066fc678f7763f0a6}{TofDiagram}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{MainWindow::handleFunctionButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00083}00083\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acb01a921b7202150241e0cb72e39565e}{LineDiagram}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{MainWindow::handleFunctionButtons}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00084}00084\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}},\ \&\mbox{\hyperlink{classBluetoothManager_a260c5488ce205bd126c2e615b3f43da1}{BluetoothManager::dataReceived}},\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a96bee10c1c7b8b70e9ce0a69811700bc}{MainWindow::onDataReceived}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00085}00085\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}},\ \&\mbox{\hyperlink{classBluetoothManager_adebf07d0798ba058399161c6154dd90c}{BluetoothManager::connectionStatusChanged}},\ \textcolor{keyword}{this},\ [](\textcolor{keywordtype}{bool}\ success,\ \textcolor{keyword}{const}\ QString\ \&msg)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Status\ BLE:"{}}\ <<\ msg;\});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00095}\mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{00095}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a455a0b9375e3a8802e5acba72ef112d7}{MainWindow::handleCommandButtons}}()\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00096}00096\ \ \ \ \ QPushButton*\ button\ =\ qobject\_cast<QPushButton*>(sender());}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}(button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a532f43a3ddfb91f569a448e8558fbebb}{ButtonForward}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Forward"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}FWD"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00101}00101\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ae80f6b7531553c3afa7946c6b3887971}{ButtonBackward}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Backward"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}BWD"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00104}00104\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ac70c978ba8c8dfe6cf59c326442ae6f5}{ButtonStart}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Start"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}START"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00107}00107\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a4f6f3b5d809b85ad3214260b45c93886}{ButtonStop}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Stop"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}STOP"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00110}00110\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a51832c6c4b18b34e588872e48ac5520b}{ButtonServoUp}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}ServoUp"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}SER\_UP"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00113}00113\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a5940a7bc360fdf4eac81a5629f9d94aa}{ButtonServoDown}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}ServoDown"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}SER\_DW"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00116}00116\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a95ff0427192c57e770c15b59a8fd1667}{ButtonEND}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}End"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{stringliteral}{"{}END"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00119}00119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00127}\mbox{\hyperlink{classMainWindow_a1feef8f280103795b7acae40d973119a}{00127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a1feef8f280103795b7acae40d973119a}{MainWindow::handleManualCommands}}()\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00128}00128\ \ \ \ \ QString\ cmd\ =\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a766a9396faf77e2477b51e5183db579b}{EnterText}}-\/>text();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd.isEmpty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00130}00130\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Wyslanie\ komendy:\ "{}}\ <<\ cmd;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00131}00131\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(cmd);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00132}00132\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a766a9396faf77e2477b51e5183db579b}{EnterText}}-\/>clear();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00141}\mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{00141}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a36bd22616f53ba7550968e078e19fe03}{MainWindow::handleFunctionButtons}}()\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00142}00142\ \ \ \ \ QPushButton*\ button\ =\ qobject\_cast<QPushButton*>(sender());}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{if}(!button)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{if}(button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_ac9a70cd046c8be6c5109150bb6658526}{Connection}})\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Go\ to\ Bluetooth\ Scanner"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner}{BluetoothScanner}}\ scanner(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ connect(\&scanner,\ \&\mbox{\hyperlink{classBluetoothScanner_a8cb427370e1f121cb2629a16761f22ab}{BluetoothScanner::deviceSelected}},\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_aab5c1cd66b5d71fa46005f9248888f5e}{MainWindow::connectToDevice}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ scanner.exec();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{if}(button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}})\{\ \ \ \ \ \textcolor{comment}{//\ zmiana\ na\ ui-\/>Logger}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classBluetoothLogger}{BluetoothLogger}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}-\/>setAttribute(Qt::WA\_DeleteOnClose);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}},\ \&QObject::destroyed,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\ \{\mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}\ =\ \textcolor{keyword}{nullptr};\});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}-\/>show();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}-\/>raise();\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aae99c25ecea3abfcb1a1c85e8eab96fc}{bluetoothLogger}}-\/>activateWindow();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00164}00164\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}}-\/>setChecked(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00165}00165\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a3cb8ae82f9fc609066fc678f7763f0a6}{TofDiagram}}-\/>setChecked(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00166}00166\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acb01a921b7202150241e0cb72e39565e}{LineDiagram}}-\/>setChecked(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00167}00167\ \ \ \ \ button-\/>setChecked(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}})\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>setCurrentIndex(0);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a3cb8ae82f9fc609066fc678f7763f0a6}{TofDiagram}})\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>setCurrentIndex(1);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (button\ ==\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acb01a921b7202150241e0cb72e39565e}{LineDiagram}})\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a8d440a6df1de0bc57afcdda7476d8f19}{stackedWidget}}-\/>setCurrentIndex(2);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a490239a224478ce8a88f42c9362e7c96}{updateButtonStates}}();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00175}00175\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00182}\mbox{\hyperlink{classMainWindow_a490239a224478ce8a88f42c9362e7c96}{00182}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a490239a224478ce8a88f42c9362e7c96}{MainWindow::updateButtonStates}}()\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00183}00183\ \ \ \ \ QList<QPushButton*>\ buttons\ =\ \{\mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a979120a85b3ad01096193f5b71643c09}{RobotDiagram}},\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_a3cb8ae82f9fc609066fc678f7763f0a6}{TofDiagram}},\ \mbox{\hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{classUi__MainWindow_acb01a921b7202150241e0cb72e39565e}{LineDiagram}}\};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00184}00184\ \ \ \ \ QStringList\ colors\ =\ \{\textcolor{stringliteral}{"{}52,\ 152,\ 219"{}},\ \textcolor{stringliteral}{"{}241,\ 196,\ 15"{}},\ \textcolor{stringliteral}{"{}255,\ 107,\ 129"{}}\};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\ buttons.size();\ i++)\{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ alpha\ =\ buttons[i]-\/>isChecked()\ ?\ 1.0\ :\ 0.5;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ buttons[i]-\/>setStyleSheet(QString(\textcolor{stringliteral}{"{}background-\/color:\ rgba(\%1,\ \%2);"{}}).arg(colors[i]).arg(alpha));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00190}00190\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00192}00192\ \textcolor{comment}{//\ void\ MainWindow::handleLanguage(int\ index)\{}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00193}00193\ \textcolor{comment}{//\ \ \ \ \ switch(index)\{}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00194}00194\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ case\ 0:}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00195}00195\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ "{}Angielski"{};}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00196}00196\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>ButtonForward-\/>setText("{}Forward"{});}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00197}00197\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>ButtonBackward-\/>setText("{}Backward"{});}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00198}00198\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00199}00199\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00200}00200\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ "{}Polski"{};}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00201}00201\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>ButtonForward-\/>setText("{}Przod"{});}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00202}00202\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>ButtonBackward-\/>setText("{}Tyl"{});}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00203}00203\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00204}00204\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00205}00205\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00213}\mbox{\hyperlink{classMainWindow_aab5c1cd66b5d71fa46005f9248888f5e}{00213}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_aab5c1cd66b5d71fa46005f9248888f5e}{MainWindow::connectToDevice}}(\textcolor{keyword}{const}\ QBluetoothDeviceInfo\ \&info)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00214}00214\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Próba\ połączenia\ z:"{}}\ <<\ info.name();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00215}00215\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a0cc53b3308907a2fcfc5a9f2b7d530da}{bluetoothManager}}-\/>\mbox{\hyperlink{classBluetoothManager_ac74027d66489f5b68b8c0d2d1c38069d}{connectToDevice}}(info);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00216}00216\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00225}\mbox{\hyperlink{classMainWindow_a96bee10c1c7b8b70e9ce0a69811700bc}{00225}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a96bee10c1c7b8b70e9ce0a69811700bc}{MainWindow::onDataReceived}}(\textcolor{keyword}{const}\ QByteArray\ \&data)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00226}00226\ \ \ \ \ QString\ recivedData\ =\ QString::fromUtf8(data).trimmed();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00227}00227\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Odebrano\ z\ BLE:"{}}\ <<\ recivedData;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00229}00229\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ QRegularExpression\ re(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)d+"{}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00230}00230\ \ \ \ \ QList<int>\ values;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00231}00231\ \ \ \ \ QRegularExpressionMatchIterator\ i\ =\ re.globalMatch(recivedData);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{while}\ (i.hasNext())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ QRegularExpressionMatch\ match\ =\ i.next();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ values.append(match.captured(0).toInt());}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00236}00236\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00238}00238\ \ \ \ \ \textcolor{keywordflow}{if}\ (values.size()\ ==\ 8)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lines[2]\ =\ \{values[0],\ values[1]\};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tofs[4]\ =\ \{values[2],\ values[3],\ values[4],\ values[5]\};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ motors[2]\ =\ \{values[6],\ values[7]\};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Sparsowana\ wiadomość\ to:"{}}\ <<\ lines[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ lines[1]\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ tofs[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ tofs[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ tofs[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ tofs[3]\ <<\ \textcolor{stringliteral}{"{}\ |\ "{}}\ <<\ motors[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ motors[1];\textcolor{comment}{//\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a86c5bd60edcc22f4d444f99bbdce16d1}{line}}-\/>\mbox{\hyperlink{classLineChart_af4c1290351dc2881767671a0e26196b8}{addMeasurement}}(lines[0],lines[1]);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a7dcc53c494015474adb0f0f4ab3e36ac}{tof}}-\/>\mbox{\hyperlink{classToFChart_abfcd2447830c33e17a15fabf9b7b393a}{addMeasurement}}(tofs[0],tofs[1],tofs[2],tofs[3]);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00245}00245\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Wiadomość\ nie\ została\ sparsowana"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00248}00248\ \}}
+
+\end{DoxyCode}

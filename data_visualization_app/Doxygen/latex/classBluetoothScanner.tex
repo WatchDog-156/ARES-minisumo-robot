@@ -1,0 +1,215 @@
+\doxysection{Dokumentacja klasy Bluetooth\+Scanner}
+\hypertarget{classBluetoothScanner}{}\label{classBluetoothScanner}\index{BluetoothScanner@{BluetoothScanner}}
+
+
+{\ttfamily \#include $<$Bluetooth\+Scanner.\+h$>$}
+
+
+
+Diagram dziedziczenia dla Bluetooth\+Scanner
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classBluetoothScanner__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Bluetooth\+Scanner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{classBluetoothScanner__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Sygnały}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBluetoothScanner_a8cb427370e1f121cb2629a16761f22ab}{device\+Selected}} (const QBluetooth\+Device\+Info \&info)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBluetoothScanner_a5f6e2a1817de57782f808909bb6fd3a5}{Bluetooth\+Scanner}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Construct a new Bluetooth Scanner\+:\+: Bluetooth Scanner object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBluetoothScanner_a6fb8f83fe38f5feb85d1ebc301afe57a}{\texorpdfstring{$\sim$}{\string~}\+Bluetooth\+Scanner}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Bluetooth Scanner\+:\+: Bluetooth Scanner object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Sloty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBluetoothScanner_ac8d5e878625dc0d2689cafac80a5b9e1}{on\+\_\+button\+Scan\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiada za przycisk do skanowania sieci Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBluetoothScanner_abf3dd85266eca48e6196c549965e6804}{on\+\_\+button\+Connect\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Funkcja odpowiada za wybór danego urządzenia. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBluetoothScanner_aa10b265ee84a654facf791468811bbec}{add\+Device}} (const QBluetooth\+Device\+Info \&info)
+\begin{DoxyCompactList}\small\item\em Dodaje urządzenie do listy urządzeń \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBluetoothScanner_a38b4c148811072c18768d93295c1a301}{sort\+And\+Refresh\+List}} ()
+\begin{DoxyCompactList}\small\item\em Sortuje urządzenia na liście po rosnącej mocy sygnału. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUi_1_1BluetoothScanner}{Ui\+::\+Bluetooth\+Scanner}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}
+\item 
+QBluetooth\+Device\+Discovery\+Agent \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discovery\+Agent}}
+\item 
+QList$<$ QBluetooth\+Device\+Info $>$ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{found\+Devices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8h_source_l00012}{12}} pliku \mbox{\hyperlink{BluetoothScanner_8h_source}{Bluetooth\+Scanner.\+h}}.
+
+
+
+\doxysubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{classBluetoothScanner_a5f6e2a1817de57782f808909bb6fd3a5}\label{classBluetoothScanner_a5f6e2a1817de57782f808909bb6fd3a5} 
+\index{BluetoothScanner@{BluetoothScanner}!BluetoothScanner@{BluetoothScanner}}
+\index{BluetoothScanner@{BluetoothScanner}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{BluetoothScanner()}{BluetoothScanner()}}
+{\footnotesize\ttfamily Bluetooth\+Scanner\+::\+Bluetooth\+Scanner (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Bluetooth Scanner\+:\+: Bluetooth Scanner object. 
+
+Construct a new Bluetooth Scanner\+:\+: Bluetooth Scanner object 
+\begin{DoxyParams}{Parametry}
+{\em parent} & wskażnik na rodzica obiektu \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00020}{20}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+\Hypertarget{classBluetoothScanner_a6fb8f83fe38f5feb85d1ebc301afe57a}\label{classBluetoothScanner_a6fb8f83fe38f5feb85d1ebc301afe57a} 
+\index{BluetoothScanner@{BluetoothScanner}!````~BluetoothScanner@{\texorpdfstring{$\sim$}{\string~}BluetoothScanner}}
+\index{````~BluetoothScanner@{\texorpdfstring{$\sim$}{\string~}BluetoothScanner}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BluetoothScanner()}{\string~BluetoothScanner()}}
+{\footnotesize\ttfamily Bluetooth\+Scanner\+::\texorpdfstring{$\sim$}{\string~}\+Bluetooth\+Scanner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Bluetooth Scanner\+:\+: Bluetooth Scanner object. 
+
+Destroy the Bluetooth Scanner\+:\+: Bluetooth Scanner object 
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00040}{40}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+
+
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{classBluetoothScanner_aa10b265ee84a654facf791468811bbec}\label{classBluetoothScanner_aa10b265ee84a654facf791468811bbec} 
+\index{BluetoothScanner@{BluetoothScanner}!addDevice@{addDevice}}
+\index{addDevice@{addDevice}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{addDevice}{addDevice}}
+{\footnotesize\ttfamily void Bluetooth\+Scanner\+::add\+Device (\begin{DoxyParamCaption}\item[{const QBluetooth\+Device\+Info \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Dodaje urządzenie do listy urządzeń 
+
+Dodaje urządzenie do listy wraz z mocą jego sygnału na odpowiednim miejscu 
+\begin{DoxyParams}{Parametry}
+{\em info} & dane o urządzeniu bluetooth do dodania \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00084}{84}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+\Hypertarget{classBluetoothScanner_a8cb427370e1f121cb2629a16761f22ab}\label{classBluetoothScanner_a8cb427370e1f121cb2629a16761f22ab} 
+\index{BluetoothScanner@{BluetoothScanner}!deviceSelected@{deviceSelected}}
+\index{deviceSelected@{deviceSelected}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{deviceSelected}{deviceSelected}}
+{\footnotesize\ttfamily void Bluetooth\+Scanner\+::device\+Selected (\begin{DoxyParamCaption}\item[{const QBluetooth\+Device\+Info \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{moc__BluetoothScanner_8cpp_source_l00200}{200}} pliku \mbox{\hyperlink{moc__BluetoothScanner_8cpp_source}{moc\+\_\+\+Bluetooth\+Scanner.\+cpp}}.
+
+\Hypertarget{classBluetoothScanner_abf3dd85266eca48e6196c549965e6804}\label{classBluetoothScanner_abf3dd85266eca48e6196c549965e6804} 
+\index{BluetoothScanner@{BluetoothScanner}!on\_buttonConnect\_clicked@{on\_buttonConnect\_clicked}}
+\index{on\_buttonConnect\_clicked@{on\_buttonConnect\_clicked}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{on\_buttonConnect\_clicked}{on\_buttonConnect\_clicked}}
+{\footnotesize\ttfamily void Bluetooth\+Scanner\+::on\+\_\+button\+Connect\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Funkcja odpowiada za wybór danego urządzenia. 
+
+Funkcja odpowiada za kliknięcie w przycisk do wyboru danego urządzenia. Jeśli wybrano coś z listy wysyła sygnał z inforamcją o urządzeniu i zamyka okienko. W przeciwnym wypadku nic się nie dzieje. 
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00068}{68}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+\Hypertarget{classBluetoothScanner_ac8d5e878625dc0d2689cafac80a5b9e1}\label{classBluetoothScanner_ac8d5e878625dc0d2689cafac80a5b9e1} 
+\index{BluetoothScanner@{BluetoothScanner}!on\_buttonScan\_clicked@{on\_buttonScan\_clicked}}
+\index{on\_buttonScan\_clicked@{on\_buttonScan\_clicked}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{on\_buttonScan\_clicked}{on\_buttonScan\_clicked}}
+{\footnotesize\ttfamily void Bluetooth\+Scanner\+::on\+\_\+button\+Scan\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Funkcja odpowiada za przycisk do skanowania sieci Bluetooth. 
+
+Funkcja odpowiada za kliknięcie w przycisk do skanowania dostępnych sieci bluetooth. Zmienia napis na przycisku, blokuje go oraz włącza dicovery\+Agent 
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00051}{51}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+\Hypertarget{classBluetoothScanner_a38b4c148811072c18768d93295c1a301}\label{classBluetoothScanner_a38b4c148811072c18768d93295c1a301} 
+\index{BluetoothScanner@{BluetoothScanner}!sortAndRefreshList@{sortAndRefreshList}}
+\index{sortAndRefreshList@{sortAndRefreshList}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{sortAndRefreshList}{sortAndRefreshList}}
+{\footnotesize\ttfamily void Bluetooth\+Scanner\+::sort\+And\+Refresh\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Sortuje urządzenia na liście po rosnącej mocy sygnału. 
+
+Sortuje urządzenia na liście po rosnącej mocy sygnału 
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8cpp_source_l00102}{102}} pliku \mbox{\hyperlink{BluetoothScanner_8cpp_source}{Bluetooth\+Scanner.\+cpp}}.
+
+
+
+\doxysubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}\label{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f} 
+\index{BluetoothScanner@{BluetoothScanner}!discoveryAgent@{discoveryAgent}}
+\index{discoveryAgent@{discoveryAgent}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{discoveryAgent}{discoveryAgent}}
+{\footnotesize\ttfamily QBluetooth\+Device\+Discovery\+Agent\texorpdfstring{$\ast$}{*} Bluetooth\+Scanner\+::discovery\+Agent\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8h_source_l00031}{31}} pliku \mbox{\hyperlink{BluetoothScanner_8h_source}{Bluetooth\+Scanner.\+h}}.
+
+\Hypertarget{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}\label{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0} 
+\index{BluetoothScanner@{BluetoothScanner}!foundDevices@{foundDevices}}
+\index{foundDevices@{foundDevices}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{foundDevices}{foundDevices}}
+{\footnotesize\ttfamily QList$<$QBluetooth\+Device\+Info$>$ Bluetooth\+Scanner\+::found\+Devices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8h_source_l00032}{32}} pliku \mbox{\hyperlink{BluetoothScanner_8h_source}{Bluetooth\+Scanner.\+h}}.
+
+\Hypertarget{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}\label{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425} 
+\index{BluetoothScanner@{BluetoothScanner}!ui@{ui}}
+\index{ui@{ui}!BluetoothScanner@{BluetoothScanner}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUi_1_1BluetoothScanner}{Ui\+::\+Bluetooth\+Scanner}}\texorpdfstring{$\ast$}{*} Bluetooth\+Scanner\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{BluetoothScanner_8h_source_l00030}{30}} pliku \mbox{\hyperlink{BluetoothScanner_8h_source}{Bluetooth\+Scanner.\+h}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{BluetoothScanner_8h}{Bluetooth\+Scanner.\+h}}\item 
+\mbox{\hyperlink{BluetoothScanner_8cpp}{Bluetooth\+Scanner.\+cpp}}\item 
+\mbox{\hyperlink{moc__BluetoothScanner_8cpp}{moc\+\_\+\+Bluetooth\+Scanner.\+cpp}}\end{DoxyCompactItemize}

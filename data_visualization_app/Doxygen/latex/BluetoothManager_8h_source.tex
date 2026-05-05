@@ -1,0 +1,46 @@
+\doxysection{Bluetooth\+Manager.\+h}
+\hypertarget{BluetoothManager_8h_source}{}\label{BluetoothManager_8h_source}\mbox{\hyperlink{BluetoothManager_8h}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ BLUETOOTHMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ BLUETOOTHMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QLowEnergyController>}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QLowEnergyService>}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QBluetoothDeviceInfo>}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00009}\mbox{\hyperlink{classBluetoothManager}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBluetoothManager}{BluetoothManager}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00011}00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00013}00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classBluetoothManager}{BluetoothManager}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{classBluetoothManager_a6366682e9c6e7708f944935602f66eae}{\string~BluetoothManager}}();}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_ac74027d66489f5b68b8c0d2d1c38069d}{connectToDevice}}(\textcolor{keyword}{const}\ QBluetoothDeviceInfo\ \&device);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_ac899597a921b73a28d3f2d13beb8b8ca}{disconnectDevice}}();}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_a03fe6e39943d025b44a8ee7be0715a14}{writeData}}(\textcolor{keyword}{const}\ QString\ \&data);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00021}00021\ signals:}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_a260c5488ce205bd126c2e615b3f43da1}{dataReceived}}(\textcolor{keyword}{const}\ QByteArray\ \&data);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_adebf07d0798ba058399161c6154dd90c}{connectionStatusChanged}}(\textcolor{keywordtype}{bool}\ connected,\ QString\ message);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00025}00025\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_a5fefc4935c797012389a819ca8cacefe}{serviceDiscovered}}(\textcolor{keyword}{const}\ QBluetoothUuid\ \&gatt);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_a545c1a271b08397618d2fa28c688226c}{serviceStateChanged}}(QLowEnergyService::ServiceState\ s);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothManager_ab77c1cefaba1ae07756be1c3a8aead7b}{updateCharacteristicValue}}(\textcolor{keyword}{const}\ QLowEnergyCharacteristic\ \&c,\ \textcolor{keyword}{const}\ QByteArray\ \&value);}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00030}00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00031}\mbox{\hyperlink{classBluetoothManager_af8608eb8f9ceab1a204c7418baf29af5}{00031}}\ \ \ \ \ QLowEnergyController\ *\mbox{\hyperlink{classBluetoothManager_af8608eb8f9ceab1a204c7418baf29af5}{controller}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00032}\mbox{\hyperlink{classBluetoothManager_aa2b2ebc8ddc8af7a2bd6eeb39b88e42b}{00032}}\ \ \ \ \ QLowEnergyService\ *\mbox{\hyperlink{classBluetoothManager_aa2b2ebc8ddc8af7a2bd6eeb39b88e42b}{service}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00033}\mbox{\hyperlink{classBluetoothManager_ad1669c17dd522010130379f51043cfac}{00033}}\ \ \ \ \ QLowEnergyCharacteristic\ \mbox{\hyperlink{classBluetoothManager_ad1669c17dd522010130379f51043cfac}{writeCharacteristic}};}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Nordic\ UART\ Service}}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00036}\mbox{\hyperlink{classBluetoothManager_a871e9af5d86029281e9c1d95e1f396d3}{00036}}\ \ \ \ \ \textcolor{keyword}{const}\ QBluetoothUuid\ \mbox{\hyperlink{classBluetoothManager_a871e9af5d86029281e9c1d95e1f396d3}{serviceUuid}}\ =\ QBluetoothUuid(QString(\textcolor{stringliteral}{"{}6E400001-\/B5A3-\/F393-\/E0A9-\/E50E24DCCA9E"{}}));}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00037}\mbox{\hyperlink{classBluetoothManager_a6eebb822a7de8a142b0ddb1bde6b537e}{00037}}\ \ \ \ \ \textcolor{keyword}{const}\ QBluetoothUuid\ \mbox{\hyperlink{classBluetoothManager_a6eebb822a7de8a142b0ddb1bde6b537e}{charWriteUuid}}\ =\ QBluetoothUuid(QString(\textcolor{stringliteral}{"{}\{6e400002-\/b5a3-\/f393-\/e0a9-\/e50e24dcca9e\}"{}}));}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00038}\mbox{\hyperlink{classBluetoothManager_ad342110835a10e4cf99bcaa9883ab0a7}{00038}}\ \ \ \ \ \textcolor{keyword}{const}\ QBluetoothUuid\ \mbox{\hyperlink{classBluetoothManager_ad342110835a10e4cf99bcaa9883ab0a7}{charReadUuid}}\ =\ QBluetoothUuid(QString(\textcolor{stringliteral}{"{}\{6e400003-\/b5a3-\/f393-\/e0a9-\/e50e24dcca9e\}"{}}));}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00039}00039\ \};}
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{BluetoothManager_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BLUETOOTHMANAGER\_H}}
+
+\end{DoxyCode}

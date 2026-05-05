@@ -1,0 +1,74 @@
+\doxysection{Bluetooth\+Scanner.\+cpp}
+\hypertarget{BluetoothScanner_8cpp_source}{}\label{BluetoothScanner_8cpp_source}\mbox{\hyperlink{BluetoothScanner_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BluetoothScanner_8h}{BluetoothScanner.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui__BluetoothScanner_8h}{ui\_BluetoothScanner.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00020}\mbox{\hyperlink{classBluetoothScanner_a5f6e2a1817de57782f808909bb6fd3a5}{00020}}\ \mbox{\hyperlink{classBluetoothScanner_a5f6e2a1817de57782f808909bb6fd3a5}{BluetoothScanner::BluetoothScanner}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00021}00021\ \ \ \ \ :\ QDialog(parent)}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00022}00022\ \ \ \ \ ,\ ui(new\ \mbox{\hyperlink{namespaceUi}{Ui}}::\mbox{\hyperlink{classBluetoothScanner}{BluetoothScanner}})}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_ab74454f97078738df5d40920a309bad7}{setupUi}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discoveryAgent}}\ =\ \textcolor{keyword}{new}\ QBluetoothDeviceDiscoveryAgent(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discoveryAgent}}-\/>setLowEnergyDiscoveryTimeout(5000);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00029}00029\ \ \ \ \ connect(\mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discoveryAgent}},\ \&QBluetoothDeviceDiscoveryAgent::deviceDiscovered,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classBluetoothScanner_aa10b265ee84a654facf791468811bbec}{BluetoothScanner::addDevice}});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00030}00030\ \ \ \ \ connect(\mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discoveryAgent}},\ \&QBluetoothDeviceDiscoveryAgent::finished,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\{\mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_afbb81f0d1f8f04239431927f25507d8e}{buttonScan}}-\/>setText(\textcolor{stringliteral}{"{}Scan"{}});\ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_afbb81f0d1f8f04239431927f25507d8e}{buttonScan}}-\/>setEnabled(\textcolor{keyword}{true});\});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00032}00032\ \ \ \ \ this-\/>setWindowTitle(\textcolor{stringliteral}{"{}Bluetooth\ Scanner"{}});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00040}\mbox{\hyperlink{classBluetoothScanner_a6fb8f83fe38f5feb85d1ebc301afe57a}{00040}}\ \mbox{\hyperlink{classBluetoothScanner_a6fb8f83fe38f5feb85d1ebc301afe57a}{BluetoothScanner::\string~BluetoothScanner}}()}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}};}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00051}\mbox{\hyperlink{classBluetoothScanner_ac8d5e878625dc0d2689cafac80a5b9e1}{00051}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothScanner_ac8d5e878625dc0d2689cafac80a5b9e1}{BluetoothScanner::on\_buttonScan\_clicked}}()}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>clear();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}}.clear();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_afbb81f0d1f8f04239431927f25507d8e}{buttonScan}}-\/>setText(\textcolor{stringliteral}{"{}SCANNING..."{}});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_afbb81f0d1f8f04239431927f25507d8e}{buttonScan}}-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_adc9608546a658a7cd1424b6e36e8d36f}{discoveryAgent}}-\/>start(QBluetoothDeviceDiscoveryAgent::LowEnergyMethod);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00068}\mbox{\hyperlink{classBluetoothScanner_abf3dd85266eca48e6196c549965e6804}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothScanner_abf3dd85266eca48e6196c549965e6804}{BluetoothScanner::on\_buttonConnect\_clicked}}()}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{int}\ currentRow\ =\ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>currentRow();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentRow\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ QBluetoothDeviceInfo\ selectedDevice\ =\ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}}.at(currentRow);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{classBluetoothScanner_a8cb427370e1f121cb2629a16761f22ab}{deviceSelected}}(selectedDevice);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ accept();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00084}\mbox{\hyperlink{classBluetoothScanner_aa10b265ee84a654facf791468811bbec}{00084}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothScanner_aa10b265ee84a654facf791468811bbec}{BluetoothScanner::addDevice}}(\textcolor{keyword}{const}\ QBluetoothDeviceInfo\ \&info)\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (info.coreConfigurations()\ \&\ QBluetoothDeviceInfo::LowEnergyCoreConfiguration)\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ QString\ label\ =\ QString(\textcolor{stringliteral}{"{}\%1\ [\%2]\ (\%3\ dBm)"{}}).arg(info.name(),\ info.address().toString(),\ QString::number(info.rssi()));}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>findItems(label,\ Qt::MatchExactly).isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>addItem(label);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}}.append(info);}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_a38b4c148811072c18768d93295c1a301}{sortAndRefreshList}}();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00102}\mbox{\hyperlink{classBluetoothScanner_a38b4c148811072c18768d93295c1a301}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothScanner_a38b4c148811072c18768d93295c1a301}{BluetoothScanner::sortAndRefreshList}}()\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00103}00103\ \ \ \ \ std::sort(\mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}}.begin(),\ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}}.end(),\ [](\textcolor{keyword}{const}\ QBluetoothDeviceInfo\ \&a,\ \textcolor{keyword}{const}\ QBluetoothDeviceInfo\ \&b)\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ return\ a.rssi()\ >\ b.rssi();\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00105}00105\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00107}00107\ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>clear();}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&device\ :\ \mbox{\hyperlink{classBluetoothScanner_a10b5cbf00a0940f292342a80917dcca0}{foundDevices}})\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ QString\ label\ =\ QString(\textcolor{stringliteral}{"{}\%1\ (\%2\ dBm)"{}}).arg(device.name()).arg(device.rssi());}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBluetoothScanner_acbbc09130c0cb8815957501fecc34425}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothScanner_a3ede5cd24a37c665644f9646ea95c32f}{listDevices}}-\/>addItem(label);\ }
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothScanner_8cpp_source_l00113}00113\ }
+
+\end{DoxyCode}

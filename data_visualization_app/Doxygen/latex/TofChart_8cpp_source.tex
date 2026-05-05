@@ -1,0 +1,115 @@
+\doxysection{Tof\+Chart.\+cpp}
+\hypertarget{TofChart_8cpp_source}{}\label{TofChart_8cpp_source}\mbox{\hyperlink{TofChart_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TofChart_8h}{TofChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui__TofChart_8h}{ui\_TofChart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00021}\mbox{\hyperlink{classToFChart_a8173171e5d949af53542a17dcc73312a}{00021}}\ \mbox{\hyperlink{classToFChart_a8173171e5d949af53542a17dcc73312a}{ToFChart::ToFChart}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00022}00022\ \ \ \ \ :\ QWidget(parent)}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00023}00023\ \ \ \ \ ,\ ui(new\ \mbox{\hyperlink{namespaceUi}{Ui}}::\mbox{\hyperlink{classToFChart}{ToFChart}})}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{classToFChart_a320318ae88c18844a98249ea24aa998c}{ui}}-\/>\mbox{\hyperlink{classUi__ToFChart_acc1e1f3df816e150d5677c7161a6ac8f}{setupUi}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}\ =\ \textcolor{keyword}{new}\ QChart();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}\ =\ \textcolor{keyword}{new}\ QValueAxis();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}}\ =\ \textcolor{keyword}{new}\ QValueAxis();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00032}00032\ \ \ \ \ QList<QColor>\ colors\ =\ \{QColor(128,\ 0,\ 0),\ Qt::yellow,\ Qt::green,\ QColor(128,\ 0,\ 128)\};}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i<4;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]\ =\ \textcolor{keyword}{new}\ QLineSeries();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]-\/>setName(QString(\textcolor{stringliteral}{"{}ToF\ \%1"{}}).arg(i+1));}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]-\/>setColor(colors[i]);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>addSeries(\mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}-\/>setRange(0,\ \mbox{\hyperlink{classToFChart_ac0d967ab425d0b26af13f08812b4dfff}{maxPoints}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}-\/>setTitleText(\textcolor{stringliteral}{"{}Probe"{}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}-\/>setLabelFormat(\textcolor{stringliteral}{"{}\%d"{}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}-\/>setTickCount(11);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}}-\/>setRange(0,\ 800);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}}-\/>setTitleText(\textcolor{stringliteral}{"{}Distance\ [mm]"{}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}}-\/>setLabelFormat(\textcolor{stringliteral}{"{}\%d"{}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}}-\/>setTickCount(11);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>addAxis(\mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}},\ Qt::AlignBottom);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>addAxis(\mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}},\ Qt::AlignLeft);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]-\/>attachAxis(\mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]-\/>attachAxis(\mbox{\hyperlink{classToFChart_a25cdd0deb4f455d7edc52a682d5a25ba}{axisY}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>setTitle(\textcolor{stringliteral}{"{}Measurement\ ToF\ sensors\ 1-\/4"{}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>legend()-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>legend()-\/>setAlignment(Qt::AlignTop);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{for}(QLegendMarker\ *marker\ :\ \mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}}-\/>legend()-\/>markers())\{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ connect(marker,\ \&QLegendMarker::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classToFChart_a5dea47f860a3d5a8e0fb67d1ebf50de5}{ToFChart::onLegendMarkerClicked}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{classToFChart_a7feb341e0bfe00479bbc14152cccfbea}{chartView}}\ =\ \textcolor{keyword}{new}\ QChartView(\mbox{\hyperlink{classToFChart_a51ad5643f74fe14f061d5069c5ece8c6}{chart}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{classToFChart_a7feb341e0bfe00479bbc14152cccfbea}{chartView}}-\/>setRenderHint(QPainter::Antialiasing);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>layout()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ QVBoxLayout\ *layout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ layout-\/>setContentsMargins(0,50,0,0);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{classToFChart_a7feb341e0bfe00479bbc14152cccfbea}{chartView}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00074}00074\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ this-\/>layout()-\/>addWidget(\mbox{\hyperlink{classToFChart_a7feb341e0bfe00479bbc14152cccfbea}{chartView}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00084}\mbox{\hyperlink{classToFChart_a91d0b4ba886b4f9270db8c5d29c9f811}{00084}}\ \mbox{\hyperlink{classToFChart_a91d0b4ba886b4f9270db8c5d29c9f811}{ToFChart::\string~ToFChart}}()\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classToFChart_a320318ae88c18844a98249ea24aa998c}{ui}};}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00093}\mbox{\hyperlink{classToFChart_a5dea47f860a3d5a8e0fb67d1ebf50de5}{00093}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classToFChart_a5dea47f860a3d5a8e0fb67d1ebf50de5}{ToFChart::onLegendMarkerClicked}}()\{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00094}00094\ \ \ \ \ QLegendMarker*\ marker\ =\ qobject\_cast<QLegendMarker*>(sender());}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (!marker)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00097}00097\ \ \ \ \ QAbstractSeries\ *\mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}\ =\ marker-\/>series();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ isVisible\ =\ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}-\/>isVisible();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00101}00101\ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}-\/>setVisible(!isVisible);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00102}00102\ \ \ \ \ marker-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00104}00104\ \ \ \ \ qreal\ alpha\ =\ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}-\/>isVisible()\ ?\ 1.0\ :\ 0.4;}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00105}00105\ \ \ \ \ QColor\ color\ =\ marker-\/>labelBrush().color();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00106}00106\ \ \ \ \ color.setAlphaF(alpha);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00107}00107\ \ \ \ \ marker-\/>setLabelBrush(QBrush(color));}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00109}00109\ \ \ \ \ QBrush\ brush\ =\ marker-\/>brush();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00110}00110\ \ \ \ \ QColor\ brushColor\ =\ brush.color();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00111}00111\ \ \ \ \ brushColor.setAlphaF(alpha);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00112}00112\ \ \ \ \ brush.setColor(brushColor);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00113}00113\ \ \ \ \ marker-\/>setBrush(brush);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00125}\mbox{\hyperlink{classToFChart_abfcd2447830c33e17a15fabf9b7b393a}{00125}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classToFChart_abfcd2447830c33e17a15fabf9b7b393a}{ToFChart::addMeasurement}}(\textcolor{keywordtype}{int}\ tof1,\ \textcolor{keywordtype}{int}\ tof2,\ \textcolor{keywordtype}{int}\ tof3,\ \textcolor{keywordtype}{int}\ tof4)}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00126}00126\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{int}\ values[]\ =\ \{tof1,\ tof2,\ tof3,\ tof4\};}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i<4;\ ++i)\{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_a0ef5d21b2610a1f2197bf3ae8fafee25}{dataBuffers}}[i].append(QPointF(\mbox{\hyperlink{classToFChart_afea42ee5e301734b62afb6a8f2e363bc}{iteration}},\ values[i]));}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classToFChart_a0ef5d21b2610a1f2197bf3ae8fafee25}{dataBuffers}}[i].size()\ >\ \mbox{\hyperlink{classToFChart_ac0d967ab425d0b26af13f08812b4dfff}{maxPoints}})\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_a0ef5d21b2610a1f2197bf3ae8fafee25}{dataBuffers}}[i].removeFirst();}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_ab9229a7c90a246017ab33597961a7791}{series}}[i]-\/>replace(\mbox{\hyperlink{classToFChart_a0ef5d21b2610a1f2197bf3ae8fafee25}{dataBuffers}}[i]);}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00139}00139\ \ \ \ \ \mbox{\hyperlink{classToFChart_afea42ee5e301734b62afb6a8f2e363bc}{iteration}}++;}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classToFChart_afea42ee5e301734b62afb6a8f2e363bc}{iteration}}\ >\ \mbox{\hyperlink{classToFChart_ac0d967ab425d0b26af13f08812b4dfff}{maxPoints}})\ \{}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classToFChart_a1cb57b4e3fc39c54fb04ec9728a5d7f3}{axisX}}-\/>setRange(\mbox{\hyperlink{classToFChart_afea42ee5e301734b62afb6a8f2e363bc}{iteration}}\ -\/\ \mbox{\hyperlink{classToFChart_ac0d967ab425d0b26af13f08812b4dfff}{maxPoints}},\ \mbox{\hyperlink{classToFChart_afea42ee5e301734b62afb6a8f2e363bc}{iteration}});}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00143}00143\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{TofChart_8cpp_source_l00144}00144\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,10 @@
+var namespaceQT__WARNING__DISABLE__DEPRECATED =
+[
+    [ "qt_meta_stringdata_BluetoothLogger_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothLogger__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothLogger__t" ],
+    [ "qt_meta_stringdata_BluetoothManager_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothManager__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothManager__t" ],
+    [ "qt_meta_stringdata_BluetoothScanner_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothScanner__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__BluetoothScanner__t" ],
+    [ "qt_meta_stringdata_LineChart_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__LineChart__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__LineChart__t" ],
+    [ "qt_meta_stringdata_MainWindow_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__MainWindow__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__MainWindow__t" ],
+    [ "qt_meta_stringdata_RobotPicture_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__RobotPicture__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__RobotPicture__t" ],
+    [ "qt_meta_stringdata_ToFChart_t", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__ToFChart__t.html", "structQT__WARNING__DISABLE__DEPRECATED_1_1qt__meta__stringdata__ToFChart__t" ]
+];

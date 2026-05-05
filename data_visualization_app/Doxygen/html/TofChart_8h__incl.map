@@ -1,0 +1,17 @@
+<map id="TofChart.h" name="TofChart.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="282,5,370,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,84,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="282,33,98,79,97,74,281,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="108,79,187,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="298,33,190,76,188,71,296,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="211,79,265,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="314,33,265,72,261,68,310,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="289,79,363,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="329,31,329,65,323,65,323,31"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="387,79,486,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="345,28,408,69,405,73,342,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="510,79,606,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="364,28,508,72,507,77,362,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="630,79,729,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="371,26,617,75,616,80,370,31"/>
+</map>

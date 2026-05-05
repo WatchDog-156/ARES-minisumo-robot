@@ -1,0 +1,49 @@
+\doxysection{Bluetooth\+Logger.\+cpp}
+\hypertarget{BluetoothLogger_8cpp_source}{}\label{BluetoothLogger_8cpp_source}\mbox{\hyperlink{BluetoothLogger_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BluetoothLogger_8h}{BluetoothLogger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ui__BluetoothLogger_8h}{ui\_BluetoothLogger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <QDateTime>}\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <QListWidgetItem>}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00022}\mbox{\hyperlink{classBluetoothLogger_a419fe259722ddafbe66e9ee28bae8b92}{00022}}\ \mbox{\hyperlink{classBluetoothLogger_a419fe259722ddafbe66e9ee28bae8b92}{BluetoothLogger::BluetoothLogger}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00023}00023\ \ \ \ \ :\ QDialog(parent)}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00024}00024\ \ \ \ \ ,\ ui(new\ \mbox{\hyperlink{namespaceUi}{Ui}}::\mbox{\hyperlink{classBluetoothLogger}{BluetoothLogger}})}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_ac69c43e541e9b72ff9de5f180782ccf2}{setupUi}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00028}00028\ \ \ \ \ this-\/>setWindowTitle(\textcolor{stringliteral}{"{}Bluetooth\ Logger"{}});}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00036}\mbox{\hyperlink{classBluetoothLogger_a696898dee6afb9aca0204ba56bdf3b87}{00036}}\ \mbox{\hyperlink{classBluetoothLogger_a696898dee6afb9aca0204ba56bdf3b87}{BluetoothLogger::\string~BluetoothLogger}}()}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}};}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00046}\mbox{\hyperlink{classBluetoothLogger_a1f45ef0028d9ebade63c55cfd6ed001e}{00046}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothLogger_a1f45ef0028d9ebade63c55cfd6ed001e}{BluetoothLogger::on\_buttonReset\_clicked}}()}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_a7e9a12129f55990c466c4f3dcba1efbc}{listLog}}-\/>clear();}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00057}\mbox{\hyperlink{classBluetoothLogger_a5930afd7e38010f50e9f4b16d4e05be8}{00057}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothLogger_a5930afd7e38010f50e9f4b16d4e05be8}{BluetoothLogger::addSendedLog}}(\textcolor{keyword}{const}\ QString\ \&log)\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00059}00059\ \ \ \ \ QString\ time\ =\ QDateTime::currentDateTime().toString(\textcolor{stringliteral}{"{}HH:mm:ss.zzz"{}});}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00060}00060\ \ \ \ \ QString\ label\ =\ QString(\textcolor{stringliteral}{"{}[\%1]\ LOGGER\ >>\ \%2"{}}).arg(time).arg(log);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00061}00061\ \ \ \ \ QListWidgetItem\ *item\ =\ \textcolor{keyword}{new}\ QListWidgetItem(label);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00062}00062\ \ \ \ \ item-\/>setForeground(QColor(255,\ 165,\ 0));\ \textcolor{comment}{//\ Orange}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_a7e9a12129f55990c466c4f3dcba1efbc}{listLog}}-\/>addItem(item);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_a7e9a12129f55990c466c4f3dcba1efbc}{listLog}}-\/>scrollToBottom();}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00073}\mbox{\hyperlink{classBluetoothLogger_a7609c86995f5781fcc3432096c957981}{00073}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBluetoothLogger_a7609c86995f5781fcc3432096c957981}{BluetoothLogger::addReceivedLog}}(\textcolor{keyword}{const}\ QString\ \&log)\ }
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00075}00075\ \ \ \ \ QString\ time\ =\ QDateTime::currentDateTime().toString(\textcolor{stringliteral}{"{}HH:mm:ss.zzz"{}});}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00076}00076\ \ \ \ \ QString\ label\ =\ QString(\textcolor{stringliteral}{"{}[\%1]\ LOGGER\ <<\ \%2"{}}).arg(time).arg(log);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00077}00077\ \ \ \ \ QListWidgetItem\ *item\ =\ \textcolor{keyword}{new}\ QListWidgetItem(label);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00078}00078\ \ \ \ \ item-\/>setForeground(Qt::darkGreen);\ \textcolor{comment}{//\ Dark\ Green}}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_a7e9a12129f55990c466c4f3dcba1efbc}{listLog}}-\/>addItem(item);}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{classBluetoothLogger_a9963097f50f29e10abfde1a79efde251}{ui}}-\/>\mbox{\hyperlink{classUi__BluetoothLogger_a7e9a12129f55990c466c4f3dcba1efbc}{listLog}}-\/>scrollToBottom();}
+\DoxyCodeLine{\Hypertarget{BluetoothLogger_8cpp_source_l00081}00081\ \}}
+
+\end{DoxyCode}

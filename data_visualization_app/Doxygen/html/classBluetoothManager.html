@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PDW_Ares: Dokumentacja klasy BluetoothManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">PDW_Ares
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classBluetoothManager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">Sygnały</a> &#124;
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pri-slots">Sloty prywatne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
+<a href="classBluetoothManager-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy BluetoothManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla BluetoothManager</div>
+<div class="dyncontent">
+<div class="center"><img src="classBluetoothManager__inherit__graph.png" border="0" usemap="#aBluetoothManager_inherit__map" alt="Inheritance graph"/></div>
+<map name="aBluetoothManager_inherit__map" id="aBluetoothManager_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,79,148,104"/>
+<area shape="rect" title=" " alt="" coords="39,5,114,31"/>
+<area shape="poly" title=" " alt="" coords="79,44,79,79,74,79,74,44"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+<div class="dynheader">
+Diagram współpracy dla BluetoothManager:</div>
+<div class="dyncontent">
+<div class="center"><img src="classBluetoothManager__coll__graph.png" border="0" usemap="#aBluetoothManager_coll__map" alt="Collaboration graph"/></div>
+<map name="aBluetoothManager_coll__map" id="aBluetoothManager_coll__map">
+<area shape="rect" title=" " alt="" coords="5,79,148,104"/>
+<area shape="rect" title=" " alt="" coords="39,5,114,31"/>
+<area shape="poly" title=" " alt="" coords="79,44,79,79,74,79,74,44"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+Sygnały</h2></td></tr>
+<tr class="memitem:a260c5488ce205bd126c2e615b3f43da1" id="r_a260c5488ce205bd126c2e615b3f43da1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a260c5488ce205bd126c2e615b3f43da1">dataReceived</a> (const QByteArray &amp;data)</td></tr>
+<tr class="separator:a260c5488ce205bd126c2e615b3f43da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adebf07d0798ba058399161c6154dd90c" id="r_adebf07d0798ba058399161c6154dd90c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#adebf07d0798ba058399161c6154dd90c">connectionStatusChanged</a> (bool connected, QString message)</td></tr>
+<tr class="separator:adebf07d0798ba058399161c6154dd90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:aa3244e3fe622a85f49c28336681b73e6" id="r_aa3244e3fe622a85f49c28336681b73e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#aa3244e3fe622a85f49c28336681b73e6">BluetoothManager</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:aa3244e3fe622a85f49c28336681b73e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Bluetooth Manager:: Bluetooth Manager object.  <br /></td></tr>
+<tr class="separator:aa3244e3fe622a85f49c28336681b73e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6366682e9c6e7708f944935602f66eae" id="r_a6366682e9c6e7708f944935602f66eae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a6366682e9c6e7708f944935602f66eae">~BluetoothManager</a> ()</td></tr>
+<tr class="memdesc:a6366682e9c6e7708f944935602f66eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Bluetooth Manager:: Bluetooth Manager object.  <br /></td></tr>
+<tr class="separator:a6366682e9c6e7708f944935602f66eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74027d66489f5b68b8c0d2d1c38069d" id="r_ac74027d66489f5b68b8c0d2d1c38069d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#ac74027d66489f5b68b8c0d2d1c38069d">connectToDevice</a> (const QBluetoothDeviceInfo &amp;device)</td></tr>
+<tr class="memdesc:ac74027d66489f5b68b8c0d2d1c38069d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapoczątkowanie połączenie i wyszukanie serwisów.  <br /></td></tr>
+<tr class="separator:ac74027d66489f5b68b8c0d2d1c38069d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac899597a921b73a28d3f2d13beb8b8ca" id="r_ac899597a921b73a28d3f2d13beb8b8ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#ac899597a921b73a28d3f2d13beb8b8ca">disconnectDevice</a> ()</td></tr>
+<tr class="memdesc:ac899597a921b73a28d3f2d13beb8b8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozłączenie z połączonym urządzeniem Bluetooth.  <br /></td></tr>
+<tr class="separator:ac899597a921b73a28d3f2d13beb8b8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fe6e39943d025b44a8ee7be0715a14" id="r_a03fe6e39943d025b44a8ee7be0715a14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a03fe6e39943d025b44a8ee7be0715a14">writeData</a> (const QString &amp;data)</td></tr>
+<tr class="memdesc:a03fe6e39943d025b44a8ee7be0715a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wysłanie wiadomości po Bluetooth.  <br /></td></tr>
+<tr class="separator:a03fe6e39943d025b44a8ee7be0715a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-slots" name="pri-slots"></a>
+Sloty prywatne</h2></td></tr>
+<tr class="memitem:a5fefc4935c797012389a819ca8cacefe" id="r_a5fefc4935c797012389a819ca8cacefe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a5fefc4935c797012389a819ca8cacefe">serviceDiscovered</a> (const QBluetoothUuid &amp;gatt)</td></tr>
+<tr class="memdesc:a5fefc4935c797012389a819ca8cacefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Znajdowanie konkretnych serwisów.  <br /></td></tr>
+<tr class="separator:a5fefc4935c797012389a819ca8cacefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a545c1a271b08397618d2fa28c688226c" id="r_a545c1a271b08397618d2fa28c688226c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a545c1a271b08397618d2fa28c688226c">serviceStateChanged</a> (QLowEnergyService::ServiceState s)</td></tr>
+<tr class="memdesc:a545c1a271b08397618d2fa28c688226c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizuje połączenie Bluetooth.  <br /></td></tr>
+<tr class="separator:a545c1a271b08397618d2fa28c688226c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77c1cefaba1ae07756be1c3a8aead7b" id="r_ab77c1cefaba1ae07756be1c3a8aead7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#ab77c1cefaba1ae07756be1c3a8aead7b">updateCharacteristicValue</a> (const QLowEnergyCharacteristic &amp;c, const QByteArray &amp;value)</td></tr>
+<tr class="memdesc:ab77c1cefaba1ae07756be1c3a8aead7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odbieranie przysłanych wiadomości.  <br /></td></tr>
+<tr class="separator:ab77c1cefaba1ae07756be1c3a8aead7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:af8608eb8f9ceab1a204c7418baf29af5" id="r_af8608eb8f9ceab1a204c7418baf29af5"><td class="memItemLeft" align="right" valign="top">QLowEnergyController *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#af8608eb8f9ceab1a204c7418baf29af5">controller</a> = nullptr</td></tr>
+<tr class="separator:af8608eb8f9ceab1a204c7418baf29af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b2ebc8ddc8af7a2bd6eeb39b88e42b" id="r_aa2b2ebc8ddc8af7a2bd6eeb39b88e42b"><td class="memItemLeft" align="right" valign="top">QLowEnergyService *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#aa2b2ebc8ddc8af7a2bd6eeb39b88e42b">service</a> = nullptr</td></tr>
+<tr class="separator:aa2b2ebc8ddc8af7a2bd6eeb39b88e42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1669c17dd522010130379f51043cfac" id="r_ad1669c17dd522010130379f51043cfac"><td class="memItemLeft" align="right" valign="top">QLowEnergyCharacteristic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#ad1669c17dd522010130379f51043cfac">writeCharacteristic</a></td></tr>
+<tr class="separator:ad1669c17dd522010130379f51043cfac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a871e9af5d86029281e9c1d95e1f396d3" id="r_a871e9af5d86029281e9c1d95e1f396d3"><td class="memItemLeft" align="right" valign="top">const QBluetoothUuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a871e9af5d86029281e9c1d95e1f396d3">serviceUuid</a> = QBluetoothUuid(QString(&quot;6E400001-B5A3-F393-E0A9-E50E24DCCA9E&quot;))</td></tr>
+<tr class="separator:a871e9af5d86029281e9c1d95e1f396d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eebb822a7de8a142b0ddb1bde6b537e" id="r_a6eebb822a7de8a142b0ddb1bde6b537e"><td class="memItemLeft" align="right" valign="top">const QBluetoothUuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#a6eebb822a7de8a142b0ddb1bde6b537e">charWriteUuid</a> = QBluetoothUuid(QString(&quot;{6e400002-b5a3-f393-e0a9-e50e24dcca9e}&quot;))</td></tr>
+<tr class="separator:a6eebb822a7de8a142b0ddb1bde6b537e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad342110835a10e4cf99bcaa9883ab0a7" id="r_ad342110835a10e4cf99bcaa9883ab0a7"><td class="memItemLeft" align="right" valign="top">const QBluetoothUuid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetoothManager.html#ad342110835a10e4cf99bcaa9883ab0a7">charReadUuid</a> = QBluetoothUuid(QString(&quot;{6e400003-b5a3-f393-e0a9-e50e24dcca9e}&quot;))</td></tr>
+<tr class="separator:ad342110835a10e4cf99bcaa9883ab0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock">
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00009">9</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="aa3244e3fe622a85f49c28336681b73e6" name="aa3244e3fe622a85f49c28336681b73e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3244e3fe622a85f49c28336681b73e6">&#9670;&#160;</a></span>BluetoothManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BluetoothManager::BluetoothManager </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new Bluetooth Manager:: Bluetooth Manager object. </p>
+<p>Construct a new Bluetooth Manager:: Bluetooth Manager object </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>wskażnik na rodzica obiektu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00020">20</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6366682e9c6e7708f944935602f66eae" name="a6366682e9c6e7708f944935602f66eae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6366682e9c6e7708f944935602f66eae">&#9670;&#160;</a></span>~BluetoothManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BluetoothManager::~BluetoothManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy the Bluetooth Manager:: Bluetooth Manager object. </p>
+<p>Destroy the Bluetooth Manager:: Bluetooth Manager object </p>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00027">27</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="adebf07d0798ba058399161c6154dd90c" name="adebf07d0798ba058399161c6154dd90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adebf07d0798ba058399161c6154dd90c">&#9670;&#160;</a></span>connectionStatusChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::connectionStatusChanged </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>connected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="moc__BluetoothManager_8cpp_source.html#l00250">250</a> pliku <a class="el" href="moc__BluetoothManager_8cpp_source.html">moc_BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac74027d66489f5b68b8c0d2d1c38069d" name="ac74027d66489f5b68b8c0d2d1c38069d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac74027d66489f5b68b8c0d2d1c38069d">&#9670;&#160;</a></span>connectToDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::connectToDevice </td>
+          <td>(</td>
+          <td class="paramtype">const QBluetoothDeviceInfo &amp;&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zapoczątkowanie połączenie i wyszukanie serwisów. </p>
+<p>Funkcja zapoczątkowuje połączenie bluetooth z wybranym urządzeniem. Następuje połączenie oraz wyszukanie dostępnych serwisów </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>dane o urządzeniu bluetooth, z którym następuje połączenie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00036">36</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a260c5488ce205bd126c2e615b3f43da1" name="a260c5488ce205bd126c2e615b3f43da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a260c5488ce205bd126c2e615b3f43da1">&#9670;&#160;</a></span>dataReceived</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::dataReceived </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="moc__BluetoothManager_8cpp_source.html#l00243">243</a> pliku <a class="el" href="moc__BluetoothManager_8cpp_source.html">moc_BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac899597a921b73a28d3f2d13beb8b8ca" name="ac899597a921b73a28d3f2d13beb8b8ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac899597a921b73a28d3f2d13beb8b8ca">&#9670;&#160;</a></span>disconnectDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::disconnectDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rozłączenie z połączonym urządzeniem Bluetooth. </p>
+<p>Funkcja powoduje rozłączenie się z aktualnie połączonym urządzeniem bluetooth </p>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00132">132</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5fefc4935c797012389a819ca8cacefe" name="a5fefc4935c797012389a819ca8cacefe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fefc4935c797012389a819ca8cacefe">&#9670;&#160;</a></span>serviceDiscovered</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::serviceDiscovered </td>
+          <td>(</td>
+          <td class="paramtype">const QBluetoothUuid &amp;&#160;</td>
+          <td class="paramname"><em>gatt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Znajdowanie konkretnych serwisów. </p>
+<p>Slot, który zarządza znajdowaniem konkretnych serwisów </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gatt</td><td>identyfikator UUID usługi </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00063">63</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a545c1a271b08397618d2fa28c688226c" name="a545c1a271b08397618d2fa28c688226c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a545c1a271b08397618d2fa28c688226c">&#9670;&#160;</a></span>serviceStateChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::serviceStateChanged </td>
+          <td>(</td>
+          <td class="paramtype">QLowEnergyService::ServiceState&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finalizuje połączenie Bluetooth. </p>
+<p>Slot odpowiedzialany za finalizacje połączenia bluetooth </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>informacja o aktualnym etapie usługi </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00080">80</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab77c1cefaba1ae07756be1c3a8aead7b" name="ab77c1cefaba1ae07756be1c3a8aead7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab77c1cefaba1ae07756be1c3a8aead7b">&#9670;&#160;</a></span>updateCharacteristicValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::updateCharacteristicValue </td>
+          <td>(</td>
+          <td class="paramtype">const QLowEnergyCharacteristic &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QByteArray &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Odbieranie przysłanych wiadomości. </p>
+<p>Slot odpowiada za odbieranie wiadomości przysłanych od urządzenia bluetooth </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>referencja na obiekt charakterystyki </td></tr>
+    <tr><td class="paramname">value</td><td>tablica przysłanych danych binarnych </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00108">108</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a03fe6e39943d025b44a8ee7be0715a14" name="a03fe6e39943d025b44a8ee7be0715a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fe6e39943d025b44a8ee7be0715a14">&#9670;&#160;</a></span>writeData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BluetoothManager::writeData </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wysłanie wiadomości po Bluetooth. </p>
+<p>Funkcja powoduje wysłanie wiadomości do urządzenia po bluetooth </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>wiadomość do wysłania </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8cpp_source.html#l00120">120</a> pliku <a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="ad342110835a10e4cf99bcaa9883ab0a7" name="ad342110835a10e4cf99bcaa9883ab0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad342110835a10e4cf99bcaa9883ab0a7">&#9670;&#160;</a></span>charReadUuid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QBluetoothUuid BluetoothManager::charReadUuid = QBluetoothUuid(QString(&quot;{6e400003-b5a3-f393-e0a9-e50e24dcca9e}&quot;))</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00038">38</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a6eebb822a7de8a142b0ddb1bde6b537e" name="a6eebb822a7de8a142b0ddb1bde6b537e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eebb822a7de8a142b0ddb1bde6b537e">&#9670;&#160;</a></span>charWriteUuid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QBluetoothUuid BluetoothManager::charWriteUuid = QBluetoothUuid(QString(&quot;{6e400002-b5a3-f393-e0a9-e50e24dcca9e}&quot;))</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00037">37</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<a id="af8608eb8f9ceab1a204c7418baf29af5" name="af8608eb8f9ceab1a204c7418baf29af5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8608eb8f9ceab1a204c7418baf29af5">&#9670;&#160;</a></span>controller</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QLowEnergyController* BluetoothManager::controller = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00031">31</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<a id="aa2b2ebc8ddc8af7a2bd6eeb39b88e42b" name="aa2b2ebc8ddc8af7a2bd6eeb39b88e42b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b2ebc8ddc8af7a2bd6eeb39b88e42b">&#9670;&#160;</a></span>service</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QLowEnergyService* BluetoothManager::service = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00032">32</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a871e9af5d86029281e9c1d95e1f396d3" name="a871e9af5d86029281e9c1d95e1f396d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871e9af5d86029281e9c1d95e1f396d3">&#9670;&#160;</a></span>serviceUuid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QBluetoothUuid BluetoothManager::serviceUuid = QBluetoothUuid(QString(&quot;6E400001-B5A3-F393-E0A9-E50E24DCCA9E&quot;))</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00036">36</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<a id="ad1669c17dd522010130379f51043cfac" name="ad1669c17dd522010130379f51043cfac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1669c17dd522010130379f51043cfac">&#9670;&#160;</a></span>writeCharacteristic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QLowEnergyCharacteristic BluetoothManager::writeCharacteristic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="BluetoothManager_8h_source.html#l00033">33</a> pliku <a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="BluetoothManager_8h_source.html">BluetoothManager.h</a></li>
+<li><a class="el" href="BluetoothManager_8cpp_source.html">BluetoothManager.cpp</a></li>
+<li><a class="el" href="moc__BluetoothManager_8cpp_source.html">moc_BluetoothManager.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classBluetoothManager.html">BluetoothManager</a></li>
+    <li class="footer">Wygenerowano przez <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<map id="BluetoothScanner.h" name="BluetoothScanner.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="185,5,333,31"/>
+<area shape="rect" id="Node000002" href="$BluetoothScanner_8cpp.html" title="Tworzy oraz zarządza okienkiem &quot;Bluetooth Scanner&quot; do wybierania urządzenia bluetooth." alt="" coords="5,79,168,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,38,116,81,114,76,218,33"/>
+<area shape="rect" id="Node000003" href="$MainWindow_8cpp.html" title="Tworzy główne okno aplikacji oraz zarządza działaniem przycisków." alt="" coords="193,79,325,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,44,261,79,256,79,256,44"/>
+<area shape="rect" id="Node000004" href="$moc__BluetoothScanner_8cpp.html" title=" " alt="" coords="349,79,547,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,33,418,76,416,81,301,38"/>
+<area shape="rect" id="Node000005" href="$mocs__compilation_8cpp.html" title=" " alt="" coords="364,152,532,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="451,118,451,152,445,152,445,118"/>
+</map>

@@ -1,0 +1,43 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title=" " alt="" coords="736,153,843,179"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="435,5,551,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="565,14,639,25,678,36,713,54,739,77,760,104,785,152,781,154,756,106,735,80,711,59,676,41,638,30,564,20"/>
+<area shape="rect" id="Node000003" href="$classUi_1_1MainWindow.html" title=" " alt="" coords="429,55,557,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="571,71,641,83,713,106,749,128,776,151,773,155,746,132,711,111,640,88,570,76"/>
+<area shape="rect" id="Node000004" href="$classUi__MainWindow.html" title=" " alt="" coords="217,19,344,44"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="358,42,429,54,428,59,357,47"/>
+<area shape="rect" id="Node000005" href="$classToFChart.html" title=" " alt="" coords="453,104,532,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="546,120,712,145,740,151,739,156,712,150,546,125"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="241,137,320,163"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="334,139,453,120,454,125,334,144"/>
+<area shape="rect" id="Node000009" href="$classLineChart.html" title=" " alt="" coords="451,203,535,228"/>
+<area shape="poly" id="edge9_Node000009_Node000006" title=" " alt="" coords="334,163,451,200,450,205,332,169"/>
+<area shape="rect" id="Node000012" href="$classRobotPicture.html" title=" " alt="" coords="440,153,545,179"/>
+<area shape="poly" id="edge13_Node000012_Node000006" title=" " alt="" coords="334,151,440,159,440,165,334,157"/>
+<area shape="rect" id="Node000007" href="$classUi_1_1ToFChart.html" title=" " alt="" coords="230,68,331,93"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="346,89,454,107,453,113,345,94"/>
+<area shape="rect" id="Node000008" href="$classUi__ToFChart.html" title=" " alt="" coords="31,68,131,93"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="144,78,230,78,230,83,144,83"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="548,207,626,198,711,183,743,176,744,181,713,189,627,203,549,213"/>
+<area shape="rect" id="Node000010" href="$classUi_1_1LineChart.html" title=" " alt="" coords="227,248,334,273"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="347,264,397,259,437,245,471,226,473,230,439,249,398,265,348,270"/>
+<area shape="rect" id="Node000011" href="$classUi__LineChart.html" title=" " alt="" coords="28,248,133,273"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="147,258,227,258,227,263,147,263"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="559,163,736,163,736,169,559,169"/>
+<area shape="rect" id="Node000013" href="$classUi_1_1RobotPicture.html" title=" " alt="" coords="217,199,344,224"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="353,193,439,175,440,180,355,198"/>
+<area shape="rect" id="Node000014" href="$classUi__RobotPicture.html" title=" " alt="" coords="17,199,144,224"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="158,209,217,209,217,214,158,214"/>
+<area shape="rect" id="Node000015" href="$classBluetoothManager.html" title=" " alt="" coords="421,273,564,299"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="577,269,644,251,711,224,746,201,773,177,777,181,749,205,713,228,646,256,578,274"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="243,297,318,323"/>
+<area shape="poly" id="edge17_Node000015_Node000016" title=" " alt="" coords="331,302,421,291,421,297,332,307"/>
+<area shape="rect" id="Node000017" href="$classBluetoothLogger.html" title=" " alt="" coords="428,347,557,372"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="571,345,642,324,678,308,710,287,736,261,756,231,781,178,786,180,761,233,740,264,714,291,680,312,644,329,572,350"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="243,347,318,372"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="332,357,428,357,428,362,332,362"/>
+<area shape="rect" id="Node000019" href="$classUi_1_1BluetoothLogger.html" title=" " alt="" coords="205,396,356,421"/>
+<area shape="poly" id="edge20_Node000017_Node000019" title=" " alt="" coords="348,390,437,369,438,375,350,395"/>
+<area shape="rect" id="Node000020" href="$classUi__BluetoothLogger.html" title=" " alt="" coords="5,396,156,421"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="170,406,205,406,205,411,170,411"/>
+</map>
