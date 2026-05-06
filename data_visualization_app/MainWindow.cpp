@@ -19,7 +19,7 @@
  * 
  * Tworzy instancję interfejsu użytkownika, konfiguruje wykresy ToF i linii, 
  * inicjalizuje menedżera Bluetooth oraz ustawia domyślny widok aplikacji
- * @param parent wskaźnik na obiekt rodzica
+ * @param[in] parent - wskaźnik na obiekt rodzica
  */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -208,7 +208,7 @@ void MainWindow::updateButtonStates(){
  * @brief Funckja inicjuje procedurę łączenia z wybranym urzadzeniem
  * 
  * Funkcja odpowiada za rozpoczęcie próby połączenia się z urządzenie poprzez bluetooth
- * @param info dane o urządzeniu bluetooth, z którym następuje połączenie
+ * @param[in] info - dane o urządzeniu bluetooth, z którym następuje połączenie
  */
 void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
     qDebug() << "Próba połączenia z:" << info.name();
@@ -220,7 +220,7 @@ void MainWindow::connectToDevice(const QBluetoothDeviceInfo &info) {
  * 
  * Funkcja wyłapuje wartości liczbowe z ciągu znaków przy użyciu wyrażeń regularnych,
  * oczekuje 8 wartości: 2 dla linii, 4 dla czujników ToF oraz 2 dla silników
- * @param data Tablica bajtów odebrana bezpośrednio z modułu Bluetooth
+ * @param[in] data - Tablica bajtów odebrana bezpośrednio z modułu Bluetooth
  */
 void MainWindow::onDataReceived(const QByteArray &data) {
     QString recivedData = QString::fromUtf8(data).trimmed();

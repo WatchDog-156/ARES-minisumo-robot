@@ -15,7 +15,7 @@
 /**
  * @brief Konstruktor nowego obiektu ToF Chart
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 ToFChart::ToFChart(QWidget *parent)
     : QWidget(parent)
@@ -114,10 +114,10 @@ void ToFChart::onLegendMarkerClicked(){
 /**
  * @brief Funkcja dodaje pomiary odległości do wykresu
  * 
- * @param tof1 pomiar z czujnika tof1 (lewy)
- * @param tof2 pomiar z czujnika tof2 (lewy przód)
- * @param tof3 pomiar z czujnika tof3 (prawy przód)
- * @param tof4 pomiar z czujnika tof4 (prawy)
+ * @param[in] tof1 - pomiar z czujnika tof1 (lewy)
+ * @param[in] tof2 - pomiar z czujnika tof2 (lewy przód)
+ * @param[in] tof3 - pomiar z czujnika tof3 (prawy przód)
+ * @param[in] tof4 - pomiar z czujnika tof4 (prawy)
  */
 void ToFChart::addMeasurement(int tof1, int tof2, int tof3, int tof4)
 {

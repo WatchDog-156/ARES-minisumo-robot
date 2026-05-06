@@ -14,7 +14,7 @@
 /**
  * @brief Konstruktor nowego obiektu Bluetooth Scanner
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 BluetoothScanner::BluetoothScanner(QWidget *parent)
     : QDialog(parent)
@@ -77,7 +77,7 @@ void BluetoothScanner::on_buttonConnect_clicked()
  * @brief Dodaje urządzenie do listy urządzeń
  * 
  * Dodaje urządzenie do listy wraz z mocą jego sygnału na odpowiednim miejscu
- * @param info dane o urządzeniu bluetooth do dodania
+ * @param[in] info - dane o urządzeniu bluetooth do dodania
  */
 void BluetoothScanner::addDevice(const QBluetoothDeviceInfo &info) {
     if (info.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration) {

@@ -16,7 +16,7 @@
 /**
  * @brief Konstruktor nowego obiektu Bluetooth Logger
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 BluetoothLogger::BluetoothLogger(QWidget *parent)
     : QDialog(parent)
@@ -50,7 +50,7 @@ void BluetoothLogger::on_buttonReset_clicked()
  * @brief Funkcja odpowiadająca za dodawanie wysłanych logów
  * 
  * Funkcja odpowiada za dodanie logów wysłanych do urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
- * @param log wysłana wiadomość do wyświetlenia
+ * @param[in] log - wysłana wiadomość do wyświetlenia
  */
 void BluetoothLogger::addSendedLog(const QString &log) 
 {
@@ -66,7 +66,7 @@ void BluetoothLogger::addSendedLog(const QString &log)
  * @brief Funkcja odpowiadająca za dodanie odebranych logów 
  * 
  * Funkcja odpowiada za dodanie logów odebranych od urządzenia w odpowiednim miejscu w oknie Bluetooth Logger 
- * @param log przysłana wiadomość do wyświetlenia
+ * @param[in] log - przysłana wiadomość do wyświetlenia
  */
 void BluetoothLogger::addReceivedLog(const QString &log) 
 {

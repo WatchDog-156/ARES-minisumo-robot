@@ -14,7 +14,7 @@
 /**
  * @brief Konstruktor nowego obiektu Robot Picture
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 RobotPicture::RobotPicture(QWidget *parent)
     : QWidget(parent)

@@ -14,7 +14,7 @@
 /**
  * @brief Konstruktor nowego obiektu Bluetooth Manager
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 BluetoothManager::BluetoothManager(QObject *parent) : QObject(parent) {}
 
@@ -29,7 +29,7 @@ BluetoothManager::~BluetoothManager() { disconnectDevice(); }
  * 
  * Funkcja zapoczątkowuje połączenie bluetooth z wybranym urządzeniem.
  * Następuje połączenie oraz wyszukanie dostępnych serwisów
- * @param device dane o urządzeniu bluetooth, z którym następuje połączenie
+ * @param[in] device - dane o urządzeniu bluetooth, z którym następuje połączenie
  */
 void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
     if (controller) {
@@ -56,7 +56,7 @@ void BluetoothManager::connectToDevice(const QBluetoothDeviceInfo &device) {
  * @brief Znajdowanie konkretnych serwisów
  * 
  * Slot, który zarządza znajdowaniem konkretnych serwisów
- * @param gatt identyfikator UUID usługi
+ * @param[in] gatt - identyfikator UUID usługi
  */
 void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
     if (gatt == serviceUuid) {
@@ -73,7 +73,7 @@ void BluetoothManager::serviceDiscovered(const QBluetoothUuid &gatt) {
  * @brief Finalizuje połączenie Bluetooth
  * 
  * Slot odpowiedzialany za finalizacje połączenia bluetooth
- * @param s informacja o aktualnym etapie usługi
+ * @param[in] s - informacja o aktualnym etapie usługi
  */
 void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
     if (s == QLowEnergyService::RemoteServiceDiscovered) {
@@ -100,8 +100,8 @@ void BluetoothManager::serviceStateChanged(QLowEnergyService::ServiceState s) {
  * @brief Odbieranie przysłanych wiadomości 
  * 
  * Slot odpowiada za odbieranie wiadomości przysłanych od urządzenia bluetooth
- * @param c referencja na obiekt charakterystyki
- * @param value tablica przysłanych danych binarnych
+ * @param[in] c - referencja na obiekt charakterystyki
+ * @param[in] value - tablica przysłanych danych binarnych
  */
 void BluetoothManager::updateCharacteristicValue(const QLowEnergyCharacteristic &c, const QByteArray &value) {
     if (c.uuid() == charReadUuid) {
@@ -113,7 +113,7 @@ void BluetoothManager::updateCharacteristicValue(const QLowEnergyCharacteristic 
  * @brief Wysłanie wiadomości po Bluetooth
  * 
  * Funkcja powoduje wysłanie wiadomości do urządzenia po bluetooth
- * @param data wiadomość do wysłania
+ * @param[in] data - wiadomość do wysłania
  */
 void BluetoothManager::writeData(const QString &data) {
     if (service && writeCharacteristic.isValid()) {

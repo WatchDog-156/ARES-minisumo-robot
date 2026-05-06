@@ -15,7 +15,7 @@
 /**
  * @brief Konstruktor nowego obiektu Line Chart
  * 
- * @param parent wskażnik na rodzica obiektu
+ * @param[in] parent - wskażnik na rodzica obiektu
  */
 LineChart::LineChart(QWidget *parent)
     : QWidget(parent)
@@ -116,8 +116,8 @@ void LineChart::onLegendMarkerClicked(){
 /**
  * @brief Funkcja dodaje pomiary białej linii do wykresu
  * 
- * @param line_l pomiar z lewego czujnika białej linii
- * @param line_r pomiar z prawego czujnika białej linii
+ * @param[in] line_l - pomiar z lewego czujnika białej linii
+ * @param[in] line_r - pomiar z prawego czujnika białej linii
  */
 void LineChart::addMeasurement(int line_l, int line_r)
 {
