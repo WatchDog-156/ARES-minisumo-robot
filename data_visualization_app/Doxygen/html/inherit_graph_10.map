@@ -1,9 +1,0 @@
-<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,84,80"/>
-<area shape="rect" id="Node000001" href="$classLineChart.html" title=" " alt="" coords="143,5,227,31"/>
-<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="93,47,147,28,149,33,95,52"/>
-<area shape="rect" id="Node000002" href="$classRobotPicture.html" title=" " alt="" coords="132,55,237,80"/>
-<area shape="poly" id="edge6_Node000000_Node000002" title=" " alt="" coords="98,65,132,65,132,70,98,70"/>
-<area shape="rect" id="Node000003" href="$classToFChart.html" title=" " alt="" coords="145,104,224,129"/>
-<area shape="poly" id="edge7_Node000000_Node000003" title=" " alt="" coords="95,82,149,101,147,106,93,87"/>
-</map>

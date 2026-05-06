@@ -14,9 +14,8 @@
 #include <QListWidgetItem>
 
 /**
- * @brief Construct a new Bluetooth Logger:: Bluetooth Logger object
+ * @brief Konstruktor nowego obiektu Bluetooth Logger
  * 
- * Construct a new Bluetooth Logger:: Bluetooth Logger object
  * @param parent wskażnik na rodzica obiektu
  */
 BluetoothLogger::BluetoothLogger(QWidget *parent)
@@ -29,9 +28,8 @@ BluetoothLogger::BluetoothLogger(QWidget *parent)
 }
 
 /**
- * @brief Destroy the Bluetooth Logger:: Bluetooth Logger object
+ * @brief Destruktor obiektu Bluetooth Logger
  * 
- * Destroy the Bluetooth Logger:: Bluetooth Logger object
  */
 BluetoothLogger::~BluetoothLogger()
 {

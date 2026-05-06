@@ -1,7 +1,0 @@
-<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,80,56"/>
-<area shape="rect" id="Node000001" href="$classBluetoothLogger.html" title=" " alt="" coords="132,5,261,31"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="93,32,131,26,132,31,94,38"/>
-<area shape="rect" id="Node000002" href="$classBluetoothScanner.html" title=" " alt="" coords="128,55,265,80"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="94,49,128,54,128,59,93,54"/>
-</map>

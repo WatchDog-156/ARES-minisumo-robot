@@ -12,9 +12,8 @@
 #include "ui_BluetoothScanner.h"
 
 /**
- * @brief Construct a new Bluetooth Scanner:: Bluetooth Scanner object
+ * @brief Konstruktor nowego obiektu Bluetooth Scanner
  * 
- * Construct a new Bluetooth Scanner:: Bluetooth Scanner object
  * @param parent wskażnik na rodzica obiektu
  */
 BluetoothScanner::BluetoothScanner(QWidget *parent)
@@ -33,9 +32,8 @@ BluetoothScanner::BluetoothScanner(QWidget *parent)
 }
 
 /**
- * @brief Destroy the Bluetooth Scanner:: Bluetooth Scanner object
+ * @brief Destruktor obiektu Bluetooth Scanner
  * 
- * Destroy the Bluetooth Scanner:: Bluetooth Scanner object
  */
 BluetoothScanner::~BluetoothScanner()
 {
@@ -97,7 +95,6 @@ void BluetoothScanner::addDevice(const QBluetoothDeviceInfo &info) {
 /**
  * @brief Sortuje urządzenia na liście po rosnącej mocy sygnału 
  * 
- * Sortuje urządzenia na liście po rosnącej mocy sygnału 
  */
 void BluetoothScanner::sortAndRefreshList() {
     std::sort(foundDevices.begin(), foundDevices.end(), [](const QBluetoothDeviceInfo &a, const QBluetoothDeviceInfo &b) {

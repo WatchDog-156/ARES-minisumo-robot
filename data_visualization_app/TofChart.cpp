@@ -13,9 +13,8 @@
 #include <QVBoxLayout>
 
 /**
- * @brief Construct a new ToF Chart:: ToF Chart object
+ * @brief Konstruktor nowego obiektu ToF Chart
  * 
- * Construct a new ToF Chart:: ToF Chart object
  * @param parent wskażnik na rodzica obiektu
  */
 ToFChart::ToFChart(QWidget *parent)
@@ -77,9 +76,8 @@ ToFChart::ToFChart(QWidget *parent)
 }
 
 /**
- * @brief Destroy the ToF Chart:: ToF Chart object
+ * @brief Destruktor obiektu ToF Chart
  * 
- * Destroy the ToF Chart:: ToF Chart object
  */
 ToFChart::~ToFChart() {
     delete ui;
@@ -116,7 +114,6 @@ void ToFChart::onLegendMarkerClicked(){
 /**
  * @brief Funkcja dodaje pomiary odległości do wykresu
  * 
- * Funkcja dodaje pomiary odległości do wykresu
  * @param tof1 pomiar z czujnika tof1 (lewy)
  * @param tof2 pomiar z czujnika tof2 (lewy przód)
  * @param tof3 pomiar z czujnika tof3 (prawy przód)

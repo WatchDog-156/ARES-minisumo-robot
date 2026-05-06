@@ -1,9 +1,0 @@
-<map id="ToFChart" name="ToFChart">
-<area shape="rect" id="Node000001" title=" " alt="" coords="27,168,105,193"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,84,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,118,66,167,60,168,48,119"/>
-<area shape="rect" id="Node000003" href="$classUi_1_1ToFChart.html" title=" " alt="" coords="109,80,210,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,117,81,169,77,165,135,113"/>
-<area shape="rect" id="Node000004" href="$classUi__ToFChart.html" title=" " alt="" coords="109,5,209,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="162,45,162,80,157,80,157,45"/>
-</map>

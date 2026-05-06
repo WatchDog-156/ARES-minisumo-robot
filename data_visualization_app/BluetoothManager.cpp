@@ -12,17 +12,15 @@
 
 
 /**
- * @brief Construct a new Bluetooth Manager:: Bluetooth Manager object
+ * @brief Konstruktor nowego obiektu Bluetooth Manager
  * 
- * Construct a new Bluetooth Manager:: Bluetooth Manager object
  * @param parent wskażnik na rodzica obiektu
  */
 BluetoothManager::BluetoothManager(QObject *parent) : QObject(parent) {}
 
 /**
- * @brief Destroy the Bluetooth Manager:: Bluetooth Manager object
+ * @brief Destruktor obiektu Bluetooth Manager
  *  
- * Destroy the Bluetooth Manager:: Bluetooth Manager object
  */
 BluetoothManager::~BluetoothManager() { disconnectDevice(); }
 

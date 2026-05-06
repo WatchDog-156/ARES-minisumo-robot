@@ -1,9 +1,0 @@
-<map id="RobotPicture" name="RobotPicture">
-<area shape="rect" id="Node000001" title=" " alt="" coords="35,168,140,193"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,84,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,117,84,166,79,169,54,119"/>
-<area shape="rect" id="Node000003" href="$classUi_1_1RobotPicture.html" title=" " alt="" coords="108,80,235,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,117,101,169,97,166,148,113"/>
-<area shape="rect" id="Node000004" href="$classUi__RobotPicture.html" title=" " alt="" coords="108,5,235,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="174,45,174,80,169,80,169,45"/>
-</map>

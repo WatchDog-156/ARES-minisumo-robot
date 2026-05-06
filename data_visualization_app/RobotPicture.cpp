@@ -12,9 +12,8 @@
 #include "ui_RobotPicture.h"
 
 /**
- * @brief Construct a new Robot Picture:: Robot Picture object
+ * @brief Konstruktor nowego obiektu Robot Picture
  * 
- * Construct a new Robot Picture:: Robot Picture object
  * @param parent wskażnik na rodzica obiektu
  */
 RobotPicture::RobotPicture(QWidget *parent)
@@ -25,9 +24,8 @@ RobotPicture::RobotPicture(QWidget *parent)
 }
 
 /**
- * @brief Destroy the Robot Picture:: Robot Picture object
+ * @brief Destruktor obiektu Robot Picture
  * 
- * Destroy the Robot Picture:: Robot Picture object
  */
 RobotPicture::~RobotPicture()
 {

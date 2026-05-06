@@ -13,9 +13,8 @@
 #include <QVBoxLayout>
 
 /**
- * @brief Construct a new Line Chart:: Line Chart object
+ * @brief Konstruktor nowego obiektu Line Chart
  * 
- * Construct a new Line Chart:: Line Chart object
  * @param parent wskażnik na rodzica obiektu
  */
 LineChart::LineChart(QWidget *parent)
@@ -78,9 +77,8 @@ LineChart::LineChart(QWidget *parent)
 }
 
 /**
- * @brief Destroy the Line Chart:: Line Chart object
+ * @brief Destruktor obiektu Line Chart
  * 
- * Destroy the Line Chart:: Line Chart object
  */
 LineChart::~LineChart()
 {
@@ -118,7 +116,6 @@ void LineChart::onLegendMarkerClicked(){
 /**
  * @brief Funkcja dodaje pomiary białej linii do wykresu
  * 
- * Funkcja dodaje pomiary białej linii do wykresu
  * @param line_l pomiar z lewego czujnika białej linii
  * @param line_r pomiar z prawego czujnika białej linii
  */
