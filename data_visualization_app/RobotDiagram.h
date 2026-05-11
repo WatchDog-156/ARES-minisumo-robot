@@ -17,7 +17,7 @@ public:
     explicit RobotDiagram(QWidget *parent = nullptr);
     ~RobotDiagram();
 
-    void updateData(int MotorL, int MotorR, int LineL, int LineR);
+    void updateData(int MotorL, int MotorR, int LineL, int LineR, int tof1, int tof2, int tof3, int tof4);
 
 private:
     Ui::RobotDiagram *ui;

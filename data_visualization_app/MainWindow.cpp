@@ -226,7 +226,7 @@ void MainWindow::onDataReceived(const QByteArray &data) {
     QString recivedData = QString::fromUtf8(data).trimmed();
     qDebug() << "Odebrano z BLE:" << recivedData;
 
-    static const QRegularExpression re("\\d+");
+    static const QRegularExpression re("-?\\d+");
     QList<int> values;
     QRegularExpressionMatchIterator i = re.globalMatch(recivedData);
 
@@ -243,7 +243,7 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
 
-        robot->updateData(motors[0], motors[1], lines[0], lines[1]);
+        robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
     }
