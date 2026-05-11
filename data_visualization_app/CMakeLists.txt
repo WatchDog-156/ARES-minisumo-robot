@@ -14,11 +14,17 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools Cha
 
 set(TS_FILES data_visualization_app_pl_PL.ts)
 
+
 set(PROJECT_SOURCES
         main.cpp
         MainWindow.cpp
         MainWindow.h
         MainWindow.ui
+        RobotDiagram.cpp
+        RobotDiagram.h
+        RobotDiagram.ui
+        MotorArrowWidget.cpp
+        MotorArrowWidget.h
         ${TS_FILES}
 )
 
@@ -32,6 +38,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         TofChart.h TofChart.cpp TofChart.ui
         LineChart.h LineChart.cpp LineChart.ui
         RobotPicture.h RobotPicture.cpp RobotPicture.ui
+        RobotDiagram.h RobotDiagram.cpp RobotDiagram.ui
+        MotorArrowWidget.h MotorArrowWidget.cpp
         mechanika.png
         pictures.qrc
 
@@ -80,6 +88,8 @@ install(TARGETS data_visualization_app
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+target_include_directories(data_visualization_app PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(data_visualization_app)

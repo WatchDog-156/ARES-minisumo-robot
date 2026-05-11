@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RobotDiagram</class>
+ <widget class="QWidget" name="RobotDiagram">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>496</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(100, 180, 220);
+border-radius: 16px;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="cones"/>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="distance_sensors">
+       <item>
+        <widget class="QLabel" name="Tof1">
+         <property name="text">
+          <string>value1</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="Tof2">
+         <property name="text">
+          <string>value2</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="Tof3">
+         <property name="text">
+          <string>value3</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="Tof4">
+         <property name="text">
+          <string>value4</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="Line_Sensors">
+       <item>
+        <widget class="QLabel" name="LineL">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(120, 210, 40);
+border: 3px solid rgb(60, 140, 10);
+border-radius: 8px;
+color: rgb(20, 60, 0);
+font-size: 20px;
+font-weight: bold;
+padding: 4px 8px;</string>
+         </property>
+         <property name="text">
+          <string>LeftLine</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="LineR">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(120, 210, 40);
+border: 3px solid rgb(60, 140, 10);
+border-radius: 8px;
+color: rgb(20, 60, 0);
+font-size: 20px;
+font-weight: bold;
+padding: 4px 8px;</string>
+         </property>
+         <property name="text">
+          <string>RightLine</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="Motors" stretch="1,1,1,1">
+       <item>
+        <widget class="QLabel" name="MotorL">
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 26px;
+font-weight: bold;
+border: 4px solid black;
+border-radius: 14px;
+background-color: rgba(20, 60, 100, 180);
+padding: 4px 10px;</string>
+         </property>
+         <property name="text">
+          <string>LeftMotor</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MotorArrowWidget" name="ArrowL" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>90</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MotorArrowWidget" name="ArrowR" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>90</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="MotorR">
+         <property name="styleSheet">
+          <string notr="true">color: white;
+font-size: 26px;
+font-weight: bold;
+border: 4px solid black;
+border-radius: 14px;
+background-color: rgba(20, 60, 100, 180);
+padding: 4px 10px;</string>
+         </property>
+         <property name="text">
+          <string>RightMotor</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MotorArrowWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">MotorArrowWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

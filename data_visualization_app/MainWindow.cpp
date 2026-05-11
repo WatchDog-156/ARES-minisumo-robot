@@ -35,8 +35,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->LineDiagram->setCheckable(true);
     
 
-    // robot = new RobotChart(this);
-    // ui->stackedWidget->insertWidget(0, robot);
+    robot = new RobotDiagram(this);
+    ui->stackedWidget->insertWidget(0, robot);
     tof = new ToFChart(this);
     ui->stackedWidget->insertWidget(1, tof);
     line = new LineChart(this);
@@ -150,16 +150,16 @@ void MainWindow::handleFunctionButtons(){
         return;
     }
 
-    if(button == ui->RobotDiagram){     // zmiana na ui->Logger
-        if (!bluetoothLogger) {
-            bluetoothLogger = new BluetoothLogger(this);
-            bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
-            connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
-        }
-        bluetoothLogger->show();
-        bluetoothLogger->raise();    
-        bluetoothLogger->activateWindow();
-    }
+    // if(button == ui->RobotDiagram){     // zmiana na ui->Logger
+    //     if (!bluetoothLogger) {
+    //         bluetoothLogger = new BluetoothLogger(this);
+    //         bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
+    //         connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
+    //     }
+    //     bluetoothLogger->show();
+    //     bluetoothLogger->raise();    
+    //     bluetoothLogger->activateWindow();
+    // }
 
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
@@ -242,6 +242,8 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3] << " | " << motors[0] << ", " << motors[1];// << std::endl;
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
+
+        robot->updateData(motors[0], motors[1], lines[0], lines[1]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
     }

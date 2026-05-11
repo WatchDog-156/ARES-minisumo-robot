@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "BluetoothManager.h"
 #include "BluetoothLogger.h"
-//#include "RobotChart.h"
+#include "RobotDiagram.h"
 #include "TofChart.h"
 #include "LineChart.h"
 #include "RobotPicture.h"
@@ -35,7 +35,7 @@ private:
     void setupConnections();
     void updateButtonStates();
 
-    //RobotChart *robot;
+    RobotDiagram *robot;
     ToFChart *tof;
     LineChart *line;
     RobotPicture *robotPicture;
