@@ -40,6 +40,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         RobotPicture.h RobotPicture.cpp RobotPicture.ui
         RobotDiagram.h RobotDiagram.cpp RobotDiagram.ui
         MotorArrowWidget.h MotorArrowWidget.cpp
+        TofConeWidget.h TofConeWidget.cpp
+        RotatedLabel.h
         mechanika.png
         pictures.qrc
 

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QLabel>
 #include "MotorArrowWidget.h"
+#include "RotatedLabel.h"
+#include "TofConeWidget.h"
 
 namespace Ui {
 class RobotDiagram;
@@ -24,7 +26,14 @@ private:
 
     MotorArrowWidget *m_arrowL = nullptr;
     MotorArrowWidget *m_arrowR = nullptr;
-
+    RotatedLabel *m_labelTof1 = nullptr;
+    RotatedLabel *m_labelTof2 = nullptr;
+    RotatedLabel *m_labelTof3 = nullptr;
+    RotatedLabel *m_labelTof4 = nullptr;
+    TofConeWidget *m_cone1 = nullptr;
+    TofConeWidget *m_cone2 = nullptr;
+    TofConeWidget *m_cone3 = nullptr;
+    TofConeWidget *m_cone4 = nullptr;
 };
 
 #endif
