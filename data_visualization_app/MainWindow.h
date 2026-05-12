@@ -4,10 +4,12 @@
 #include <QMainWindow>
 #include "BluetoothManager.h"
 #include "BluetoothLogger.h"
+#include "BluetoothScanner.h"
 #include "RobotDiagram.h"
 #include "TofChart.h"
 #include "LineChart.h"
 #include "RobotPicture.h"
+// #include "RoadDiagram.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +32,8 @@ private slots:
     // void handleLanguage(int index);
     void connectToDevice(const QBluetoothDeviceInfo &info);
     void onDataReceived(const QByteArray &data);
+    void onConnectionStatusChanged(bool success, const QString &msg);
+
 private:
     Ui::MainWindow *ui;
     void setupConnections();
@@ -39,8 +43,12 @@ private:
     ToFChart *tof;
     LineChart *line;
     RobotPicture *robotPicture;
+    // RoadDiagram *road;
     
     BluetoothManager *bluetoothManager;
     BluetoothLogger *bluetoothLogger;
+    BluetoothScanner *bluetoothScanner;
+
+    bool isConnected = false;
 };
 #endif // MAINWINDOW_H

@@ -12,7 +12,6 @@
 #include "MainWindow.h"
 #include "./ui_MainWindow.h"
 #include <QDebug>
-#include "BluetoothScanner.h"
 
 /**
  * @brief Inicjalizuje główne okno aplikacji, komponenty UI oraz menedżery komunikacji
@@ -29,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
       
     bluetoothManager = new BluetoothManager(this);
     bluetoothLogger = nullptr;
+    bluetoothScanner = new BluetoothScanner(this);
 
     ui->RobotDiagram->setCheckable(true);
     ui->TofDiagram->setCheckable(true);
@@ -41,8 +41,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->insertWidget(1, tof);
     line = new LineChart(this);
     ui->stackedWidget->insertWidget(2, line);
+    // road = new RoadDiagram(this);
+    // ui->stackedWidget->insertWidget(3, road);
     robotPicture = new RobotPicture(this);
-    // ui->stackedWidget->insertWidget(4, robotPicture);
+    ui->stackedWidget->insertWidget(3, robotPicture);
     ui->stackedWidget->addWidget(robotPicture);
     // ui->stackedWidget->setCurrentIndex(4);
     ui->stackedWidget->setCurrentWidget(robotPicture);
@@ -77,14 +79,18 @@ void MainWindow::setupConnections(){
     connect(ui->ButtonEND, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->EnterText, &QLineEdit::returnPressed, this, &MainWindow::handleManualCommands);
     // connect(ui->Language, &QComboBox::activated, this, &MainWindow::handleLanguage);
+    // connect(ui->RoadDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Log, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Connection, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->RobotDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->LineDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(bluetoothManager, &BluetoothManager::dataReceived, this, &MainWindow::onDataReceived);
-    connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, [](bool success, const QString &msg) {
-                                                                                qDebug() << "Status BLE:" << msg;});
+    // connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, [](bool success, const QString &msg) {
+    //                                                                             qDebug() << "Status BLE:" << msg;});
+    connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, &MainWindow::onConnectionStatusChanged);
+    connect(bluetoothScanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
+    
 }
 
 /**
@@ -144,14 +150,17 @@ void MainWindow::handleFunctionButtons(){
     if(!button) return;
 
     if(button == ui->Connection){
-        qDebug() << "Go to Bluetooth Scanner";
-        BluetoothScanner scanner(this);
-        connect(&scanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
-        scanner.exec();
+        if(isConnected){
+            qDebug() << "Disconnecting device";
+            bluetoothManager->disconnectDevice();
+        }else{
+            qDebug() << "Go to Bluetooth Scanner";
+            bluetoothScanner->exec();
+        }
         return;
     }
 
-    if(button == ui->Log){     // zmiana na ui->Logger
+    if(button == ui->Log){
         if (!bluetoothLogger) {
             bluetoothLogger = new BluetoothLogger(this);
             bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
@@ -165,11 +174,13 @@ void MainWindow::handleFunctionButtons(){
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
     ui->LineDiagram->setChecked(false);
+    // ui->RobotPicture->setChecked(false); //Zmiana na RoadDiagram
     button->setChecked(true);
 
     if (button == ui->RobotDiagram) ui->stackedWidget->setCurrentIndex(0);
     else if (button == ui->TofDiagram) ui->stackedWidget->setCurrentIndex(1);
     else if (button == ui->LineDiagram) ui->stackedWidget->setCurrentIndex(2);
+    // else if (button == ui->RobotPicture) ui->stackedWidget->setCurrentIndex(3); //zmiana na RoadDiagram
 
 
     updateButtonStates();
@@ -188,6 +199,8 @@ void MainWindow::updateButtonStates(){
         double alpha = buttons[i]->isChecked() ? 1.0 : 0.5;
         buttons[i]->setStyleSheet(QString("background-color: rgba(%1, %2);").arg(colors[i]).arg(alpha));
     }
+
+
 }
 
 // void MainWindow::handleLanguage(int index){
@@ -247,5 +260,25 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
+    }
+}
+
+void MainWindow::onConnectionStatusChanged(bool success, const QString &msg){
+    qDebug() << "Status BLE: " << msg;
+
+    if (success && msg == "Gotowy do transmisji") {
+        isConnected = true;
+        ui->Connection->setText("Connected");
+        ui->Connection->setStyleSheet(
+            "background-color: green; color: black; border: 2px solid black;"
+            "border-radius: 5px; font-size: 12px; font-weight: bold; padding: 4px 10px;"
+        );
+    } else if (!success) {
+        isConnected = false;
+        ui->Connection->setText("Disconnected");
+        ui->Connection->setStyleSheet(
+            "background-color: red; color: black; border: 2px solid black;"
+            "border-radius: 5px; font-size: 12px; font-weight: bold; padding: 4px 10px;"
+        );
     }
 }
