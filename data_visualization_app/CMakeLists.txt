@@ -6,6 +6,8 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -16,15 +18,15 @@ set(TS_FILES data_visualization_app_pl_PL.ts)
 
 
 set(PROJECT_SOURCES
-        main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        MainWindow.ui
-        RobotDiagram.cpp
-        RobotDiagram.h
-        RobotDiagram.ui
-        MotorArrowWidget.cpp
-        MotorArrowWidget.h
+        src/main.cpp
+        src/MainWindow.cpp
+        inc/MainWindow.h
+        ui/MainWindow.ui
+        src/RobotDiagram.cpp
+        inc/RobotDiagram.h
+        ui/RobotDiagram.ui
+        src/MotorArrowWidget.cpp
+        inc/MotorArrowWidget.h
         ${TS_FILES}
 )
 
@@ -32,17 +34,17 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(data_visualization_app
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        BluetoothScanner.h BluetoothScanner.cpp BluetoothScanner.ui
-        BluetoothManager.h BluetoothManager.cpp
-        BluetoothLogger.h BluetoothLogger.cpp BluetoothLogger.ui
-        TofChart.h TofChart.cpp TofChart.ui
-        LineChart.h LineChart.cpp LineChart.ui
-        RobotPicture.h RobotPicture.cpp RobotPicture.ui
-        RobotDiagram.h RobotDiagram.cpp RobotDiagram.ui
-        MotorArrowWidget.h MotorArrowWidget.cpp
-        TofConeWidget.h TofConeWidget.cpp
-        RotatedLabel.h
-        mechanika.png
+        inc/BluetoothScanner.h src/BluetoothScanner.cpp ui/BluetoothScanner.ui
+        inc/BluetoothManager.h src/BluetoothManager.cpp
+        inc/BluetoothLogger.h src/BluetoothLogger.cpp ui/BluetoothLogger.ui
+        inc/TofChart.h src/TofChart.cpp ui/TofChart.ui
+        inc/LineChart.h src/LineChart.cpp ui/LineChart.ui
+        inc/RobotPicture.h src/RobotPicture.cpp ui/RobotPicture.ui
+        inc/RobotDiagram.h src/RobotDiagram.cpp ui/RobotDiagram.ui
+        inc/MotorArrowWidget.h src/MotorArrowWidget.cpp
+        inc/TofConeWidget.h src/TofConeWidget.cpp
+        inc/RotatedLabel.h
+        img/mechanika.png
         pictures.qrc
 
     )
@@ -69,6 +71,11 @@ else()
 endif()
 
 target_link_libraries(data_visualization_app PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts Qt${QT_VERSION_MAJOR}::Bluetooth)
+
+target_include_directories(data_visualization_app PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/inc
+)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

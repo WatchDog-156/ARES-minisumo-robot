@@ -20,7 +20,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="pictures.qrc">:/mechanika.png</pixmap>
+      <pixmap resource="../pictures.qrc">:/img/mechanika.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -30,7 +30,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="pictures.qrc"/>
+  <include location="../pictures.qrc"/>
+  <include location="../pictures.qrc"/>
  </resources>
  <connections/>
 </ui>
