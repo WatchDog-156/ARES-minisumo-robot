@@ -1,4 +1,4 @@
-#include "RobotDiagram.h"
+#include "RobotDiagram.hpp"
 #include "ui_RobotDiagram.h"
 #include <QHBoxLayout>
 

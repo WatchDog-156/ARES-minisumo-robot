@@ -1,4 +1,4 @@
-#include "TofConeWidget.h"
+#include "TofConeWidget.hpp"
 #include <QPainterPath>
 #include <QColor>
 

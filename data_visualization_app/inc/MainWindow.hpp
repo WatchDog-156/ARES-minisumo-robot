@@ -2,14 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "BluetoothManager.h"
-#include "BluetoothLogger.h"
-#include "BluetoothScanner.h"
-#include "RobotDiagram.h"
-#include "TofChart.h"
-#include "LineChart.h"
-#include "RobotPicture.h"
-// #include "RoadDiagram.h"
+#include "BluetoothManager.hpp"
+#include "BluetoothLogger.hpp"
+#include "BluetoothScanner.hpp"
+#include "RobotDiagram.hpp"
+#include "TofChart.hpp"
+#include "LineChart.hpp"
+#include "RobotPicture.hpp"
+// #include "RoadDiagram.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

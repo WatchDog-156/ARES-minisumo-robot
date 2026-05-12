@@ -9,7 +9,7 @@
  * 
  */
 
-#include "MainWindow.h"
+#include "MainWindow.hpp"
 #include "./ui_MainWindow.h"
 #include <QDebug>
 

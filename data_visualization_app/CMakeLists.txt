@@ -20,13 +20,13 @@ set(TS_FILES data_visualization_app_pl_PL.ts)
 set(PROJECT_SOURCES
         src/main.cpp
         src/MainWindow.cpp
-        inc/MainWindow.h
+        inc/MainWindow.hpp
         ui/MainWindow.ui
         src/RobotDiagram.cpp
-        inc/RobotDiagram.h
+        inc/RobotDiagram.hpp
         ui/RobotDiagram.ui
         src/MotorArrowWidget.cpp
-        inc/MotorArrowWidget.h
+        inc/MotorArrowWidget.hpp
         ${TS_FILES}
 )
 
@@ -34,16 +34,16 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(data_visualization_app
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        inc/BluetoothScanner.h src/BluetoothScanner.cpp ui/BluetoothScanner.ui
-        inc/BluetoothManager.h src/BluetoothManager.cpp
-        inc/BluetoothLogger.h src/BluetoothLogger.cpp ui/BluetoothLogger.ui
-        inc/TofChart.h src/TofChart.cpp ui/TofChart.ui
-        inc/LineChart.h src/LineChart.cpp ui/LineChart.ui
-        inc/RobotPicture.h src/RobotPicture.cpp ui/RobotPicture.ui
-        inc/RobotDiagram.h src/RobotDiagram.cpp ui/RobotDiagram.ui
-        inc/MotorArrowWidget.h src/MotorArrowWidget.cpp
-        inc/TofConeWidget.h src/TofConeWidget.cpp
-        inc/RotatedLabel.h
+        inc/BluetoothScanner.hpp src/BluetoothScanner.cpp ui/BluetoothScanner.ui
+        inc/BluetoothManager.hpp src/BluetoothManager.cpp
+        inc/BluetoothLogger.hpp src/BluetoothLogger.cpp ui/BluetoothLogger.ui
+        inc/TofChart.hpp src/TofChart.cpp ui/TofChart.ui
+        inc/LineChart.hpp src/LineChart.cpp ui/LineChart.ui
+        inc/RobotPicture.hpp src/RobotPicture.cpp ui/RobotPicture.ui
+        inc/RobotDiagram.hpp src/RobotDiagram.cpp ui/RobotDiagram.ui
+        inc/MotorArrowWidget.hpp src/MotorArrowWidget.cpp
+        inc/TofConeWidget.hpp src/TofConeWidget.cpp
+        inc/RotatedLabel.hpp
         img/mechanika.png
         pictures.qrc
 

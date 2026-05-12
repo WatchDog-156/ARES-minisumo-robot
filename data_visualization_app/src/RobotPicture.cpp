@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#include "RobotPicture.h"
+#include "RobotPicture.hpp"
 #include "ui_RobotPicture.h"
 
 /**

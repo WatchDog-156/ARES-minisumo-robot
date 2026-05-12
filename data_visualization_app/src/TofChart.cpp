@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#include "TofChart.h"
+#include "TofChart.hpp"
 #include "ui_TofChart.h"
 #include <QVBoxLayout>
 

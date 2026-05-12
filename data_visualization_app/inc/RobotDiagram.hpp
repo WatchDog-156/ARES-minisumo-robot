@@ -3,9 +3,9 @@
 
 #include <QWidget>
 #include <QLabel>
-#include "MotorArrowWidget.h"
-#include "RotatedLabel.h"
-#include "TofConeWidget.h"
+#include "MotorArrowWidget.hpp"
+#include "RotatedLabel.hpp"
+#include "TofConeWidget.hpp"
 
 namespace Ui {
 class RobotDiagram;

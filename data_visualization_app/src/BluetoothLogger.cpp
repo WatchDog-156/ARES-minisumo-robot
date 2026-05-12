@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#include "BluetoothLogger.h"
+#include "BluetoothLogger.hpp"
 #include "ui_BluetoothLogger.h"
 #include <QDateTime>           
 #include <QListWidgetItem>
