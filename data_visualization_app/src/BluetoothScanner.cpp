@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#include "BluetoothScanner.h"
+#include "BluetoothScanner.hpp"
 #include "ui_BluetoothScanner.h"
 
 /**

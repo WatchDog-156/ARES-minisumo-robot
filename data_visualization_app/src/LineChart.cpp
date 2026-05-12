@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#include "LineChart.h"
+#include "LineChart.hpp"
 #include "ui_LineChart.h"
 #include <QVBoxLayout>
 

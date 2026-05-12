@@ -1,4 +1,4 @@
-#include "MotorArrowWidget.h"
+#include "MotorArrowWidget.hpp"
 #include <QPainter>
 
 MotorArrowWidget::MotorArrowWidget(QWidget *parent) : QWidget(parent){

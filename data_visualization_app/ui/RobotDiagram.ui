@@ -169,7 +169,7 @@ padding: 4px 10px;</string>
   <customwidget>
    <class>MotorArrowWidget</class>
    <extends>QWidget</extends>
-   <header location="global">MotorArrowWidget.h</header>
+   <header location="global">MotorArrowWidget.hpp</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
