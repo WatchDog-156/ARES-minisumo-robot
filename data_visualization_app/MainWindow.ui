@@ -57,7 +57,7 @@
               </size>
              </property>
              <property name="currentIndex">
-              <number>3</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="Robot"/>
              <widget class="QWidget" name="TOF"/>
@@ -70,13 +70,13 @@
         </item>
         <item>
          <widget class="QWidget" name="widget_2" native="true">
-          <layout class="QVBoxLayout" name="verticalLayout_14" stretch="1,5,2">
+          <layout class="QVBoxLayout" name="verticalLayout_14" stretch="1,5,1,2">
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_15">
              <item>
               <widget class="QPushButton" name="ButtonStop">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -290,14 +290,25 @@
                 <cursorShape>ArrowCursor</cursorShape>
                </property>
                <property name="mouseTracking">
-                <bool>false</bool>
+                <bool>true</bool>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color: red;
-color: black;
-border: 2px solid black;
-border-radius: 5px;
-</string>
+                <string notr="true">QPushButton {
+    background-color: red;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 10px;
+}
+QPushButton:hover {
+    background-color: #ff3333;
+}
+QPushButton:pressed {
+    background-color: #cc0000;
+    color: white;
+}</string>
                </property>
                <property name="text">
                 <string>STOP</string>
@@ -307,17 +318,74 @@ border-radius: 5px;
             </layout>
            </item>
            <item>
-            <layout class="QGridLayout" name="gridLayout_5" rowstretch="1,1,1" columnstretch="1,1" rowminimumheight="1,2,0" columnminimumwidth="1,2">
+            <layout class="QGridLayout" name="gridLayout_5" rowstretch="1,1,1" columnstretch="1,1" rowminimumheight="1,1,1" columnminimumwidth="1,1">
              <property name="sizeConstraint">
               <enum>QLayout::SizeConstraint::SetFixedSize</enum>
              </property>
              <property name="spacing">
               <number>0</number>
              </property>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="ButtonForward">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>FORWARD</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="ButtonBackward">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>BACKWARD</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QPushButton" name="ButtonServoDown">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>SERVO DOWN</string>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="0">
               <widget class="QPushButton" name="ButtonStart">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -345,48 +413,10 @@ border-radius: 5px;
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
-              <widget class="QPushButton" name="ButtonServoUp">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>80</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>SERVO UP</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="ButtonForward">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>80</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>FORWARD</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1">
               <widget class="QPushButton" name="ButtonEND">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -402,10 +432,10 @@ border-radius: 5px;
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
-              <widget class="QPushButton" name="ButtonServoDown">
+             <item row="2" column="0">
+              <widget class="QPushButton" name="ButtonServoUp">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -417,26 +447,54 @@ border-radius: 5px;
                 </size>
                </property>
                <property name="text">
-                <string>SERVO DOWN</string>
+                <string>SERVO UP</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="ButtonBackward">
+            </layout>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QPushButton" name="Log">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>80</height>
-                </size>
+               <property name="font">
+                <font>
+                 <pointsize>-1</pointsize>
+                 <bold>true</bold>
+                 <underline>false</underline>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    background-color: #55CC00;
+    border: 2px solid #336600;
+    border-radius: 6px;
+    color: #1a3300;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 8px;
+}
+QPushButton:hover {
+    background-color: #66DD11;
+    border-color: #44AA00;
+}
+QPushButton:pressed {
+    background-color: #44AA00;
+    border-color: #226600;
+}</string>
                </property>
                <property name="text">
-                <string>BACKWARD</string>
+                <string>LOG</string>
+               </property>
+               <property name="autoRepeatDelay">
+                <number>300</number>
                </property>
               </widget>
              </item>
@@ -447,7 +505,7 @@ border-radius: 5px;
              <item>
               <widget class="QLineEdit" name="EnterText">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -697,11 +755,27 @@ border-radius: 5px;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color:red;
-color: black;
-border: 2px solid black;
-border-radius: 5px;
-</string>
+           <string notr="true">QPushButton {
+    background-color: red;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+}
+QPushButton:hover {
+    background-color: #ff3333;
+}
+QPushButton:pressed {
+    background-color: #cc0000;
+    color: white;
+}
+QPushButton:disabled {
+    background-color: #888888;
+    color: #444444;
+    border-color: #555555;
+}</string>
           </property>
           <property name="text">
            <string>DISCONNECTED</string>

@@ -77,6 +77,7 @@ void MainWindow::setupConnections(){
     connect(ui->ButtonEND, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->EnterText, &QLineEdit::returnPressed, this, &MainWindow::handleManualCommands);
     // connect(ui->Language, &QComboBox::activated, this, &MainWindow::handleLanguage);
+    connect(ui->Log, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Connection, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->RobotDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
@@ -150,16 +151,16 @@ void MainWindow::handleFunctionButtons(){
         return;
     }
 
-    // if(button == ui->RobotDiagram){     // zmiana na ui->Logger
-    //     if (!bluetoothLogger) {
-    //         bluetoothLogger = new BluetoothLogger(this);
-    //         bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
-    //         connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
-    //     }
-    //     bluetoothLogger->show();
-    //     bluetoothLogger->raise();    
-    //     bluetoothLogger->activateWindow();
-    // }
+    if(button == ui->Log){     // zmiana na ui->Logger
+        if (!bluetoothLogger) {
+            bluetoothLogger = new BluetoothLogger(this);
+            bluetoothLogger->setAttribute(Qt::WA_DeleteOnClose);
+            connect(bluetoothLogger, &QObject::destroyed, this, [this]() {bluetoothLogger = nullptr;});
+        }
+        bluetoothLogger->show();
+        bluetoothLogger->raise();    
+        bluetoothLogger->activateWindow();
+    }
 
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);

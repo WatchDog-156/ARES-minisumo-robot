@@ -12,7 +12,7 @@ void TofConeWidget::setData(int distanceMm, double angleDeg)
 {
     m_distance = qBound(0, distanceMm, 800);
     m_angleDeg = angleDeg;
-    update();  // wyzwala paintEvent
+    update();
 }
 
 void TofConeWidget::paintEvent(QPaintEvent *)

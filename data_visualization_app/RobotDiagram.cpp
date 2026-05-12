@@ -9,41 +9,28 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     ui->setupUi(this);
 
     this->setStyleSheet("QWidget#RobotDiagram { background-color: #2b2b2b; }");
+    
+ 
+    QHBoxLayout *conesLayout = new QHBoxLayout(ui->cones);
+    conesLayout->setContentsMargins(0, 0, 0, 0);
+    conesLayout->setSpacing(0);
+
+
 
     m_cone1 = new TofConeWidget(this);
     m_cone2 = new TofConeWidget(this);
     m_cone3 = new TofConeWidget(this);
     m_cone4 = new TofConeWidget(this);
  
-    m_cone1->setData(0, -30.0);
+    m_cone1->setData(0, -20.0);
     m_cone2->setData(0, 0.0);
     m_cone3->setData(0, 0.0);
-    m_cone4->setData(0, +30.0);
- 
-    ui->cones->setContentsMargins(4, 4, 4, 0);
-    ui->cones->setSpacing(2);
-    ui->cones->addWidget(m_cone1);
-    ui->cones->addWidget(m_cone2);
-    ui->cones->addWidget(m_cone3);
-    ui->cones->addWidget(m_cone4);
-
-    ui->distance_sensors->setFixedHeight(50);
-    ui->distance_sensors->setStyleSheet("QWidget#tofBar { background-color: #3399CC; }");
-    
-
-   
-
-    QHBoxLayout *tofLayout = qobject_cast<QHBoxLayout*>(ui->distance_sensors->layout());
-    tofLayout->setContentsMargins(8, 4, 8, 4);
-    tofLayout->setSpacing(6);
-
-
+    m_cone4->setData(0, +20.0);
 
     std::function<RotatedLabel*(double)> makeTofLabel = [this](double angle) -> RotatedLabel* {
         RotatedLabel *tof = new RotatedLabel(this);
         tof->setText("800 mm");
         tof->setAngle(angle);
-        tof->setFixedSize(76, 28);
         return tof;
     };
 
@@ -52,26 +39,35 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     m_labelTof3 = makeTofLabel(0.0);
     m_labelTof4 = makeTofLabel(+20.0);
 
-    //usuwa label z desginer i dodaje nowe
-    tofLayout->replaceWidget(ui->Tof1, m_labelTof1);
-    delete ui->Tof1;
-    ui->Tof1 = nullptr;
+    std::function<QVBoxLayout*(TofConeWidget*, RotatedLabel*)> makePair = [this](TofConeWidget *cone, RotatedLabel *lbl) -> QVBoxLayout* {
+    QVBoxLayout *v = new QVBoxLayout();
+    v->setContentsMargins(0, 0, 0, 0);
+    v->setSpacing(0);
 
-    tofLayout->replaceWidget(ui->Tof2, m_labelTof2);
-    delete ui->Tof2;
-    ui->Tof2 = nullptr;
+    v->addWidget(cone, 1);
 
-    tofLayout->replaceWidget(ui->Tof3, m_labelTof3);
-    delete ui->Tof3;
-    ui->Tof3 = nullptr;
+    QWidget *lblContainer = new QWidget(this);
+    lblContainer->setStyleSheet("background-color: #2255AA;");
+    QHBoxLayout *lh = new QHBoxLayout(lblContainer);
+    lh->setContentsMargins(0, 0, 0, 0);
+    lh->addWidget(lbl, 0, Qt::AlignHCenter);
 
-    tofLayout->replaceWidget(ui->Tof4, m_labelTof4);
-    delete ui->Tof4;
-    ui->Tof4 = nullptr;
+    v->addWidget(lblContainer, 0);
+    return v;
+};
+
+
+    conesLayout->addLayout(makePair(m_cone1, m_labelTof1));
+    conesLayout->addLayout(makePair(m_cone2, m_labelTof2));
+    conesLayout->addLayout(makePair(m_cone3, m_labelTof3));
+    conesLayout->addLayout(makePair(m_cone4, m_labelTof4));
+
+    ui->distance_sensors->setVisible(false);
+    ui->distance_sensors->setFixedHeight(0);
 
     ui->mainBody->setStyleSheet("QWidget#mainBody { background-color: #87CEEB; }");
-    ui->verticalLayout->setContentsMargins(10, 10, 10, 10);
-    ui->verticalLayout->setSpacing(8);
+    ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
+    ui->verticalLayout->setSpacing(0);
 
         const QString lineStyle =
         "QLabel {"
@@ -120,8 +116,8 @@ RobotDiagram::RobotDiagram(QWidget *parent)
 
     m_arrowL = new MotorArrowWidget(this);
     m_arrowR = new MotorArrowWidget(this);
-    m_arrowL->setFixedSize(36, 60);
-    m_arrowR->setFixedSize(36, 60);
+    m_arrowL->setFixedSize(50, 60);
+    m_arrowR->setFixedSize(50, 60);
  
     ui->Motors->insertWidget(1, m_arrowL);
     ui->Motors->insertWidget(3, m_arrowR);
@@ -136,15 +132,15 @@ RobotDiagram::~RobotDiagram()
 }
 
 void RobotDiagram::updateData(int MotorL, int MotorR, int LineL, int LineR, int tof1, int tof2, int tof3, int tof4){
-    m_cone1->setData(tof1, -30.0);
+    m_cone1->setData(tof1, -20.0);
     m_cone2->setData(tof2, 0.0);
     m_cone3->setData(tof3, 0.0);
-    m_cone4->setData(tof4, 30.0);
+    m_cone4->setData(tof4, 20.0);
 
-    m_labelTof1->setText(QString("Tof1: %1 mm").arg(tof1));
-    m_labelTof2->setText(QString("Tof2: %1 mm").arg(tof2));
-    m_labelTof3->setText(QString("Tof3: %1 mm").arg(tof3));
-    m_labelTof4->setText(QString("Tof4: %1 mm").arg(tof4));
+    m_labelTof1->setText(QString("%1 mm").arg(tof1));
+    m_labelTof2->setText(QString("%1 mm").arg(tof2));
+    m_labelTof3->setText(QString("%1 mm").arg(tof3));
+    m_labelTof4->setText(QString("%1 mm").arg(tof4));
 
     m_arrowL->setSpeed(MotorL);
     m_arrowR->setSpeed(MotorR);

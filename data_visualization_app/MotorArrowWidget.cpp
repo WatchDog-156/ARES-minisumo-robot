@@ -35,11 +35,11 @@ void MotorArrowWidget::paintEvent(QPaintEvent *){
 
 
     //trzon strzalki
-    p.setPen(QPen(dynamicColor, 3.0, Qt::SolidLine, Qt::RoundCap));
+    p.setPen(QPen(dynamicColor, 6.0, Qt::SolidLine, Qt::RoundCap));
     p.drawLine(midX, y_base, midX, y_top);
 
     //grot strzalki
-    int headSize = static_cast<int>(6*ratio + 4);
+    int headSize = static_cast<int>(10*ratio + 8);
     int dir = forward ? 1 : -1;
 
     QPolygon head;

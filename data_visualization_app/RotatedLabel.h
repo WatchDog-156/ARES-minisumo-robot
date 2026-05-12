@@ -1,56 +1,52 @@
 #ifndef ROTATEDLABEL_H
 #define ROTATEDLABEL_H
 
-#include <QLabel>
+#include <QWidget>
 #include <QPainter>
 
-
-class RotatedLabel : public QLabel
+class RotatedLabel : public QWidget
 {
     Q_OBJECT
-    Q_PROPERTY(double angle READ angle WRITE setAngle)
-
+ 
 public:
-    explicit RotatedLabel(QWidget *parent = nullptr)
-        : QLabel(parent) {}
-
-    double angle() const { return m_angle; }
-    void setAngle(double deg) { m_angle = deg; update(); }
-
-    QSize sizeHint() const override
+    explicit RotatedLabel(QWidget *parent = nullptr) : QWidget(parent)
     {
-        QSize s = QLabel::sizeHint();
-        if (qAbs(m_angle) > 5.0)
-            return QSize(s.height(), s.width());
-        return s;
+        setAttribute(Qt::WA_TranslucentBackground);
+        setFixedSize(100, 100);
     }
-
-    QSize minimumSizeHint() const override
-    {
-        return sizeHint();
-    }
-
+ 
+    void setText(const QString &text) { m_text = text; update(); }
+    void setAngle(double deg)         { m_angle = deg;  update(); }
+ 
+    QString text()  const { return m_text;  }
+    double  angle() const { return m_angle; }
+ 
 protected:
     void paintEvent(QPaintEvent *) override
     {
         QPainter p(this);
         p.setRenderHint(QPainter::Antialiasing);
+ 
         p.translate(width() / 2.0, height() / 2.0);
         p.rotate(m_angle);
-        p.translate(-width() / 2.0, -height() / 2.0);
-
-        p.setBrush(QColor(255, 255, 255));
+ 
+        QRect r(-38, -13, 76, 26);
+ 
+        p.setBrush(Qt::white);
         p.setPen(QPen(QColor(85, 85, 204), 2.0));
-        p.drawRoundedRect(rect().adjusted(1, 1, -1, -1), 5, 5);
-
-        // Tekst
+        p.drawRoundedRect(r, 5, 5);
+ 
         p.setPen(Qt::black);
-        p.setFont(font());
-        p.drawText(rect(), Qt::AlignCenter, text());
+        QFont f;
+        f.setPointSize(8);
+        p.setFont(f);
+        p.drawText(r, Qt::AlignCenter, m_text);
     }
-
+ 
 private:
-    double m_angle = 0.0;
+    QString m_text;
+    double  m_angle = 0.0;
 };
+
 
 #endif // ROTATEDLABEL_H
