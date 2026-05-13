@@ -39,10 +39,11 @@ private:
     TofConeWidget *m_cone3 = nullptr;
     TofConeWidget *m_cone4 = nullptr;
 
-    int lastMotorR;
-    int lastMotorL;
-    int lastLineR;
-    int lastLineL;
+    void updateLabelsText();
+    int lastMotorR = 0;
+    int lastMotorL = 0;
+    int lastLineR = 0;
+    int lastLineL = 0;
 };
 
 #endif

@@ -173,29 +173,28 @@ void RobotDiagram::updateData(int MotorL, int MotorR, int LineL, int LineR, int 
 
     m_arrowL->setSpeed(MotorL);
     m_arrowR->setSpeed(MotorR);
-    // ui->MotorL->setText(QString("Motor left: \n%1 %").arg(qAbs(MotorL)));
-    ui->MotorL->setText(tr("Motor left: \n%1 %").arg(qAbs(MotorL)));
-    // ui->MotorR->setText(QString("Motor right: \n%1 %").arg(qAbs(MotorR)));
-    ui->MotorL->setText(tr("Motor right: \n%1 %").arg(qAbs(MotorR)));
-    lastMotorL=MotorL;
-    lastMotorR=MotorR;
 
-    // ui->LineL->setText(QString("Left line: \n%1").arg(LineL));
-    // ui->LineR->setText(QString("Right line: \n%1").arg(LineR));
-    ui->LineL->setText(tr("Left line: \n%1").arg(LineL));
-    ui->LineR->setText(tr("Right line: \n%1").arg(LineR));
-    lastLineL=LineL;
-    lastLineR=LineR;
+    lastMotorL = MotorL;
+    lastMotorR = MotorR;
+    lastLineL = LineL;
+    lastLineR = LineR;
+
+    updateLabelsText();
+}
+
+void RobotDiagram::updateLabelsText() {
+    ui->MotorL->setText(tr("Motor left:") + "\n" + QString::number(qAbs(lastMotorL)) + " %");
+    ui->MotorR->setText(tr("Motor right:") + "\n" + QString::number(qAbs(lastMotorR)) + " %");
+    
+    ui->LineL->setText(tr("Left line:") + "\n" + QString::number(lastLineL));
+    ui->LineR->setText(tr("Right line:") + "\n" + QString::number(lastLineR));
 }
 
 void RobotDiagram::changeEvent(QEvent *event){
     if(event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this); 
 
-        ui->MotorL->setText(tr("Motor left: \n%1 %").arg(qAbs(lastMotorL)));
-        ui->MotorL->setText(tr("Motor right: \n%1 %").arg(qAbs(lastMotorR)));
-        ui->LineL->setText(tr("Left line: \n%1").arg(lastLineL));
-        ui->LineR->setText(tr("Right line: \n%1").arg(lastLineR));
+        updateLabelsText();
     }
     QWidget::changeEvent(event); 
 }

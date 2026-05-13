@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2026
  * 
  */
-
 #include "MainWindow.hpp"
 #include "./ui_MainWindow.h"
 #include <QDebug>
@@ -50,7 +49,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentWidget(robotPicture);
 
     setupConnections();
-    // this->setWindowTitle("Panel Danych Wizualnych ARES");
     this->setWindowTitle(tr("ARES Visual Data Panel"));
 }
 
@@ -231,11 +229,11 @@ void MainWindow::changeEvent(QEvent *event){
         ui->retranslateUi(this);
         this->setWindowTitle(tr("ARES Visual Data Panel")); 
         
-        // if (isConnected) {
-        //     ui->Connection->setText(tr("Connected"));
-        // } else {
-        //     ui->Connection->setText(tr("Disconnected"));
-        // }
+        if (isConnected) {
+            ui->Connection->setText(tr("Connected"));
+        } else{
+            ui->Connection->setText(tr("Disconnected"));
+        }
     }
     QMainWindow::changeEvent(event);
 }
@@ -278,7 +276,6 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3] << " | " << motors[0] << ", " << motors[1];// << std::endl;
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
-
         robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";

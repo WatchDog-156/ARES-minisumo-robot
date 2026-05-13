@@ -8,10 +8,16 @@
         <location filename="ui/BluetoothLogger.ui" line="14"/>
         <location filename="ui/BluetoothLogger.ui" line="14"/>
         <location filename="ui/BluetoothLogger.ui" line="14"/>
+        <location filename="ui/BluetoothLogger.ui" line="14"/>
+        <location filename="ui/BluetoothLogger.ui" line="14"/>
+        <location filename="ui/BluetoothLogger.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="ui/BluetoothLogger.ui" line="46"/>
+        <location filename="ui/BluetoothLogger.ui" line="46"/>
+        <location filename="ui/BluetoothLogger.ui" line="46"/>
         <location filename="ui/BluetoothLogger.ui" line="46"/>
         <location filename="ui/BluetoothLogger.ui" line="46"/>
         <location filename="ui/BluetoothLogger.ui" line="46"/>
@@ -21,6 +27,12 @@
     </message>
     <message>
         <location filename="src/BluetoothLogger.cpp" line="27"/>
+        <location filename="src/BluetoothLogger.cpp" line="27"/>
+        <location filename="src/BluetoothLogger.cpp" line="84"/>
+        <location filename="src/BluetoothLogger.cpp" line="27"/>
+        <location filename="src/BluetoothLogger.cpp" line="84"/>
+        <location filename="src/BluetoothLogger.cpp" line="27"/>
+        <location filename="src/BluetoothLogger.cpp" line="84"/>
         <source>Bluetooth Logger</source>
         <translation>Bluetooth Logger</translation>
     </message>
@@ -32,10 +44,16 @@
         <location filename="ui/BluetoothScanner.ui" line="14"/>
         <location filename="ui/BluetoothScanner.ui" line="14"/>
         <location filename="ui/BluetoothScanner.ui" line="14"/>
+        <location filename="ui/BluetoothScanner.ui" line="14"/>
+        <location filename="ui/BluetoothScanner.ui" line="14"/>
+        <location filename="ui/BluetoothScanner.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="ui/BluetoothScanner.ui" line="39"/>
+        <location filename="ui/BluetoothScanner.ui" line="39"/>
+        <location filename="ui/BluetoothScanner.ui" line="39"/>
         <location filename="ui/BluetoothScanner.ui" line="39"/>
         <location filename="ui/BluetoothScanner.ui" line="39"/>
         <location filename="ui/BluetoothScanner.ui" line="39"/>
@@ -48,6 +66,9 @@
         <location filename="ui/BluetoothScanner.ui" line="74"/>
         <location filename="ui/BluetoothScanner.ui" line="74"/>
         <location filename="ui/BluetoothScanner.ui" line="74"/>
+        <location filename="ui/BluetoothScanner.ui" line="74"/>
+        <location filename="ui/BluetoothScanner.ui" line="74"/>
+        <location filename="ui/BluetoothScanner.ui" line="74"/>
         <source>CONNECT</source>
         <translation>VERBINDEN</translation>
     </message>
@@ -56,6 +77,12 @@
         <location filename="src/BluetoothScanner.cpp" line="31"/>
         <location filename="src/BluetoothScanner.cpp" line="31"/>
         <location filename="src/BluetoothScanner.cpp" line="31"/>
+        <location filename="src/BluetoothScanner.cpp" line="31"/>
+        <location filename="src/BluetoothScanner.cpp" line="114"/>
+        <location filename="src/BluetoothScanner.cpp" line="31"/>
+        <location filename="src/BluetoothScanner.cpp" line="114"/>
+        <location filename="src/BluetoothScanner.cpp" line="31"/>
+        <location filename="src/BluetoothScanner.cpp" line="114"/>
         <source>Bluetooth Scanner</source>
         <translation>Bluetooth Scanner</translation>
     </message>
@@ -64,10 +91,16 @@
         <location filename="src/BluetoothScanner.cpp" line="53"/>
         <location filename="src/BluetoothScanner.cpp" line="53"/>
         <location filename="src/BluetoothScanner.cpp" line="53"/>
+        <location filename="src/BluetoothScanner.cpp" line="53"/>
+        <location filename="src/BluetoothScanner.cpp" line="53"/>
+        <location filename="src/BluetoothScanner.cpp" line="53"/>
         <source>SCANNING...</source>
         <translation>SCANNEN...</translation>
     </message>
     <message>
+        <location filename="src/BluetoothScanner.cpp" line="29"/>
+        <location filename="src/BluetoothScanner.cpp" line="29"/>
+        <location filename="src/BluetoothScanner.cpp" line="29"/>
         <location filename="src/BluetoothScanner.cpp" line="29"/>
         <source>Scan</source>
         <translation>SCAN</translation>
@@ -80,31 +113,64 @@
         <location filename="ui/LineChart.ui" line="14"/>
         <location filename="ui/LineChart.ui" line="14"/>
         <location filename="ui/LineChart.ui" line="14"/>
+        <location filename="ui/LineChart.ui" line="14"/>
+        <location filename="ui/LineChart.ui" line="14"/>
+        <location filename="ui/LineChart.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/LineChart.cpp" line="38"/>
+        <location filename="src/LineChart.cpp" line="38"/>
+        <location filename="src/LineChart.cpp" line="150"/>
+        <location filename="src/LineChart.cpp" line="38"/>
+        <location filename="src/LineChart.cpp" line="150"/>
+        <location filename="src/LineChart.cpp" line="38"/>
+        <location filename="src/LineChart.cpp" line="150"/>
         <source>Left detector</source>
         <translation>Linker detektor</translation>
     </message>
     <message>
         <location filename="src/LineChart.cpp" line="39"/>
+        <location filename="src/LineChart.cpp" line="39"/>
+        <location filename="src/LineChart.cpp" line="151"/>
+        <location filename="src/LineChart.cpp" line="39"/>
+        <location filename="src/LineChart.cpp" line="151"/>
+        <location filename="src/LineChart.cpp" line="39"/>
+        <location filename="src/LineChart.cpp" line="151"/>
         <source>Right detector</source>
         <translation>Rechter detektor</translation>
     </message>
     <message>
         <location filename="src/LineChart.cpp" line="42"/>
+        <location filename="src/LineChart.cpp" line="42"/>
+        <location filename="src/LineChart.cpp" line="148"/>
+        <location filename="src/LineChart.cpp" line="42"/>
+        <location filename="src/LineChart.cpp" line="148"/>
+        <location filename="src/LineChart.cpp" line="42"/>
+        <location filename="src/LineChart.cpp" line="148"/>
         <source>Probe</source>
         <translation>Muster</translation>
     </message>
     <message>
         <location filename="src/LineChart.cpp" line="47"/>
+        <location filename="src/LineChart.cpp" line="47"/>
+        <location filename="src/LineChart.cpp" line="149"/>
+        <location filename="src/LineChart.cpp" line="47"/>
+        <location filename="src/LineChart.cpp" line="149"/>
+        <location filename="src/LineChart.cpp" line="47"/>
+        <location filename="src/LineChart.cpp" line="149"/>
         <source>Reflected light value</source>
         <translation>Reflektierter lichtwert</translation>
     </message>
     <message>
         <location filename="src/LineChart.cpp" line="59"/>
+        <location filename="src/LineChart.cpp" line="59"/>
+        <location filename="src/LineChart.cpp" line="147"/>
+        <location filename="src/LineChart.cpp" line="59"/>
+        <location filename="src/LineChart.cpp" line="147"/>
+        <location filename="src/LineChart.cpp" line="59"/>
+        <location filename="src/LineChart.cpp" line="147"/>
         <source>Measurement line detectors 1-2</source>
         <translation>Messliniendetektoren 1-2</translation>
     </message>
@@ -173,49 +239,49 @@
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="588"/>
-        <location filename="ui/MainWindow.ui" line="594"/>
+        <location filename="ui/MainWindow.ui" line="588"/>
         <source>ROBOT</source>
         <translation>ROBOTER</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="628"/>
-        <location filename="ui/MainWindow.ui" line="639"/>
+        <location filename="ui/MainWindow.ui" line="628"/>
         <source>ROAD</source>
         <translation>STRASSE</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="672"/>
-        <location filename="ui/MainWindow.ui" line="689"/>
+        <location filename="ui/MainWindow.ui" line="672"/>
         <source>TOF</source>
         <translation>TOF</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="710"/>
-        <location filename="ui/MainWindow.ui" line="733"/>
+        <location filename="ui/MainWindow.ui" line="710"/>
         <source>LINE DETECTORS</source>
         <translation>LEITUNGSDETEKTOREN</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="752"/>
-        <location filename="ui/MainWindow.ui" line="775"/>
+        <location filename="ui/MainWindow.ui" line="752"/>
         <source>EN</source>
         <translation>EN</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="757"/>
-        <location filename="ui/MainWindow.ui" line="780"/>
+        <location filename="ui/MainWindow.ui" line="757"/>
         <source>PL</source>
         <translation>PL</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="762"/>
-        <location filename="ui/MainWindow.ui" line="785"/>
+        <location filename="ui/MainWindow.ui" line="762"/>
         <source>DE</source>
         <translation>DE</translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="821"/>
-        <location filename="ui/MainWindow.ui" line="844"/>
+        <location filename="ui/MainWindow.ui" line="821"/>
         <source>DISCONNECTED</source>
         <translation>GETRENNT</translation>
     </message>
@@ -228,6 +294,12 @@
         <location filename="src/MainWindow.cpp" line="235"/>
         <location filename="src/MainWindow.cpp" line="54"/>
         <location filename="src/MainWindow.cpp" line="236"/>
+        <location filename="src/MainWindow.cpp" line="54"/>
+        <location filename="src/MainWindow.cpp" line="232"/>
+        <location filename="src/MainWindow.cpp" line="53"/>
+        <location filename="src/MainWindow.cpp" line="232"/>
+        <location filename="src/MainWindow.cpp" line="53"/>
+        <location filename="src/MainWindow.cpp" line="232"/>
         <source>ARES Visual Data Panel</source>
         <translation>ARES Visual Data Panel</translation>
     </message>
@@ -237,6 +309,9 @@
         <location filename="src/MainWindow.cpp" line="238"/>
         <location filename="src/MainWindow.cpp" line="239"/>
         <location filename="src/MainWindow.cpp" line="304"/>
+        <location filename="src/MainWindow.cpp" line="300"/>
+        <location filename="src/MainWindow.cpp" line="299"/>
+        <location filename="src/MainWindow.cpp" line="299"/>
         <source>Connected</source>
         <translation>VERBUNDEN</translation>
     </message>
@@ -246,6 +321,9 @@
         <location filename="src/MainWindow.cpp" line="240"/>
         <location filename="src/MainWindow.cpp" line="241"/>
         <location filename="src/MainWindow.cpp" line="311"/>
+        <location filename="src/MainWindow.cpp" line="307"/>
+        <location filename="src/MainWindow.cpp" line="306"/>
+        <location filename="src/MainWindow.cpp" line="306"/>
         <source>Disconnected</source>
         <translation>GETRENNT</translation>
     </message>
@@ -262,54 +340,81 @@
         <location filename="ui/RobotDiagram.ui" line="32"/>
         <location filename="ui/RobotDiagram.ui" line="32"/>
         <source>value1</source>
-        <translation type="unfinished"></translation>
+        <translation>wert1</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="39"/>
         <location filename="ui/RobotDiagram.ui" line="39"/>
         <source>value2</source>
-        <translation type="unfinished"></translation>
+        <translation>wert2</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="46"/>
         <location filename="ui/RobotDiagram.ui" line="46"/>
         <source>value3</source>
-        <translation type="unfinished"></translation>
+        <translation>wert3</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="53"/>
         <location filename="ui/RobotDiagram.ui" line="53"/>
         <source>value4</source>
-        <translation type="unfinished"></translation>
+        <translation>wert4</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="83"/>
         <location filename="ui/RobotDiagram.ui" line="83"/>
         <source>LeftLine</source>
-        <translation type="unfinished"></translation>
+        <translation>LinkeLinie</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="99"/>
         <location filename="ui/RobotDiagram.ui" line="99"/>
         <source>RightLine</source>
-        <translation type="unfinished"></translation>
+        <translation>RightLine</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="119"/>
         <location filename="ui/RobotDiagram.ui" line="119"/>
         <source>LeftMotor</source>
-        <translation type="unfinished"></translation>
+        <translation>LinkerMotor</translation>
     </message>
     <message>
         <location filename="ui/RobotDiagram.ui" line="155"/>
         <location filename="ui/RobotDiagram.ui" line="155"/>
         <source>RightMotor</source>
-        <translation type="unfinished"></translation>
+        <translation>RechterMotor</translation>
+    </message>
+    <message>
+        <location filename="src/RobotDiagram.cpp" line="189"/>
+        <location filename="src/RobotDiagram.cpp" line="186"/>
+        <source>Motor left:</source>
+        <translation>Motor links:</translation>
+    </message>
+    <message>
+        <location filename="src/RobotDiagram.cpp" line="190"/>
+        <location filename="src/RobotDiagram.cpp" line="187"/>
+        <source>Motor right:</source>
+        <translation>Motor rechts:</translation>
+    </message>
+    <message>
+        <location filename="src/RobotDiagram.cpp" line="192"/>
+        <location filename="src/RobotDiagram.cpp" line="189"/>
+        <source>Left line:</source>
+        <translation>Linke zeile:</translation>
+    </message>
+    <message>
+        <location filename="src/RobotDiagram.cpp" line="193"/>
+        <location filename="src/RobotDiagram.cpp" line="190"/>
+        <source>Right line:</source>
+        <translation>Rechte zeile:</translation>
     </message>
 </context>
 <context>
     <name>RobotPicture</name>
     <message>
+        <location filename="ui/RobotPicture.ui" line="14"/>
+        <location filename="ui/RobotPicture.ui" line="14"/>
+        <location filename="ui/RobotPicture.ui" line="14"/>
         <location filename="ui/RobotPicture.ui" line="14"/>
         <location filename="ui/RobotPicture.ui" line="14"/>
         <location filename="ui/RobotPicture.ui" line="14"/>
@@ -325,21 +430,42 @@
         <location filename="ui/TofChart.ui" line="14"/>
         <location filename="ui/TofChart.ui" line="14"/>
         <location filename="ui/TofChart.ui" line="14"/>
+        <location filename="ui/TofChart.ui" line="14"/>
+        <location filename="ui/TofChart.ui" line="14"/>
+        <location filename="ui/TofChart.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/TofChart.cpp" line="41"/>
+        <location filename="src/TofChart.cpp" line="41"/>
+        <location filename="src/TofChart.cpp" line="148"/>
+        <location filename="src/TofChart.cpp" line="41"/>
+        <location filename="src/TofChart.cpp" line="148"/>
+        <location filename="src/TofChart.cpp" line="41"/>
+        <location filename="src/TofChart.cpp" line="148"/>
         <source>Probe</source>
         <translation>Muster</translation>
     </message>
     <message>
         <location filename="src/TofChart.cpp" line="46"/>
+        <location filename="src/TofChart.cpp" line="46"/>
+        <location filename="src/TofChart.cpp" line="149"/>
+        <location filename="src/TofChart.cpp" line="46"/>
+        <location filename="src/TofChart.cpp" line="149"/>
+        <location filename="src/TofChart.cpp" line="46"/>
+        <location filename="src/TofChart.cpp" line="149"/>
         <source>Distance [mm]</source>
         <translation>Abstand [mm]</translation>
     </message>
     <message>
         <location filename="src/TofChart.cpp" line="58"/>
+        <location filename="src/TofChart.cpp" line="58"/>
+        <location filename="src/TofChart.cpp" line="147"/>
+        <location filename="src/TofChart.cpp" line="58"/>
+        <location filename="src/TofChart.cpp" line="147"/>
+        <location filename="src/TofChart.cpp" line="58"/>
+        <location filename="src/TofChart.cpp" line="147"/>
         <source>Measurement ToF sensors 1-4</source>
         <translation>Messung ToF-Sensoren 1-4</translation>
     </message>
