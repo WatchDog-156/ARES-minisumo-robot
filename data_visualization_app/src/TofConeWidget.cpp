@@ -1,13 +1,37 @@
+/**
+ * @file TofConeWidget.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Klasa odpowiedzialna za rysowanie i wyświetlanie dynamicznych stożków
+ * @version 0.1
+ * @date 2026-05-13
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
+
 #include "TofConeWidget.hpp"
 #include <QPainterPath>
 #include <QColor>
 
+/**
+ * @brief Konstruktor nowego obiektu TofConeWidget
+ * 
+ * @param[in] parent - wskaźnik na rodzica obiektu 
+ */
 TofConeWidget::TofConeWidget(QWidget *parent) : QWidget(parent)
 {
     setAttribute(Qt::WA_TranslucentBackground);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
+/**
+ * @brief Funkcja przyjmująca wartość czujnika i ustalająca kąt
+ * 
+ * Funkcja przyjmuje wartość wysyłaną przez czujnik i ustalająca kąt rysowania stożków
+ * 
+ * @param[in] distanceMm - wartość długości odczytywanej z czujnika w mm
+ * @param[in] angleDeg - kąt rysowania stożka
+ */
 void TofConeWidget::setData(int distanceMm, double angleDeg)
 {
     m_distance = qBound(0, distanceMm, 800);
@@ -15,6 +39,12 @@ void TofConeWidget::setData(int distanceMm, double angleDeg)
     update();
 }
 
+/**
+ * @brief Funkcja rysująca stożek
+ * 
+ * Funkcja rysuje i wyświetla widget stożka na podstawie wartości
+ *  odległości z czujnika oraz zadanego kąta
+ */
 void TofConeWidget::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
