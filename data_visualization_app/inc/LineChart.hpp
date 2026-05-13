@@ -8,6 +8,7 @@
 #include <QLineSeries>
 #include <QValueAxis>
 #include <QChartView>
+#include <QEvent>
 
 namespace Ui {
 class LineChart;
@@ -22,6 +23,9 @@ public:
     ~LineChart();
 
     void addMeasurement(int line_l, int line_r);
+
+protected:
+    void changeEvent(QEvent *event) override;
 
 private slots:
     void onLegendMarkerClicked();

@@ -139,3 +139,14 @@ void ToFChart::addMeasurement(int tof1, int tof2, int tof3, int tof4)
         axisX->setRange(iteration - maxPoints, iteration);
     }
 }
+
+void ToFChart::changeEvent(QEvent *event){
+    if(event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this); 
+
+        chart->setTitle(tr("Measurement ToF sensors 1-4"));
+        axisX->setTitleText(tr("Probe"));
+        axisY->setTitleText(tr("Distance [mm]"));
+    }
+    QWidget::changeEvent(event); 
+}

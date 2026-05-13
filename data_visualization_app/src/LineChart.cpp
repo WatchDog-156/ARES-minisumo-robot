@@ -139,3 +139,16 @@ void LineChart::addMeasurement(int line_l, int line_r)
         axisX->setRange(iteration - maxPoints, iteration);
     }
 }
+
+void LineChart::changeEvent(QEvent *event){
+    if(event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this); 
+
+        chart->setTitle(tr("Measurement line detectors 1-2"));
+        axisX->setTitleText(tr("Probe"));
+        axisY->setTitleText(tr("Reflected light value"));
+        series[0]->setName(tr("Left detector"));
+        series[1]->setName(tr("Right detector"));
+    }
+    QWidget::changeEvent(event); 
+}

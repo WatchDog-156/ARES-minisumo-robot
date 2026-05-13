@@ -77,3 +77,11 @@ void BluetoothLogger::addReceivedLog(const QString &log)
     ui->listLog->addItem(item);
     ui->listLog->scrollToBottom();
 }
+
+void BluetoothLogger::changeEvent(QEvent *event){
+    if(event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this); 
+        this->setWindowTitle(tr("Bluetooth Logger"));
+    }
+    QDialog::changeEvent(event); 
+}

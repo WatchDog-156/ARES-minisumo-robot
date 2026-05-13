@@ -108,3 +108,10 @@ void BluetoothScanner::sortAndRefreshList() {
     }
 }
 
+void BluetoothScanner::changeEvent(QEvent *event){
+    if(event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this); 
+        this->setWindowTitle(tr("Bluetooth Scanner"));
+    }
+    QDialog::changeEvent(event); 
+}

@@ -87,8 +87,6 @@ void MainWindow::setupConnections(){
     connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->LineDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(bluetoothManager, &BluetoothManager::dataReceived, this, &MainWindow::onDataReceived);
-    // connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, [](bool success, const QString &msg) {
-    //                                                                             qDebug() << "Status BLE:" << msg;});
     connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, &MainWindow::onConnectionStatusChanged);
     connect(bluetoothScanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
     
@@ -228,18 +226,16 @@ void MainWindow::handleLanguage(int index){
     }
 }
 
-void MainWindow::changeEvent(QEvent *event)
-{
+void MainWindow::changeEvent(QEvent *event){
     if (event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
-        
         this->setWindowTitle(tr("ARES Visual Data Panel")); 
         
-        if (isConnected) {
-            ui->Connection->setText(tr("Connected"));
-        } else {
-            ui->Connection->setText(tr("Disconnected"));
-        }
+        // if (isConnected) {
+        //     ui->Connection->setText(tr("Connected"));
+        // } else {
+        //     ui->Connection->setText(tr("Disconnected"));
+        // }
     }
     QMainWindow::changeEvent(event);
 }
