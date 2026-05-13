@@ -112,16 +112,10 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     ui->Motors->setContentsMargins(4, 0, 4, 4);
     ui->Motors->setSpacing(6);
 
-
-
-    m_arrowL = new MotorArrowWidget(this);
-    m_arrowR = new MotorArrowWidget(this);
+    m_arrowL = ui->ArrowL;
+    m_arrowR = ui->ArrowR;
     m_arrowL->setFixedSize(50, 60);
     m_arrowR->setFixedSize(50, 60);
- 
-    ui->Motors->insertWidget(1, m_arrowL);
-    ui->Motors->insertWidget(3, m_arrowR);
-
 
 
 }

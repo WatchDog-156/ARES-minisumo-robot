@@ -582,13 +582,7 @@ QPushButton:pressed {
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(52, 152, 219, 0.5);
- color: black;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px;</string>
+           <string notr="true">background-color: rgba(52, 152, 219, 0.5);</string>
           </property>
           <property name="text">
            <string>ROBOT</string>
@@ -627,12 +621,7 @@ QPushButton:pressed {
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(52, 25, 219, 0.5);
- color: black;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px;
+
 </string>
           </property>
           <property name="text">
@@ -677,13 +666,7 @@ QPushButton:pressed {
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(241, 196, 15, 0.5);
-color: black;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px;</string>
+           <string notr="true">background-color: rgba(241, 196, 15, 0.5);</string>
           </property>
           <property name="text">
            <string>TOF</string>
@@ -721,13 +704,7 @@ color: black;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(255, 107, 129, 0.5); 
-color: black;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 10px;</string>
+           <string notr="true">background-color: rgba(255, 107, 129, 0.5); </string>
           </property>
           <property name="text">
            <string>LINE DETECTORS</string>
