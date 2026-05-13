@@ -1,3 +1,14 @@
+/**
+ * @file MotorArrowWidget.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Klasa odpowiedzialna za rysowanie i wyświetlanie dynamicznych strzałek
+ * @version 0.1
+ * @date 2026-05-13
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
+
 #include "MotorArrowWidget.hpp"
 #include <QPainter>
 
@@ -23,9 +34,9 @@ void MotorArrowWidget::setSpeed(int speed){
 }
 
 /**
- * @brief Funkcja rysująca krztałty strzałek
+ * @brief Funkcja rysująca krztałt strzałki 
  * 
- * Funkcja rysuje krztałty strzałek na podstawie otrzymywanych prędkości silnika 
+ * Funkcja rysuje krztałt strzałki na podstawie otrzymywanych prędkości silnika 
  * oraz jego kierunku obrotu
  * 
  */
@@ -53,23 +64,23 @@ void MotorArrowWidget::paintEvent(QPaintEvent *){
 
 if (forward) {
         // Strzałka w górę — rośnie od dołu
-        int tipY     = fullH - arrowH;
-        int headBase = tipY + headH;
+        int topY = fullH - arrowH;
+        int headBase = topY + headH;
 
         QPolygon head;
-        head << QPoint(midX,          tipY)
+        head << QPoint(midX, topY)
              << QPoint(midX - headW/2, headBase)
              << QPoint(midX + headW/2, headBase);
         p.drawPolygon(head);
 
         p.drawRect(midX - stemW/2, headBase, stemW, fullH - headBase);
     } else {
-        // Strzałka w dół — rośnie od góry
-        int tipY     = arrowH;
-        int headBase = tipY - headH;
+
+        int topY = arrowH;
+        int headBase = topY - headH;
 
         QPolygon head;
-        head << QPoint(midX,          tipY)
+        head << QPoint(midX, topY)
              << QPoint(midX - headW/2, headBase)
              << QPoint(midX + headW/2, headBase);
         p.drawPolygon(head);

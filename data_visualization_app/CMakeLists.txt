@@ -45,7 +45,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         inc/RobotDiagram.hpp src/RobotDiagram.cpp ui/RobotDiagram.ui
         inc/MotorArrowWidget.hpp src/MotorArrowWidget.cpp
         inc/TofConeWidget.hpp src/TofConeWidget.cpp
-        inc/RotatedLabel.hpp
+        inc/RotatedLabel.hpp src/RotatedLabel.cpp
         img/mechanika.png
         pictures.qrc
 

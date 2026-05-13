@@ -1,3 +1,14 @@
+/**
+ * @file RobotDiagram.cpp
+ * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @brief Klasa do zarządzania widget'em odpowiedzialny za wyświetlanie diagramu robota
+ * @version 0.1
+ * @date 2026-05-13
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
+
 #include "RobotDiagram.hpp"
 #include "ui_RobotDiagram.h"
 #include <QHBoxLayout>
