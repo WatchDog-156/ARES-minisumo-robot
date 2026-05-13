@@ -288,6 +288,13 @@ void MainWindow::onDataReceived(const QByteArray &data) {
     }
 }
 
+/**
+ * @brief Funkcja aktualizująca przycisk połączenia
+ * 
+ * Funkcja zmienia wygląd przycisku połączenia w zależności od statusu połączenia z urządzeniem
+ * @param[in] success - informacja o połączeniu (1) /rozłączeniu (0)
+ * @param[in] msg - wiadomość otrzymywana od odpowiedniego urządzenia
+ */
 void MainWindow::onConnectionStatusChanged(bool success, const QString &msg){
     qDebug() << "Status BLE: " << msg;
 
