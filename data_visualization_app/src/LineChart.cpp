@@ -35,16 +35,16 @@ LineChart::LineChart(QWidget *parent)
         series[i]->setColor(colors[i]);
         chart->addSeries(series[i]);
     }
-    series[0]->setName(QString("Left detector"));
-    series[1]->setName(QString("Right detector"));
+    series[0]->setName(QString(tr("Left detector")));
+    series[1]->setName(QString(tr("Right detector")));
 
     axisX->setRange(0, maxPoints);
-    axisX->setTitleText("Probe");
+    axisX->setTitleText(tr("Probe"));
     axisX->setLabelFormat("%d");
     axisX->setTickCount(11);
 
     axisY->setRange(0, 4095);
-    axisY->setTitleText("Reflected light value");
+    axisY->setTitleText(tr("Reflected light value"));
     axisY->setLabelFormat("%d");
     axisY->setTickCount(11);
 
@@ -56,7 +56,7 @@ LineChart::LineChart(QWidget *parent)
         series[i]->attachAxis(axisY);
     }
 
-    chart->setTitle("Measurement line detectors 1-2");
+    chart->setTitle(tr("Measurement line detectors 1-2"));
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignTop);
 

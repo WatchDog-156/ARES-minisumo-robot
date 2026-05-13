@@ -26,7 +26,7 @@ BluetoothScanner::BluetoothScanner(QWidget *parent)
     discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
 
     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered, this, &BluetoothScanner::addDevice);
-    connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, this, [this](){ui->buttonScan->setText("Scan"); ui->buttonScan->setEnabled(true);});
+    connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished, this, [this](){ui->buttonScan->setText(tr("Scan")); ui->buttonScan->setEnabled(true);});
 
     this->setWindowTitle(tr("Bluetooth Scanner"));
 }

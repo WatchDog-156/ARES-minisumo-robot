@@ -24,7 +24,7 @@ BluetoothLogger::BluetoothLogger(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("Bluetooth Logger");
+    this->setWindowTitle(tr("Bluetooth Logger"));
 }
 
 /**

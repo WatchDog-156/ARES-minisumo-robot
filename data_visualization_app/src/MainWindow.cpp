@@ -211,7 +211,8 @@ void MainWindow::handleLanguage(int index){
     QString languageFile;
     switch(index) {
         case 0:
-            return; 
+            languageFile = ":/i18n/data_visualization_app_en_EN.qm";
+            break;
         case 1:
             languageFile = ":/i18n/data_visualization_app_pl_PL.qm";
             break;
@@ -300,14 +301,14 @@ void MainWindow::onConnectionStatusChanged(bool success, const QString &msg){
 
     if (success && msg == "Gotowy do transmisji") {
         isConnected = true;
-        ui->Connection->setText("Connected");
+        ui->Connection->setText(tr("Connected"));
         ui->Connection->setStyleSheet(
             "background-color: green; color: black; border: 2px solid black;"
             "border-radius: 5px; font-size: 12px; font-weight: bold; padding: 4px 10px;"
         );
     } else if (!success) {
         isConnected = false;
-        ui->Connection->setText("Disconnected");
+        ui->Connection->setText(tr("Disconnected"));
         ui->Connection->setStyleSheet(
             "background-color: red; color: black; border: 2px solid black;"
             "border-radius: 5px; font-size: 12px; font-weight: bold; padding: 4px 10px;"

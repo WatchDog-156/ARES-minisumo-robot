@@ -38,12 +38,12 @@ ToFChart::ToFChart(QWidget *parent)
     }
 
     axisX->setRange(0, maxPoints);
-    axisX->setTitleText("Probe");
+    axisX->setTitleText(tr("Probe"));
     axisX->setLabelFormat("%d");
     axisX->setTickCount(11);
 
     axisY->setRange(0, 800);
-    axisY->setTitleText("Distance [mm]");
+    axisY->setTitleText(tr("Distance [mm]"));
     axisY->setLabelFormat("%d");
     axisY->setTickCount(11);
 
@@ -55,7 +55,7 @@ ToFChart::ToFChart(QWidget *parent)
         series[i]->attachAxis(axisY);
     }
 
-    chart->setTitle("Measurement ToF sensors 1-4");
+    chart->setTitle(tr("Measurement ToF sensors 1-4"));
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignTop);
 
