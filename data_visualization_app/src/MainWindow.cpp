@@ -12,6 +12,7 @@
 #include "MainWindow.hpp"
 #include "./ui_MainWindow.h"
 #include <QDebug>
+#include <QApplication>
 
 /**
  * @brief Inicjalizuje główne okno aplikacji, komponenty UI oraz menedżery komunikacji
@@ -46,11 +47,11 @@ MainWindow::MainWindow(QWidget *parent)
     robotPicture = new RobotPicture(this);
     ui->stackedWidget->insertWidget(3, robotPicture);
     ui->stackedWidget->addWidget(robotPicture);
-    // ui->stackedWidget->setCurrentIndex(4);
     ui->stackedWidget->setCurrentWidget(robotPicture);
 
     setupConnections();
-    this->setWindowTitle("Panel Danych Wizualnych ARES");
+    // this->setWindowTitle("Panel Danych Wizualnych ARES");
+    this->setWindowTitle(tr("ARES Visual Data Panel"));
 }
 
 /**
@@ -78,7 +79,7 @@ void MainWindow::setupConnections(){
     connect(ui->ButtonServoDown, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->ButtonEND, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->EnterText, &QLineEdit::returnPressed, this, &MainWindow::handleManualCommands);
-    // connect(ui->Language, &QComboBox::activated, this, &MainWindow::handleLanguage);
+    connect(ui->Language, &QComboBox::currentIndexChanged, this, &MainWindow::handleLanguage);
     // connect(ui->RoadDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Log, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Connection, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
@@ -203,20 +204,44 @@ void MainWindow::updateButtonStates(){
 
 }
 
-// void MainWindow::handleLanguage(int index){
-//     switch(index){
-//         case 0:
-//             qDebug() << "Angielski";
-//             ui->ButtonForward->setText("Forward");
-//             ui->ButtonBackward->setText("Backward");
-//             break;
-//         case 1:
-//             qDebug() << "Polski";
-//             ui->ButtonForward->setText("Przod");
-//             ui->ButtonBackward->setText("Tyl");
-//             break;
-//         }
-//     }
+
+void MainWindow::handleLanguage(int index){
+    qApp->removeTranslator(&appTranslator);
+
+    QString languageFile;
+    switch(index) {
+        case 0:
+            return; 
+        case 1:
+            languageFile = ":/i18n/data_visualization_app_pl_PL.qm";
+            break;
+        case 2:
+            languageFile = ":/i18n/data_visualization_app_de_DE.qm";
+            break;
+    }
+ 
+    if (appTranslator.load(languageFile)) {
+        qApp->installTranslator(&appTranslator);
+    } else {
+        qDebug() << "Nie udało się załadować pliku tłumaczenia: " << languageFile;
+    }
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+        
+        this->setWindowTitle(tr("ARES Visual Data Panel")); 
+        
+        if (isConnected) {
+            ui->Connection->setText(tr("Connected"));
+        } else {
+            ui->Connection->setText(tr("Disconnected"));
+        }
+    }
+    QMainWindow::changeEvent(event);
+}
 
 /**
  * @brief Funckja inicjuje procedurę łączenia z wybranym urzadzeniem

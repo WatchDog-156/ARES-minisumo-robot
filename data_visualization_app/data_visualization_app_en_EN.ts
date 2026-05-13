@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pl_PL">
+<TS version="2.1" language="en_en">
 <context>
     <name>BluetoothLogger</name>
     <message>
@@ -32,14 +32,14 @@
         <location filename="ui/BluetoothScanner.ui" line="39"/>
         <location filename="ui/BluetoothScanner.ui" line="39"/>
         <source>SCAN</source>
-        <translation>SKANUJ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="ui/BluetoothScanner.ui" line="74"/>
         <location filename="ui/BluetoothScanner.ui" line="74"/>
         <location filename="ui/BluetoothScanner.ui" line="74"/>
         <source>CONNECT</source>
-        <translation>POŁĄCZ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/BluetoothScanner.cpp" line="31"/>
@@ -108,7 +108,7 @@
         <location filename="ui/MainWindow.ui" line="431"/>
         <location filename="ui/MainWindow.ui" line="431"/>
         <source>END</source>
-        <translation type="unfinished">KONIEC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="ui/MainWindow.ui" line="450"/>
@@ -184,7 +184,7 @@
         <location filename="src/MainWindow.cpp" line="54"/>
         <location filename="src/MainWindow.cpp" line="235"/>
         <source>ARES Visual Data Panel</source>
-        <translation type="unfinished">Panel Danych Wizualnych ARES xdd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="src/MainWindow.cpp" line="238"/>

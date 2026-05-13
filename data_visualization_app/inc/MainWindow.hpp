@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTranslator> 
+#include <QEvent>
 #include "BluetoothManager.hpp"
 #include "BluetoothLogger.hpp"
 #include "BluetoothScanner.hpp"
@@ -25,11 +27,14 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+protected:
+    void changeEvent(QEvent *event) override;
+
 private slots:
     void handleCommandButtons();
     void handleManualCommands();
     void handleFunctionButtons();
-    // void handleLanguage(int index);
+    void handleLanguage(int index);
     void connectToDevice(const QBluetoothDeviceInfo &info);
     void onDataReceived(const QByteArray &data);
     void onConnectionStatusChanged(bool success, const QString &msg);
@@ -38,6 +43,8 @@ private:
     Ui::MainWindow *ui;
     void setupConnections();
     void updateButtonStates();
+
+    QTranslator appTranslator;
 
     RobotDiagram *robot;
     ToFChart *tof;
