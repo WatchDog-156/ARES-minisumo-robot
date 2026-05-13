@@ -1,15 +1,34 @@
 #include "MotorArrowWidget.hpp"
 #include <QPainter>
 
+/**
+ * @brief Konstruktor nowego obiektu MotorArrowWidget
+ * 
+ * @param[in] parent - wskaźnik na rodzica obiektu 
+ */
 MotorArrowWidget::MotorArrowWidget(QWidget *parent) : QWidget(parent){
     setAttribute(Qt::WA_TranslucentBackground);
 }
 
+/**
+ * @brief Funckja ustalająca prędkość silnika dla widget'a
+ * 
+ * Funkcja określa skalę wyświetlanej prędkości silnika przez widget oraz przyjmuje 
+ * aktualną prędkość
+ * @param[in] speed - aktualna prędkość silnika
+ */
 void MotorArrowWidget::setSpeed(int speed){
     m_speed = qBound(-100, speed, 100);
     update();
 }
 
+/**
+ * @brief Funkcja rysująca krztałty strzałek
+ * 
+ * Funkcja rysuje krztałty strzałek na podstawie otrzymywanych prędkości silnika 
+ * oraz jego kierunku obrotu
+ * 
+ */
 void MotorArrowWidget::paintEvent(QPaintEvent *){
     if (m_speed == 0) return;
     QPainter p(this);

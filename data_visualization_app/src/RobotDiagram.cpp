@@ -2,6 +2,13 @@
 #include "ui_RobotDiagram.h"
 #include <QHBoxLayout>
 
+/**
+ * @brief Konstruktor nowego obiektu RobotDiagram
+ * 
+ *  Konstruktor rysujący cały widget diagramu, na którym są przedstawione wizualnie 
+ *  otrzymywane dane z sensorów odległości, czujnika wykrywania linii oraz prędkości silników
+ * @param[in] parent - wskaźnik na rodzica obiektu
+ */
 RobotDiagram::RobotDiagram(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::RobotDiagram)
@@ -120,11 +127,29 @@ RobotDiagram::RobotDiagram(QWidget *parent)
 
 }
 
+/**
+ * @brief Destruktor obiektu RobotDiagram
+ * 
+ */
 RobotDiagram::~RobotDiagram()
 {
     delete ui;
 }
 
+/**
+ * @brief Funkcja aktualizująca wyświetlane dane z czujników
+ * 
+ * Funkcja aktualizuje wizualne elemnty widgetu na podstawie zmieniających się danych z czujników
+ * 
+ * @param[in] MotorL - prędkość lewego silnika
+ * @param[in] MotorR - prędkość prawego silnika
+ * @param[in] LineL - warość lewego czujnika linii
+ * @param[in] LineR - wartość prawego czujnika linii
+ * @param[in] tof1 - wartość czujnika odległości nr 1 (lewy skrajny)
+ * @param[in] tof2 - wartość czujnika odległości nr 2 (lewy środkowy)
+ * @param[in] tof3 - wartość czujnika odległości nr 3 (prawy środkowy)
+ * @param[in] tof4 - wartość czujnika odległości nr 4 (prawy skrajny)
+ */
 void RobotDiagram::updateData(int MotorL, int MotorR, int LineL, int LineR, int tof1, int tof2, int tof3, int tof4){
     m_cone1->setData(tof1, -20.0);
     m_cone2->setData(tof2, 0.0);
