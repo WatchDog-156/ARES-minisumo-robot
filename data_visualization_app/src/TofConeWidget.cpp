@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2026
  * 
  */
-
 #include "TofConeWidget.hpp"
 #include <QPainterPath>
 #include <QColor>

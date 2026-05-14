@@ -182,6 +182,10 @@ void RobotDiagram::updateData(int MotorL, int MotorR, int LineL, int LineR, int 
     updateLabelsText();
 }
 
+/**
+ * @brief Funkcja pomocnicza do aktualizacji danych na czujnikach
+ * 
+ */
 void RobotDiagram::updateLabelsText() {
     ui->MotorL->setText(tr("Motor left:") + "\n" + QString::number(qAbs(lastMotorL)) + " %");
     ui->MotorR->setText(tr("Motor right:") + "\n" + QString::number(qAbs(lastMotorR)) + " %");
@@ -190,6 +194,13 @@ void RobotDiagram::updateLabelsText() {
     ui->LineR->setText(tr("Right line:") + "\n" + QString::number(lastLineR));
 }
 
+/**
+ * @brief Funkcja do aktualizacji języka interfejsu graficznego
+ * 
+ * Funkcja reaguje na zdarzenie QEvent::LanguageChange, które jest wysyłane,
+ * gdy w aplikacji zostanie zainstalowany nowy obiekt QTranslator. * 
+ * @param[in] event - wskaźnik na obiekt zdarzenia
+ */
 void RobotDiagram::changeEvent(QEvent *event){
     if(event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this); 

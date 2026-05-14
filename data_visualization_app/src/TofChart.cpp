@@ -140,6 +140,13 @@ void ToFChart::addMeasurement(int tof1, int tof2, int tof3, int tof4)
     }
 }
 
+/**
+ * @brief Funkcja do aktualizacji języka interfejsu graficznego
+ * 
+ * Funkcja reaguje na zdarzenie QEvent::LanguageChange, które jest wysyłane,
+ * gdy w aplikacji zostanie zainstalowany nowy obiekt QTranslator. * 
+ * @param[in] event - wskaźnik na obiekt zdarzenia
+ */
 void ToFChart::changeEvent(QEvent *event){
     if(event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this); 
