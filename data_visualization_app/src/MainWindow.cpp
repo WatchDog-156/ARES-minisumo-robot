@@ -102,24 +102,31 @@ void MainWindow::handleCommandButtons(){
     if(button == ui->ButtonForward){
         qDebug() << "Forward";
         bluetoothManager->writeData("FWD");
+        bluetoothLogger->addSendedLog("FWD");
     } else if (button == ui->ButtonBackward){
         qDebug() << "Backward";
         bluetoothManager->writeData("BWD");
+        bluetoothLogger->addSendedLog("BWD");
     } else if (button == ui->ButtonStart){
         qDebug() << "Start";
         bluetoothManager->writeData("START");
+        bluetoothLogger->addSendedLog("START");
     } else if (button == ui->ButtonStop){
         qDebug() << "Stop";
         bluetoothManager->writeData("STOP");
+        bluetoothLogger->addSendedLog("STOP");
     } else if (button == ui->ButtonServoUp){
         qDebug() << "ServoUp";
         bluetoothManager->writeData("SER_UP");
+        bluetoothLogger->addSendedLog("SER_UP");
     } else if (button == ui->ButtonServoDown){
         qDebug() << "ServoDown";
         bluetoothManager->writeData("SER_DW");
+        bluetoothLogger->addSendedLog("SER_DW");
     } else if (button == ui->ButtonEND){
         qDebug() << "End";
         bluetoothManager->writeData("END");
+        bluetoothLogger->addSendedLog("END");
     }
 }
 
@@ -133,6 +140,7 @@ void MainWindow::handleManualCommands(){
     if (cmd.isEmpty()) return;
     qDebug() << "Wyslanie komendy: " << cmd;
     bluetoothManager->writeData(cmd);
+    bluetoothLogger->addSendedLog(cmd);
     ui->EnterText->clear();
 }
 
@@ -290,6 +298,7 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
+        bluetoothLogger->addReceivedLog(recivedData);
     }
 }
 
