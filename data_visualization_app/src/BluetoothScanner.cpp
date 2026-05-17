@@ -1,6 +1,6 @@
 /**
  * @file BluetoothScanner.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Tworzy oraz zarządza okienkiem "Bluetooth Scanner" do wybierania urządzenia bluetooth
  * @version 1.0
  * @date 2026-03-28

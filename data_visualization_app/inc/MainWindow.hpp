@@ -11,7 +11,7 @@
 #include "TofChart.hpp"
 #include "LineChart.hpp"
 #include "RobotPicture.hpp"
-// #include "RoadDiagram.hpp"
+#include "TrajectoryWidget.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -50,7 +50,7 @@ private:
     ToFChart *tof;
     LineChart *line;
     RobotPicture *robotPicture;
-    // RoadDiagram *road;
+    TrajectoryWidget *road;
     
     BluetoothManager *bluetoothManager;
     BluetoothLogger *bluetoothLogger;

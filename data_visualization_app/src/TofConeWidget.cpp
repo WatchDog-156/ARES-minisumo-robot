@@ -1,6 +1,6 @@
 /**
  * @file TofConeWidget.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa odpowiedzialna za rysowanie i wyświetlanie dynamicznych stożków
  * @version 0.1
  * @date 2026-05-13
@@ -29,7 +29,7 @@ TofConeWidget::TofConeWidget(QWidget *parent) : QWidget(parent)
  * Funkcja przyjmuje wartość wysyłaną przez czujnik i ustalająca kąt rysowania stożków
  * 
  * @param[in] distanceMm - wartość długości odczytywanej z czujnika w mm
- * @param[in] angleDeg - kąt rysowania stożka
+ * @param[in] angleDeg - kąt rysowania stożka w stopniach
  */
 void TofConeWidget::setData(int distanceMm, double angleDeg)
 {
@@ -49,15 +49,14 @@ void TofConeWidget::paintEvent(QPaintEvent *)
     QPainter p(this);
     p.setRenderHint(QPainter::Antialiasing);
 
-    const double maxLength = height() * 0.90;
+    const double maxLength = height() * 0.65;
     const double halfAngle = 20.0;
-    double ratio = 1.0 - qBound(0.0, m_distance / 800.0, 1.0);
+    double ratio = qBound(0.0, m_distance / 800.0, 1.0);
     const double coneLength = maxLength * (0.10 + 0.90 * ratio);
 
 
     QPointF top(width() / 2.0, height() - 4);
 
-    // Dwa punkty końcowe
     double rad1 = qDegreesToRadians(-90.0 + m_angleDeg - halfAngle);
     double rad2 = qDegreesToRadians(-90.0 + m_angleDeg + halfAngle);
 
@@ -70,15 +69,12 @@ void TofConeWidget::paintEvent(QPaintEvent *)
     path.lineTo(p2);
     path.closeSubpath();
 
-    double t = 1.0 - (m_distance / 800.0);
-    QColor fill(
-        static_cast<int>(t * 200),
-        static_cast<int>((1.0 - t) * 180),
-        50,
-        120
-    );
+    int red = static_cast<int>((1.0 - ratio) * 220);
+    int green = static_cast<int>(ratio * 180);
+
+    QColor fill(red, green, 50, 200);
     QColor border = fill.darker(140);
-    border.setAlpha(200);
+    border.setAlpha(255);
 
     p.setBrush(fill);
     p.setPen(QPen(border, 1.2));

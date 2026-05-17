@@ -1,6 +1,6 @@
 /**
  * @file RobotPicture.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do zarządzania widget'em odpowiedzialnym za wyświetlanie zdjęcia robota MiniSumo
  * @version 1.0
  * @date 2026-03-29

@@ -1,6 +1,6 @@
 /**
  * @file RotatedLabel.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do rysowania prostokątów czujników tof
  * @version 0.1
  * @date 2026-05-13
@@ -38,11 +38,11 @@ void RotatedLabel::setText(const QString &text)
 /**
  * @brief Funkcja ustalająca kąt ustawienia widgetu
  * 
- * @param[in] deg - kąt ustawiena widgetu 
+ * @param[in] angleDeg - kąt ustawiena widgetu w stopniach
  */
-void RotatedLabel::setAngle(double deg)         
+void RotatedLabel::setAngle(double angleDeg)         
 { 
-    m_angle = deg;  
+    m_angle = angleDeg;  
     update(); 
 }
 

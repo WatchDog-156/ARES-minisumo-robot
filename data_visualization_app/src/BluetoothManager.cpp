@@ -1,6 +1,6 @@
 /**
  * @file BluetoothManager.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do zarządzania łącznością bluetooth za pomocą protokołu Nordic UART Service
  * @version 1.1
  * @date 2026-03-29

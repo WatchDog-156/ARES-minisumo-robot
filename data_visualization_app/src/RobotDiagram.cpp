@@ -1,6 +1,6 @@
 /**
  * @file RobotDiagram.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do zarządzania widget'em odpowiedzialny za wyświetlanie diagramu robota
  * @version 0.1
  * @date 2026-05-13
@@ -39,10 +39,10 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     m_cone3 = new TofConeWidget(this);
     m_cone4 = new TofConeWidget(this);
  
-    m_cone1->setData(0, -20.0);
-    m_cone2->setData(0, 0.0);
-    m_cone3->setData(0, 0.0);
-    m_cone4->setData(0, +20.0);
+    m_cone1->setData(800, -20.0);
+    m_cone2->setData(800, 0.0);
+    m_cone3->setData(800, 0.0);
+    m_cone4->setData(800, +20.0);
 
     std::function<RotatedLabel*(double)> makeTofLabel = [this](double angle) -> RotatedLabel* {
         RotatedLabel *tof = new RotatedLabel(this);
