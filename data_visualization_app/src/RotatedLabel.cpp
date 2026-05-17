@@ -38,7 +38,7 @@ void RotatedLabel::setText(const QString &text)
 /**
  * @brief Funkcja ustalająca kąt ustawienia widgetu
  * 
- * @param[in] deg - kąt ustawiena widgetu 
+ * @param[in] deg - kąt ustawiena widgetu w stopniach
  */
 void RotatedLabel::setAngle(double deg)         
 { 

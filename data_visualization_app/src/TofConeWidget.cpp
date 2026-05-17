@@ -30,7 +30,7 @@ TofConeWidget::TofConeWidget(QWidget *parent) : QWidget(parent)
  * Funkcja przyjmuje wartość wysyłaną przez czujnik i ustalająca kąt rysowania stożków
  * 
  * @param[in] distanceMm - wartość długości odczytywanej z czujnika w mm
- * @param[in] angleDeg - kąt rysowania stożka
+ * @param[in] angleDeg - kąt rysowania stożka w stopniach
  */
 void TofConeWidget::setData(int distanceMm, double angleDeg)
 {
