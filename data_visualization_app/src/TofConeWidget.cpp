@@ -1,6 +1,6 @@
 /**
  * @file TofConeWidget.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa odpowiedzialna za rysowanie i wyświetlanie dynamicznych stożków
  * @version 0.1
  * @date 2026-05-13

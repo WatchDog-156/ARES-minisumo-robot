@@ -1,6 +1,6 @@
 /**
  * @file MainWindow.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Tworzy główne okno aplikacji oraz zarządza działaniem przycisków
  * @version 1.0
  * @date 2026-05-05
@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->RobotDiagram->setCheckable(true);
     ui->TofDiagram->setCheckable(true);
     ui->LineDiagram->setCheckable(true);
+    ui->RoadDiagram->setCheckable(true);
     
 
     robot = new RobotDiagram(this);
@@ -44,10 +45,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->insertWidget(1, tof);
     line = new LineChart(this);
     ui->stackedWidget->insertWidget(2, line);
-    // road = new RoadDiagram(this);
-    // ui->stackedWidget->insertWidget(3, road);
+    road = new TrajectoryWidget(this);
+    ui->stackedWidget->insertWidget(3, road);
     robotPicture = new RobotPicture(this);
-    ui->stackedWidget->insertWidget(3, robotPicture);
+    ui->stackedWidget->insertWidget(4, robotPicture);
     ui->stackedWidget->addWidget(robotPicture);
     ui->stackedWidget->setCurrentWidget(robotPicture);
 
@@ -81,7 +82,7 @@ void MainWindow::setupConnections(){
     connect(ui->ButtonEND, &QPushButton::clicked, this, &MainWindow::handleCommandButtons);
     connect(ui->EnterText, &QLineEdit::returnPressed, this, &MainWindow::handleManualCommands);
     connect(ui->Language, &QComboBox::currentIndexChanged, this, &MainWindow::handleLanguage);
-    // connect(ui->RoadDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
+    connect(ui->RoadDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Log, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->Connection, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->RobotDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
@@ -190,13 +191,13 @@ void MainWindow::handleFunctionButtons(){
     ui->RobotDiagram->setChecked(false);
     ui->TofDiagram->setChecked(false);
     ui->LineDiagram->setChecked(false);
-    // ui->RobotPicture->setChecked(false); //Zmiana na RoadDiagram
+    ui->RoadDiagram->setChecked(false);
     button->setChecked(true);
 
     if (button == ui->RobotDiagram) ui->stackedWidget->setCurrentIndex(0);
     else if (button == ui->TofDiagram) ui->stackedWidget->setCurrentIndex(1);
     else if (button == ui->LineDiagram) ui->stackedWidget->setCurrentIndex(2);
-    // else if (button == ui->RobotPicture) ui->stackedWidget->setCurrentIndex(3); //zmiana na RoadDiagram
+    else if (button == ui->RoadDiagram) ui->stackedWidget->setCurrentIndex(3); //zmiana na RoadDiagram
 
 
     updateButtonStates();
@@ -208,8 +209,8 @@ void MainWindow::handleFunctionButtons(){
  * Funkcja odpowiada za zmienianie grafiki przycisków (przezroczystości i tła) w zależności od ich stanu 
  */
 void MainWindow::updateButtonStates(){
-    QList<QPushButton*> buttons = {ui->RobotDiagram, ui->TofDiagram, ui->LineDiagram};
-    QStringList colors = {"52, 152, 219", "241, 196, 15", "255, 107, 129"};
+    QList<QPushButton*> buttons = {ui->RobotDiagram, ui->TofDiagram, ui->LineDiagram, ui->RoadDiagram};
+    QStringList colors = {"52, 152, 219", "241, 196, 15", "255, 107, 129", "52, 25, 219"};
 
     for (int i=0; i< buttons.size(); i++){
         double alpha = buttons[i]->isChecked() ? 1.0 : 0.5;
@@ -313,6 +314,7 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
         robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
+        road->update(motors[0], motors[1], 50.0);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
         if(bluetoothLogger)

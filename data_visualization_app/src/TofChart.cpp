@@ -1,6 +1,6 @@
 /**
  * @file TofChart.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do zarządzania widget'em odpowiedzialnym za wyświetlanie wykresów czujników odległości
  * @version 1.0
  * @date 2026-03-29

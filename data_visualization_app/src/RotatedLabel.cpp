@@ -1,6 +1,6 @@
 /**
  * @file RotatedLabel.cpp
- * @author Jakub Borsukiewicz (borsukiewiczkuba12345@gmail.com)
+ * @author Jakub Borsukiewicz & Jan Farbotko
  * @brief Klasa do rysowania prostokątów czujników tof
  * @version 0.1
  * @date 2026-05-13

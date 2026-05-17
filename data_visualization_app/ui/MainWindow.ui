@@ -55,9 +55,10 @@ QWidget#centralwidget {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="Robot"/>
+               <widget class="QWidget" name="Trajectory"/>
                <widget class="QWidget" name="TOF">
                 <property name="maximumSize">
                  <size>
