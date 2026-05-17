@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ARES Visual Data Panel
+Comment=Aplikacja do wizualizacji danych robota
+# Zmień poniższą ścieżkę na folder, gdzie kompiluje się Twój program
+Exec=/home/jakub/Pulpit/ARES-minisumo-robot/data_visualization_app/build/data_visualization_app
+# Zmień ścieżkę do pliku PNG, którego chcesz użyć jako ikony
+Icon=/home/jakub/Pulpit/ARES-minisumo-robot/data_visualization_app/img/ikonka.png
+Terminal=false
+Categories=Engineering;Development;
+StartupWMClass=data_visualization_app
