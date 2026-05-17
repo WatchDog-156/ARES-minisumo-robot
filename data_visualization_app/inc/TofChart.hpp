@@ -8,6 +8,7 @@
 #include <QLineSeries>
 #include <QValueAxis>
 #include <QChartView>
+#include <QEvent>
 
 namespace Ui {
 class ToFChart;
@@ -22,6 +23,9 @@ public:
     ~ToFChart();
 
     void addMeasurement(int tof1, int tof2, int tof3, int tof4);
+
+protected:
+    void changeEvent(QEvent *event) override;
 
 private slots:
     void onLegendMarkerClicked();

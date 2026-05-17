@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2026
  * 
  */
-
 #include "MotorArrowWidget.hpp"
 #include <QPainter>
 
@@ -62,7 +61,7 @@ void MotorArrowWidget::paintEvent(QPaintEvent *){
     p.setBrush(dynamicColor);
     p.setPen(Qt::NoPen);
 
-if (forward) {
+    if (forward) {
         // Strzałka w górę — rośnie od dołu
         int topY = fullH - arrowH;
         int headBase = topY + headH;

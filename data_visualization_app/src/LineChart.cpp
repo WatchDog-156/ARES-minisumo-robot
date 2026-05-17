@@ -139,3 +139,23 @@ void LineChart::addMeasurement(int line_l, int line_r)
         axisX->setRange(iteration - maxPoints, iteration);
     }
 }
+
+/**
+ * @brief Funkcja do aktualizacji języka interfejsu graficznego
+ * 
+ * Funkcja reaguje na zdarzenie QEvent::LanguageChange, które jest wysyłane,
+ * gdy w aplikacji zostanie zainstalowany nowy obiekt QTranslator. * 
+ * @param[in] event - wskaźnik na obiekt zdarzenia
+ */
+void LineChart::changeEvent(QEvent *event){
+    if(event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this); 
+
+        chart->setTitle(tr("Measurement line detectors 1-2"));
+        axisX->setTitleText(tr("Probe"));
+        axisY->setTitleText(tr("Reflected light value"));
+        series[0]->setName(tr("Left detector"));
+        series[1]->setName(tr("Right detector"));
+    }
+    QWidget::changeEvent(event); 
+}

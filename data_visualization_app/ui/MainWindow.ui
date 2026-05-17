@@ -13,6 +13,16 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #F0F8FF, stop:1 #5C93FA);
+}
+
+QWidget#centralwidget {
+    background: transparent;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -35,35 +45,32 @@
          <layout class="QHBoxLayout" name="horizontalLayout_21">
           <item>
            <widget class="QWidget" name="widget" native="true">
-            <widget class="QStackedWidget" name="stackedWidget">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>-1</y>
-               <width>600</width>
-               <height>541</height>
-              </rect>
-             </property>
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>600</width>
-               <height>200</height>
-              </size>
-             </property>
-             <property name="currentIndex">
-              <number>1</number>
-             </property>
-             <widget class="QWidget" name="Robot"/>
-             <widget class="QWidget" name="TOF"/>
-             <widget class="QWidget" name="LineDetector"/>
-             <widget class="QWidget" name="RobotPicture"/>
-            </widget>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QStackedWidget" name="stackedWidget">
+               <property name="minimumSize">
+                <size>
+                 <width>600</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <widget class="QWidget" name="Robot"/>
+               <widget class="QWidget" name="TOF">
+                <property name="maximumSize">
+                 <size>
+                  <width>600</width>
+                  <height>200</height>
+                 </size>
+                </property>
+               </widget>
+               <widget class="QWidget" name="LineDetector"/>
+               <widget class="QWidget" name="RobotPicture"/>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
@@ -287,7 +294,7 @@
                 </palette>
                </property>
                <property name="cursor">
-                <cursorShape>ArrowCursor</cursorShape>
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="mouseTracking">
                 <bool>true</bool>
@@ -339,6 +346,9 @@ QPushButton:pressed {
                  <height>80</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="text">
                 <string>FORWARD</string>
                </property>
@@ -358,6 +368,9 @@ QPushButton:pressed {
                  <height>80</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="text">
                 <string>BACKWARD</string>
                </property>
@@ -376,6 +389,9 @@ QPushButton:pressed {
                  <width>0</width>
                  <height>80</height>
                 </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
                 <string>SERVO DOWN</string>
@@ -402,6 +418,12 @@ QPushButton:pressed {
                  <height>16777215</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <property name="text">
                 <string>START</string>
                </property>
@@ -427,6 +449,9 @@ QPushButton:pressed {
                  <height>80</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="text">
                 <string>END</string>
                </property>
@@ -445,6 +470,9 @@ QPushButton:pressed {
                  <width>0</width>
                  <height>80</height>
                 </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
                 <string>SERVO UP</string>
@@ -475,7 +503,7 @@ QPushButton:pressed {
                 </font>
                </property>
                <property name="text">
-                <string>enter text...</string>
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -501,6 +529,9 @@ QPushButton:pressed {
                  <underline>false</underline>
                  <strikeout>false</strikeout>
                 </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>WhatsThisCursor</cursorShape>
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton {
@@ -581,6 +612,9 @@ QPushButton:pressed {
             <height>40</height>
            </size>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(52, 152, 219, 0.5);</string>
           </property>
@@ -618,6 +652,9 @@ QPushButton:pressed {
             <width>0</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(52, 25, 219, 0.5);
@@ -665,6 +702,9 @@ QPushButton:pressed {
             <height>16777215</height>
            </size>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(241, 196, 15, 0.5);</string>
           </property>
@@ -702,6 +742,9 @@ QPushButton:pressed {
             <width>0</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 107, 129, 0.5); </string>
@@ -746,6 +789,12 @@ QPushButton:pressed {
             <width>50</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <item>
            <property name="text">
@@ -793,6 +842,9 @@ QPushButton:pressed {
             <width>0</width>
             <height>40</height>
            </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {

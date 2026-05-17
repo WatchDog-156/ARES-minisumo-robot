@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QBluetoothDeviceDiscoveryAgent>
 #include <QBluetoothDeviceInfo>
+#include <QEvent>
 
 namespace Ui {
 class BluetoothScanner;
@@ -16,6 +17,9 @@ class BluetoothScanner : public QDialog
 public:
     explicit BluetoothScanner(QWidget *parent = nullptr);
     ~BluetoothScanner();
+
+protected:
+    void changeEvent(QEvent *event) override;
 
 signals:
     void deviceSelected(const QBluetoothDeviceInfo &info);

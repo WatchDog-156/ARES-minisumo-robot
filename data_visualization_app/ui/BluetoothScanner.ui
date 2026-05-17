@@ -35,6 +35,9 @@
          <pointsize>20</pointsize>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>SCAN</string>
        </property>
@@ -69,6 +72,9 @@
         <font>
          <pointsize>20</pointsize>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string>CONNECT</string>

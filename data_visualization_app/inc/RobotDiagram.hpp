@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QEvent>
 #include "MotorArrowWidget.hpp"
 #include "RotatedLabel.hpp"
 #include "TofConeWidget.hpp"
@@ -21,6 +22,9 @@ public:
 
     void updateData(int MotorL, int MotorR, int LineL, int LineR, int tof1, int tof2, int tof3, int tof4);
 
+protected:
+    void changeEvent(QEvent *event) override;
+
 private:
     Ui::RobotDiagram *ui;
 
@@ -34,6 +38,12 @@ private:
     TofConeWidget *m_cone2 = nullptr;
     TofConeWidget *m_cone3 = nullptr;
     TofConeWidget *m_cone4 = nullptr;
+
+    void updateLabelsText();
+    int lastMotorR = 0;
+    int lastMotorL = 0;
+    int lastLineR = 0;
+    int lastLineL = 0;
 };
 
 #endif

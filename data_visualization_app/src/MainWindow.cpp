@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2026
  * 
  */
-
 #include "MainWindow.hpp"
 #include "./ui_MainWindow.h"
 #include <QDebug>
@@ -26,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->EnterText->clear();
+    ui->EnterText->setPlaceholderText(tr("enter text..."));
       
     bluetoothManager = new BluetoothManager(this);
     bluetoothLogger = nullptr;
@@ -50,7 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentWidget(robotPicture);
 
     setupConnections();
-    // this->setWindowTitle("Panel Danych Wizualnych ARES");
     this->setWindowTitle(tr("ARES Visual Data Panel"));
 }
 
@@ -87,8 +88,6 @@ void MainWindow::setupConnections(){
     connect(ui->TofDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(ui->LineDiagram, &QPushButton::clicked, this, &MainWindow::handleFunctionButtons);
     connect(bluetoothManager, &BluetoothManager::dataReceived, this, &MainWindow::onDataReceived);
-    // connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, [](bool success, const QString &msg) {
-    //                                                                             qDebug() << "Status BLE:" << msg;});
     connect(bluetoothManager, &BluetoothManager::connectionStatusChanged, this, &MainWindow::onConnectionStatusChanged);
     connect(bluetoothScanner, &BluetoothScanner::deviceSelected, this, &MainWindow::connectToDevice);
     
@@ -106,24 +105,38 @@ void MainWindow::handleCommandButtons(){
     if(button == ui->ButtonForward){
         qDebug() << "Forward";
         bluetoothManager->writeData("FWD");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("FWD");
     } else if (button == ui->ButtonBackward){
         qDebug() << "Backward";
         bluetoothManager->writeData("BWD");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("BWD");
     } else if (button == ui->ButtonStart){
         qDebug() << "Start";
         bluetoothManager->writeData("START");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("START");
     } else if (button == ui->ButtonStop){
         qDebug() << "Stop";
         bluetoothManager->writeData("STOP");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("STOP");
     } else if (button == ui->ButtonServoUp){
         qDebug() << "ServoUp";
         bluetoothManager->writeData("SER_UP");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("SER_UP");
     } else if (button == ui->ButtonServoDown){
         qDebug() << "ServoDown";
         bluetoothManager->writeData("SER_DW");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("SER_DW");
     } else if (button == ui->ButtonEND){
         qDebug() << "End";
         bluetoothManager->writeData("END");
+        if(bluetoothLogger)
+            bluetoothLogger->addSendedLog("END");
     }
 }
 
@@ -137,6 +150,8 @@ void MainWindow::handleManualCommands(){
     if (cmd.isEmpty()) return;
     qDebug() << "Wyslanie komendy: " << cmd;
     bluetoothManager->writeData(cmd);
+    if(bluetoothLogger)
+        bluetoothLogger->addSendedLog(cmd);
     ui->EnterText->clear();
 }
 
@@ -200,11 +215,13 @@ void MainWindow::updateButtonStates(){
         double alpha = buttons[i]->isChecked() ? 1.0 : 0.5;
         buttons[i]->setStyleSheet(QString("background-color: rgba(%1, %2);").arg(colors[i]).arg(alpha));
     }
-
-
 }
 
-
+/**
+ * @brief Funkcja do wczytywania wybranego języka aplikacji
+ * 
+ * @param[in] index - numer wybranego języka GUI
+ */
 void MainWindow::handleLanguage(int index){
     qApp->removeTranslator(&appTranslator);
 
@@ -228,16 +245,22 @@ void MainWindow::handleLanguage(int index){
     }
 }
 
-void MainWindow::changeEvent(QEvent *event)
-{
+/**
+ * @brief Funkcja do aktualizacji języka interfejsu graficznego
+ * 
+ * Funkcja reaguje na zdarzenie QEvent::LanguageChange, które jest wysyłane,
+ * gdy w aplikacji zostanie zainstalowany nowy obiekt QTranslator. * 
+ * @param[in] event - wskaźnik na obiekt zdarzenia
+ */
+void MainWindow::changeEvent(QEvent *event){
     if (event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
-        
         this->setWindowTitle(tr("ARES Visual Data Panel")); 
+        ui->EnterText->setPlaceholderText(tr("enter text..."));
         
         if (isConnected) {
             ui->Connection->setText(tr("Connected"));
-        } else {
+        } else{
             ui->Connection->setText(tr("Disconnected"));
         }
     }
@@ -282,10 +305,11 @@ void MainWindow::onDataReceived(const QByteArray &data) {
         qDebug() << "Sparsowana wiadomość to:" << lines[0] << ", " << lines[1] << " | " << tofs[0] << ", " << tofs[1] << ", " << tofs[2] << ", " << tofs[3] << " | " << motors[0] << ", " << motors[1];// << std::endl;
         line->addMeasurement(lines[0],lines[1]);
         tof->addMeasurement(tofs[0],tofs[1],tofs[2],tofs[3]);
-
         robot->updateData(motors[0], motors[1], lines[0], lines[1], tofs[0], tofs[1], tofs[2], tofs[3]);
     } else {
         qDebug() << "Wiadomość nie została sparsowana";
+        if(bluetoothLogger)
+            bluetoothLogger->addReceivedLog(recivedData);
     }
 }
 
