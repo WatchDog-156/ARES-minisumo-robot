@@ -32,12 +32,12 @@ QWidget#centralwidget {
    </property>
    <layout class="QGridLayout" name="gridLayout" rowstretch="1,5">
     <property name="sizeConstraint">
-     <enum>QLayout::SizeConstraint::SetMinAndMaxSize</enum>
+     <enum>QLayout::SetDefaultConstraint</enum>
     </property>
     <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2">
       <property name="sizeConstraint">
-       <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+       <enum>QLayout::SetDefaultConstraint</enum>
       </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="7,3">
@@ -55,7 +55,7 @@ QWidget#centralwidget {
                 </size>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="Robot"/>
                <widget class="QWidget" name="TOF">
@@ -327,7 +327,7 @@ QPushButton:pressed {
            <item>
             <layout class="QGridLayout" name="gridLayout_5" rowstretch="1,1,1" columnstretch="1,1" rowminimumheight="1,1,1" columnminimumwidth="1,1">
              <property name="sizeConstraint">
-              <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+              <enum>QLayout::SetDefaultConstraint</enum>
              </property>
              <property name="spacing">
               <number>0</number>
@@ -505,9 +505,6 @@ QPushButton:pressed {
                <property name="text">
                 <string/>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
               </widget>
              </item>
             </layout>
@@ -525,6 +522,7 @@ QPushButton:pressed {
                <property name="font">
                 <font>
                  <pointsize>-1</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                  <strikeout>false</strikeout>
@@ -575,20 +573,17 @@ QPushButton:pressed {
        <number>0</number>
       </property>
       <property name="sizeConstraint">
-       <enum>QLayout::SizeConstraint::SetMinAndMaxSize</enum>
+       <enum>QLayout::SetDefaultConstraint</enum>
       </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0,0,0,0,0,0">
         <property name="sizeConstraint">
-         <enum>QLayout::SizeConstraint::SetFixedSize</enum>
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
         <item>
          <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -616,7 +611,12 @@ QPushButton:pressed {
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(52, 152, 219, 0.5);</string>
+           <string notr="true">background-color: rgba(52, 152, 219, 0.5);
+color: black; 
+border: 2px solid black;
+border-radius: 5px;
+font-size: 12px;
+font-weight: bold;</string>
           </property>
           <property name="text">
            <string>ROBOT</string>
@@ -625,11 +625,8 @@ QPushButton:pressed {
         </item>
         <item>
          <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -658,6 +655,11 @@ QPushButton:pressed {
           </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(52, 25, 219, 0.5);
+color: black; 
+border: 2px solid black;
+border-radius: 5px;
+font-size: 12px;
+font-weight: bold;
 
 </string>
           </property>
@@ -668,11 +670,8 @@ QPushButton:pressed {
         </item>
         <item>
          <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -706,7 +705,12 @@ QPushButton:pressed {
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(241, 196, 15, 0.5);</string>
+           <string notr="true">background-color: rgba(241, 196, 15, 0.5);
+color: black; 
+border: 2px solid black;
+border-radius: 5px;
+font-size: 12px;
+font-weight: bold;</string>
           </property>
           <property name="text">
            <string>TOF</string>
@@ -715,11 +719,8 @@ QPushButton:pressed {
         </item>
         <item>
          <spacer name="horizontalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -747,7 +748,12 @@ QPushButton:pressed {
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(255, 107, 129, 0.5); </string>
+           <string notr="true">background-color: rgba(255, 107, 129, 0.5); 
+color: black; 
+border: 2px solid black;
+border-radius: 5px;
+font-size: 12px;
+font-weight: bold;</string>
           </property>
           <property name="text">
            <string>LINE DETECTORS</string>
@@ -762,11 +768,8 @@ QPushButton:pressed {
         </item>
         <item>
          <spacer name="horizontalSpacer_4">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -815,11 +818,8 @@ QPushButton:pressed {
         </item>
         <item>
          <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -876,11 +876,8 @@ QPushButton:disabled {
         </item>
         <item>
          <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Policy::Fixed</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>

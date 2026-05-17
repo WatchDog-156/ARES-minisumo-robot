@@ -213,7 +213,14 @@ void MainWindow::updateButtonStates(){
 
     for (int i=0; i< buttons.size(); i++){
         double alpha = buttons[i]->isChecked() ? 1.0 : 0.5;
-        buttons[i]->setStyleSheet(QString("background-color: rgba(%1, %2);").arg(colors[i]).arg(alpha));
+        buttons[i]->setStyleSheet(QString("background-color: rgba(%1, %2); "
+                                          "color: black; "
+                                          "border: 2px solid black; "
+                                          "border-radius: 5px; "
+                                          "font-size: 12px; "
+                                          "font-weight: bold")
+                                .arg(colors[i])
+                                .arg(alpha));
     }
 }
 

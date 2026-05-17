@@ -39,10 +39,10 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     m_cone3 = new TofConeWidget(this);
     m_cone4 = new TofConeWidget(this);
  
-    m_cone1->setData(0, -20.0);
-    m_cone2->setData(0, 0.0);
-    m_cone3->setData(0, 0.0);
-    m_cone4->setData(0, +20.0);
+    m_cone1->setData(800, -20.0);
+    m_cone2->setData(800, 0.0);
+    m_cone3->setData(800, 0.0);
+    m_cone4->setData(800, +20.0);
 
     std::function<RotatedLabel*(double)> makeTofLabel = [this](double angle) -> RotatedLabel* {
         RotatedLabel *tof = new RotatedLabel(this);

@@ -15,7 +15,7 @@ public:
     QSize sizeHint() const override { return QSize(80, 80); }
 
 private:
-    int m_distance = 400;
+    int m_distance = 800;
     double m_angleDeg = 0.0;
 
 protected:

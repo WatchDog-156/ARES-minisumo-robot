@@ -55,7 +55,7 @@ void MotorArrowWidget::paintEvent(QPaintEvent *){
     int fullH   = height();
     int arrowH  = static_cast<int>(fullH * ratio);
     int headH   = fullH/3;
-    int stemW   = qMax(6, static_cast<int>(width() * 0.30));
+    int stemW   = qMax(6, static_cast<int>(width() * 0.40));
     int headW   = width() - 4;
 
     p.setBrush(dynamicColor);
