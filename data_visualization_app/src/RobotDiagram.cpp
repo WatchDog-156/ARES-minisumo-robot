@@ -83,8 +83,10 @@ RobotDiagram::RobotDiagram(QWidget *parent)
     ui->distance_sensors->setFixedHeight(0);
 
     ui->mainBody->setStyleSheet("QWidget#mainBody { background-color: #87CEEB; }");
-    ui->verticalLayout->setContentsMargins(0, 0, 0, 0);
+    ui->Motors->setContentsMargins(4, 4, 4, 12);
+    ui->verticalLayout->setContentsMargins(30, 0, 30, 20);
     ui->verticalLayout->setSpacing(0);
+
 
         const QString lineStyle =
         "QLabel {"
